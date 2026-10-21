@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>矿业投资人档案 · Mining Investor Dossiers</title>
+<style>
+  :root{
+    --p:#4C3B8C; --pl:#6B5AA8; --g:#6FBA2C; --gd:#4E8A1A;
+    --ink:#222; --ink2:#3D4756; --mut:#7A7A8C; --line:#E4E0F0; --bg:#F7F6FB;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+
+  header{
+    background:linear-gradient(135deg,#3A2C6E 0%,#4C3B8C 55%,#5D4A9E 100%);
+    color:#fff; padding:64px 0 56px; position:relative; overflow:hidden;
+  }
+  header:after{
+    content:""; position:absolute; right:-120px; top:-120px; width:420px; height:420px;
+    border-radius:50%; background:rgba(111,186,44,.12);
+  }
+  header .wrap{position:relative; z-index:1}
+  .eyebrow{
+    font-size:11.5px; letter-spacing:2.4px; text-transform:uppercase;
+    color:#B9AEE0; font-weight:700; margin-bottom:14px;
+  }
+  h1{font-size:36px; line-height:1.3; font-weight:800; letter-spacing:-.5px}
+  .lead{
+    margin-top:16px; max-width:720px; font-size:14.5px; line-height:1.9;
+    color:rgba(255,255,255,.82);
+  }
+  .lead b{color:#fff; font-weight:700}
+  .meta{
+    margin-top:26px; display:flex; gap:26px; flex-wrap:wrap;
+    font-size:12px; color:rgba(255,255,255,.6);
+  }
+  .meta span b{color:#CFC6EA; font-weight:700}
+
+  main{padding:52px 0 72px}
+  .grid{display:grid; grid-template-columns:1fr 1fr; gap:20px}
+  @media (max-width:860px){ .grid{grid-template-columns:1fr} }
+
+  .card{
+    background:#fff; border:1px solid var(--line); border-radius:14px;
+    padding:26px 26px 22px; display:flex; flex-direction:column;
+    transition:box-shadow .2s ease, transform .2s ease, border-color .2s ease;
+  }
+  .card:hover{
+    box-shadow:0 10px 30px rgba(76,59,140,.10);
+    transform:translateY(-2px); border-color:#CFC6EA;
+  }
+  .card .tag{
+    display:inline-block; font-size:10.5px; font-weight:700; letter-spacing:1.2px;
+    color:var(--p); background:#F0EDF9; padding:3px 9px; border-radius:5px;
+    align-self:flex-start; margin-bottom:12px;
+  }
+  .card h2{font-size:21px; font-weight:800; color:var(--p); letter-spacing:-.2px}
+  .card .role{font-size:12.5px; color:var(--mut); margin-top:4px}
+  .card .one{
+    margin-top:14px; font-size:13.5px; color:var(--ink2); line-height:1.85;
+    padding-left:11px; border-left:3px solid var(--g);
+  }
+  .card .kpi{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:8px;
+    margin-top:18px; padding-top:16px; border-top:1px solid var(--line);
+  }
+  .card .kpi div{text-align:left}
+  .card .kpi b{display:block; font-size:15px; font-weight:800; color:var(--p); line-height:1.3}
+  .card .kpi span{display:block; font-size:10.5px; color:var(--mut); margin-top:2px}
+
+  .acts{display:flex; gap:9px; margin-top:20px}
+  .btn{
+    flex:1; text-align:center; text-decoration:none; font-size:12.5px; font-weight:700;
+    padding:10px 12px; border-radius:8px; transition:all .15s ease;
+  }
+  .btn.primary{background:var(--p); color:#fff}
+  .btn.primary:hover{background:#3A2C6E}
+  .btn.ghost{background:#fff; color:var(--p); border:1px solid #CFC6EA}
+  .btn.ghost:hover{background:#F0EDF9; border-color:var(--p)}
+
+  .note{
+    margin-top:36px; padding:20px 24px; background:#fff;
+    border:1px solid var(--line); border-left:4px solid var(--g); border-radius:10px;
+    font-size:12.5px; color:var(--ink2); line-height:1.9;
+  }
+  .note b{color:var(--p)}
+
+  footer{
+    border-top:1px solid var(--line); padding:26px 0 40px;
+    font-size:11.5px; color:var(--mut); line-height:1.9;
+  }
+  footer b{color:var(--ink2); font-weight:700}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Mining Investor Dossiers</div>
+    <h1>矿业投资人档案</h1>
+    <p class="lead">
+      四位在 1980–2026 年间反复穿越矿业周期的投资人。每份档案回答同一组问题：
+      <b>他怎么买、怎么去风险、怎么卖</b>，以及<b>他凭什么判断一块地值多少钱</b>。
+      数据以公司公告、监管文件与一手访谈为底，每条可核事实都标注了时间与出处。
+    </p>
+    <div class="meta">
+      <span>数据基准 <b>2026-10-21</b></span>
+      <span>覆盖资产 <b>209 项</b></span>
+      <span>交易事件 <b>80 笔</b></span>
+      <span>发现台账 <b>41 项</b></span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="grid">
+
+      <div class="card">
+        <div class="tag">周期套利者</div>
+        <h2>Ross J. Beaty</h2>
+        <div class="role">Pan American Silver 创始人 · Lumina 系创始人 · Equinox Gold 董事长（至 2026-07）</div>
+        <p class="one">在行业最悲观时买入被抛弃的资产，用别人的钱完成去风险，在周期高位卖给需要它的人。</p>
+        <div class="kpi">
+          <div><b>20</b><span>公司</span></div>
+          <div><b>59</b><span>矿山级资产</span></div>
+          <div><b>US$19.6 亿</b><span>8 家公司退出对价</span></div>
+        </div>
+        <div class="acts">
+          <a class="btn primary" href="beaty.html">打开档案</a>
+          <a class="btn ghost" href="beaty-assets-map.html" target="_blank" rel="noopener">资产地图</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="tag">资产包装者</div>
+        <h2>Richard W. Warke</h2>
+        <div class="role">Augusta Group 创始人 · Equinox Gold 共同创始人 · Solaris 执行主席</div>
+        <p class="one">买被忽视的资产，做到「可研 + 许可」，在价格转弱前卖给有增长焦虑的巨头。不赌价格，不建矿。</p>
+        <div class="kpi">
+          <div><b>21</b><span>公司</span></div>
+          <div><b>29</b><span>矿山级资产</span></div>
+          <div><b>US$35 亿</b><span>4 笔退出对价</span></div>
+        </div>
+        <div class="acts">
+          <a class="btn primary" href="warke.html">打开档案</a>
+          <a class="btn ghost" href="warke-assets-map.html" target="_blank" rel="noopener">资产地图</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="tag">辖区赌徒</div>
+        <h2>Lukas Lundin</h2>
+        <div class="role">Lundin Group 掌舵人（1958–2022） · Lundin Mining / Lundin Gold / Lucara</div>
+        <p class="one">在别人不敢去的国家低价拿大资产，用二十年耐心等它建成，再在周期里卖掉。地质不是他的强项，敢去和敢建是。</p>
+        <div class="kpi">
+          <div><b>35</b><span>公司</span></div>
+          <div><b>30</b><span>矿山级资产</span></div>
+          <div><b>US$165 亿</b><span>9 笔退出/合并对价</span></div>
+        </div>
+        <div class="acts">
+          <a class="btn primary" href="lundin.html">打开档案</a>
+          <a class="btn ghost" href="lundin-assets-map.html" target="_blank" rel="noopener">资产地图</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="tag">边疆发现者</div>
+        <h2>Robert Friedland</h2>
+        <div class="role">Ivanhoe Mines 创始人 · Ivanhoe Electric 执行主席 · Ivanhoe Atlantic</div>
+        <p class="one">找到世界级矿床，讲成别人无法拒绝的故事，把一半卖给需要它的人，用对方的钱把矿建起来。他卖项目，不卖舞台。</p>
+        <div class="kpi">
+          <div><b>18</b><span>公司</span></div>
+          <div><b>91</b><span>矿山级资产</span></div>
+          <div><b>US$33 亿</b><span>2 笔退出对价</span></div>
+        </div>
+        <div class="acts">
+          <a class="btn primary" href="friedland.html">打开档案</a>
+          <a class="btn ghost" href="friedland-assets-map.html" target="_blank" rel="noopener">资产地图</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="note">
+      <b>阅读说明</b>　每份档案六页：生涯时间线 → 公司与资产 → 交易与退出（含发现能力）→ 投资哲学 → 中国关系 → 争议与风险。
+      用顶部标签或键盘 ←/→ 翻页，也可用地址栏 <b>#p4</b> 直达某一页。资产地图为独立全屏页，可按国家、矿种、阶段筛选。
+      <br><br>
+      <b>口径提醒</b>　「退出对价」统计的是公司层面已披露的交易金额，不等于个人到手现金；合并对价、资产出售、含债企业价值三者不混算。
+      引语均标时间与出处，找不到逐字原文的一律标注「未找到可核验原文」，不以转述代替原话。
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <b>内部研究材料</b>　供 BD 团队判断使用，不构成投资建议。数据基准 2026-10-21，事实以公司公告、监管文件与一手访谈为准。
+  </div>
+</footer>
+
+</body>
+</html>
