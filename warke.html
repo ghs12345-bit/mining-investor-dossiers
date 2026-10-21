@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Richard W. Warke · 人物经历档案</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --p:#4C3B8C; --pd:#3A2C6B; --pl:#5B4A99; --plight:#EBE7F3; --plight2:#F4F1FA;
+  --g:#6FBA2C; --gd:#4E8A1A; --ink:#222; --ink2:#454545; --mut:#7A7A7A;
+  --line:#DCD8E8; --bg:#F7F7FA; --card:#fff;
+}
+html,body{height:100%}
+body{font-family:"Microsoft YaHei","微软雅黑",-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;overflow:hidden}
+.top{height:62px;background:var(--p);color:#fff;display:flex;align-items:center;gap:22px;padding:0 26px;position:relative;z-index:10}
+.who b{font-size:16px;font-weight:700;letter-spacing:.2px}
+.who span{display:block;font-size:11px;color:#D8D2EC;margin-top:1px}
+.tabs{display:flex;gap:2px;margin-left:auto}
+.tabs button{border:none;background:transparent;color:#CFC8E6;font-size:12.5px;padding:8px 13px;border-radius:6px 6px 0 0;cursor:pointer;font-family:inherit;transition:.15s}
+.tabs button:hover{background:rgba(255,255,255,.10);color:#fff}
+.tabs button.on{background:var(--bg);color:var(--p);font-weight:700}
+.pager{font-size:11.5px;color:#CFC8E6;min-width:40px;text-align:right}
+main{height:calc(100% - 62px);overflow-y:auto;overflow-x:hidden}
+.page{display:none;max-width:1280px;margin:0 auto;padding:30px 42px 70px}
+.page.on{display:block}
+.pnum{font-size:11px;letter-spacing:2.5px;color:var(--g);font-weight:700}
+h2.pt{font-size:24px;font-weight:700;color:var(--pd);margin:3px 0 8px;letter-spacing:-.3px}
+.psum{font-size:14px;color:var(--ink2);line-height:1.85;max-width:980px;padding-left:12px;border-left:3px solid var(--g);margin-bottom:22px}
+h3.sh{font-size:14px;color:var(--pd);font-weight:700;margin:26px 0 12px;padding-left:9px;border-left:3px solid var(--p)}
+.note{font-size:11.5px;color:var(--mut);margin:-6px 0 10px}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:6px}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.kpi b{display:block;font-size:19px;color:var(--pd);line-height:1.25;letter-spacing:-.3px}
+.kpi span{display:block;font-size:11px;color:var(--mut);margin-top:4px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:#fff}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{text-align:left;padding:9px 11px;border-bottom:1px solid #F0EEF6;vertical-align:top}
+thead th{background:var(--plight);color:var(--pd);font-weight:700;font-size:12px;border-bottom:1px solid var(--line);white-space:nowrap}
+tbody tr:last-child td,tbody tr:last-child th{border-bottom:none}
+tbody tr:hover td{background:#FBFAFE}
+.stagewrap{border-radius:10px 10px 0 0}
+table.stage{table-layout:fixed}
+table.stage th.lab{width:86px;background:#fff;border-bottom:none}
+table.stage thead th.stg{width:auto;text-align:left;padding:10px 9px;border-left:1px solid #E6E1F2}
+
+table.stage thead th.stg .yr{display:block;font-size:10.5px;color:var(--pl);letter-spacing:.5px;font-weight:400}
+table.stage thead th.stg .nm{display:block;font-size:12px;font-weight:700;margin-top:2px;line-height:1.35}
+table.stage tbody th{background:#FBFAFE;font-size:11.5px;color:var(--mut);font-weight:400;white-space:nowrap}
+table.stage tbody td{font-size:11.5px;line-height:1.6;color:var(--ink2);border-left:1px solid #F4F2FA;padding:9px 8px}
+.tag{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:20px}
+.tag.inv{background:#FDF0DD;color:#B26A00}
+.tag.fol{background:#EAF3DE;color:var(--gd)}
+.detail{background:#fff;border:1px solid var(--line);border-top:none;border-radius:0 0 10px 10px;padding:2px 20px 10px}
+.detail-item{padding:15px 0 13px;border-top:1px solid #EFECF6}
+.detail-item:first-child{border-top:none}
+.di-n{display:inline-flex;align-items:center;justify-content:center;width:23px;height:18px;border-radius:5px;background:var(--p);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.5px}
+.detail-item p{margin-top:2px}
+
+
+
+.di-h{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.di-h b{font-size:13px;color:var(--pd)}
+.detail p{font-size:12.5px;color:var(--ink2);line-height:1.85}
+.hint{font-size:11px;color:var(--mut);margin-top:6px}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:11px;color:var(--mut);margin-bottom:4px}
+.legend span{display:flex;align-items:center;gap:5px}
+.legend i{width:11px;height:8px;border-radius:2px;display:inline-block}
+.legend i.dia{width:8px;height:8px;background:var(--g);transform:rotate(45deg)}
+.two-col{display:grid;grid-template-columns:1.15fr .85fr;gap:26px;margin-top:4px}
+table.matrix{font-size:12px}
+table.matrix th.lab{background:#FBFAFE;font-size:11px;color:var(--mut);font-weight:400}
+table.matrix td{text-align:center;font-size:12px}
+table.matrix td.z{color:#C9C5D6}
+table.matrix td.tot,table.matrix th.tot{background:var(--plight2);font-weight:700;color:var(--pd);text-align:center}
+.acqs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.acq{border:1px solid var(--line);border-radius:9px;padding:9px 11px;background:#fff}
+.acq-h{display:flex;justify-content:space-between;align-items:baseline}
+.acq-h b{font-size:12.5px;color:var(--pd)}
+.acq-h span{font-size:10.5px;color:var(--mut)}
+.acq-t{font-size:11px;color:var(--ink2);margin-top:3px;line-height:1.45}
+.acq-a{font-size:11.5px;color:var(--gd);font-weight:700;margin-top:2px}
+table.deal td.nm{font-weight:700;color:var(--pd)}
+table.deal td.c,table.judge td.c,table.juris td.c{text-align:center;color:var(--mut)}
+table.deal .drv{font-size:10.5px;background:var(--plight);color:var(--pd);padding:2px 7px;border-radius:20px;white-space:nowrap}
+table.judge td.yr,table.china td.yr,table.dispute td.yr{white-space:nowrap;color:var(--pl);font-weight:700}
+table.judge td.j{font-weight:700;color:var(--pd)}
+table.juris td.nm{font-weight:700;color:var(--pd)}
+table.china td.amt{white-space:nowrap;font-weight:700;color:var(--gd)}
+table.china td.ok{color:var(--gd);font-weight:700}
+.quotes{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
+.quote{border-left:3px solid var(--p);background:var(--plight2);padding:12px 15px;border-radius:0 8px 8px 0;margin:0}
+.q-h{display:flex;gap:12px;font-size:11px;color:var(--mut);margin-bottom:6px}
+.q-h span:first-child{color:var(--pl);font-weight:700}
+.quote p.en{font-size:12px;color:#5A5468;font-style:italic;line-height:1.75;margin-bottom:6px}
+.quote p.zh{font-size:12.5px;color:var(--ink2);line-height:1.8}
+table.dispute td.nm{font-weight:700;color:var(--pd);max-width:210px}
+table.dispute td.st{white-space:nowrap;color:var(--pl)}
+.risks{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.risk{background:#fff;border:1px solid var(--line);border-radius:10px;padding:13px 15px}
+.risk h4{font-size:13px;color:var(--pd);margin-bottom:3px}
+.risk p{font-size:11.5px;color:var(--ink2);line-height:1.7}
+.risk p.rs{color:var(--pl);font-weight:700;margin-bottom:4px}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0 4px}
+.facts div{background:#fff;border:1px solid var(--line);border-radius:9px;padding:11px 13px}
+.facts.three{grid-template-columns:repeat(3,1fr)}
+.facts b{display:block;font-size:16px;color:var(--gd);line-height:1.2}
+.facts span{display:block;font-size:11px;color:var(--mut);margin-top:3px}
+.phils{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.phil{border:1px solid var(--line);border-radius:10px;padding:14px 16px;background:#fff}
+.ph-top{display:flex;align-items:center;gap:8px;margin-bottom:2px}
+.ph-n{font-size:11px;font-weight:700;color:var(--gd);letter-spacing:1px}
+.ph-dim{font-size:10px;font-weight:700;color:#fff;background:var(--p);padding:1px 7px;border-radius:9px;letter-spacing:.5px}
+.phil h4{font-size:13.5px;color:var(--pd);margin:4px 0 8px}
+.phil p.en{font-size:11.5px;color:#5A5468;font-style:italic;line-height:1.7;margin-bottom:6px}
+.phil p.zh{font-size:12.5px;color:var(--ink2);line-height:1.75}
+.ph-src{font-size:10.5px;color:var(--mut);margin-top:7px}
+.disc{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.dc{display:grid;grid-template-columns:200px 1fr;gap:18px;border:1px solid var(--line);border-radius:10px;padding:14px 18px;background:#fff}
+.dc-l{display:flex;flex-direction:column;gap:5px;border-right:1px solid #EFECF6;padding-right:14px}
+.dc-l b{font-size:13px;color:var(--pd);line-height:1.35}
+.dc-mult{font-size:21px;font-weight:800;color:var(--gd);letter-spacing:-.5px;margin-top:2px}
+.dc-tag{font-size:9.5px;font-weight:700;padding:1px 6px;border-radius:8px;color:#fff;letter-spacing:.3px}
+.dc-tag.a{background:#4E8A1A}
+.dc-tag.b{background:var(--p)}
+.dc-loc{font-size:10px;color:var(--mut)}
+.dc-r p{display:flex;gap:9px;font-size:12px;color:var(--ink2);line-height:1.9;margin-bottom:5px}
+.dc-r p i{flex:0 0 30px;color:var(--mut);font-style:normal;font-weight:700;letter-spacing:.5px}
+.dc-res{color:var(--gd);font-weight:700}
+.dc-why{font-size:11.5px;color:#5A5468;line-height:1.7;border-top:1px dashed #E6E1F2;padding-top:7px;margin-top:7px}
+.dc-why:before{content:"判断 · ";color:var(--p);font-weight:700}
+.quote-empty{border:1px dashed #D9D2EC;background:#FAF9FD;border-radius:10px;padding:16px 18px}
+.quote-empty b{display:block;font-size:12.5px;color:var(--pd);margin-bottom:5px}
+.quote-empty p{font-size:12px;color:var(--ink2);line-height:1.8}
+.ph-k{font-size:9.5px;font-weight:700;color:#8A6A00;background:#FBF0D2;padding:1px 6px;border-radius:8px;letter-spacing:.3px}
+.phil p.ev{font-size:11.5px;color:#5A5468;line-height:1.7;margin-bottom:6px;padding-left:9px;border-left:2px solid #E6E1F2}
+.ctline{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);margin-top:6px}
+.ct{padding:16px 18px 6px 0;position:relative}
+.ct:before{content:"";position:absolute;left:0;top:-5px;width:9px;height:9px;border-radius:50%;background:var(--p)}
+.ct-y{font-size:12px;font-weight:700;color:var(--p)}
+.ct-l{font-size:12.5px;font-weight:700;color:var(--pd);margin:2px 0 3px}
+.ct-t{font-size:11.5px;color:var(--ink2);line-height:1.65}
+table.deal td.cp{color:var(--pl);font-size:11.5px}
+.formula{display:flex;align-items:stretch;gap:8px;margin:14px 0 8px}
+.fbox{flex:1;background:#fff;border:1px solid var(--line);border-top:3px solid var(--p);border-radius:8px;padding:12px 14px}
+.fbox b{display:block;font-size:13.5px;color:var(--pd);margin-bottom:3px}
+.fbox span{font-size:11.5px;color:var(--ink2);line-height:1.6}
+.fx{display:flex;align-items:center;font-size:20px;font-weight:300;color:var(--pl);padding:0 2px}
+.maplaunch{display:flex;align-items:center;gap:14px;margin-top:20px;padding:14px 18px;border:1px solid var(--line);border-left:4px solid var(--p);border-radius:10px;background:linear-gradient(90deg,#F7F5FB,#FFFFFF);text-decoration:none;transition:.15s}
+.maplaunch:hover{background:#F0ECF9;border-color:#D9D2EC}
+.ml-ico{font-size:20px;color:var(--p);line-height:1}
+.ml-l b{display:block;font-size:13.5px;color:var(--pd);margin-bottom:2px}
+.ml-l span{display:block;font-size:11.5px;color:var(--mut);line-height:1.55}
+.ml-r{margin-left:auto;font-size:12.5px;font-weight:700;color:var(--p);white-space:nowrap}
+.final{margin-top:22px;background:var(--plight);border-radius:10px;padding:16px 18px}
+.final b{font-size:12px;color:var(--pd);letter-spacing:1px}
+.final p{font-size:13px;color:var(--ink2);line-height:1.9;margin-top:6px}
+@media (max-width:1100px){
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .two-col{grid-template-columns:1fr}
+  .risks{grid-template-columns:1fr}
+  .acqs{grid-template-columns:1fr}
+  .page{padding:22px 20px 60px}
+}
+</style></head>
+<body>
+<header class="top">
+  <div class="who"><b>Richard W. Warke</b><span>Augusta Group 创始人 · Equinox Gold 共同创始人 · 数据基准 2026-10-21</span></div>
+  <nav class="tabs"><button class="on">01 生涯时间线</button><button class="">02 公司与资产</button><button class="">03 交易与退出</button><button class="">04 投资哲学</button><button class="">05 中国关系</button><button class="">06 争议与风险</button></nav>
+  <div class="pager" id="pager">1 / 6</div>
+</header>
+<main id="main">
+<section class="page on" id="p1"><div class="pnum">PAGE 01</div><h2 class="pt">生涯时间线</h2>
+<div class="psum">他的主线只有一条：<b>买被忽视的资产，做到「可研 + 许可」，在价格转弱前卖给有增长焦虑的巨头</b>。他不赌价格、不建矿——18 家矿业公司与 3 家非矿业投资，都是这条流水线的不同容器。</div>
+<div class="kpis"><div class="kpi"><b>21 家</b><span>公司总数</span></div><div class="kpi"><b>29 项</b><span>矿山级资产</span></div><div class="kpi"><b>US$35 亿</b><span>4 家公司退出对价</span></div><div class="kpi"><b>美国 · 巴西 · 墨西哥</b><span>主要国家（按资产数）</span></div><div class="kpi"><b>金 · 铜 · 锌银</b><span>主要矿种（按资产数）</span></div></div>
+<p class="note">退出对价统计 4 家公司整体出售；口径混计（Arizona、Ventana、Augusta Gold 为股权价值，Augusta Resource 为 EV），C$ 按当年汇率折 US$。不含资产级出售与仍在管项目。</p>
+<h3 class="sh">五阶段对照</h3>
+<div class="tablewrap stagewrap"><table class="stage"><thead><tr><th class="lab"></th><th class="stg"><span class="yr">1980–2004</span><span class="nm">从军营到矿业金融</span></th><th class="stg"><span class="yr">2005–2011</span><span class="nm">Augusta 平台化 + Ventana 首捷</span></th><th class="stg"><span class="yr">2012–2017</span><span class="nm">去风险变现 + Equinox 合作</span></th><th class="stg"><span class="yr">2018</span><span class="nm">Arizona Mining 全垒打</span></th><th class="stg"><span class="yr">2019–2026</span><span class="nm">非稀释融资 + 预设退出</span></th></tr></thead><tbody><tr><th>市场环境</th><td>金 850→253；铜 99→71→130 美分；融资冰封</td><td>铜 3,679→8,828 美元/吨；金 445→1,569</td><td>铜 −39%；金 −30%；勘探预算 −66%</td><td>锌 −26%；金 1,268 横盘；铜 2.96</td><td>金 5,595（2026-01）；铜 6.58；并购新高</td></tr><tr><th>主流怎么做</th><td>Barrick 买 Homestake、Newmont 买 Normandy</td><td>Barrick 买 Placer Dome、Vale 买 Inco</td><td>Barrick 减值 87 亿、砍股息；卖非核心</td><td>South32 溢价 50% 收 Arizona Mining</td><td>Newmont 买 Newcrest；Anglo+Teck 合并</td></tr><tr><th>他的判断</th><td>没有业绩记录，先学会「组局」</td><td>买大公司扔掉的项目，用勘探加值</td><td>去风险到可研 + 许可就卖</td><td>全球前五的矿，趁价格转弱卖</td><td>不稀释，推到「无法拒绝的报价」</td></tr><tr><th>顺 / 逆</th><td><span class="tag fol">顺</span></td><td><span class="tag inv">逆</span></td><td><span class="tag fol">顺</span></td><td><span class="tag fol">顺</span></td><td><span class="tag inv">逆</span></td></tr><tr><th>关键动作</th><td>Cybercom → HudBay Arizona → Sargold</td><td>创 Augusta；任 Ventana 董事长</td><td>卖 Rosemont；组 NewCastle；并 Equinox</td><td>Hermosa 资源量 → South32 全现金</td><td>Solaris 分拆；Royal Gold US$2 亿</td></tr><tr><th>结果</th><td>无世界级退出，留下和解与破产记录</td><td>卖 EBX · US$13 亿 · 13,000%</td><td>EV C$5.4 亿 · 3,000%+</td><td>US$16 亿 · 6,100%</td><td>未退出 · 资源 14.7→58 亿吨</td></tr></tbody></table></div><div class="detail"><div class="detail-item"><div class="di-h"><span class="di-n">01</span><b>1980–2004 · 从军营到矿业金融</b><span class="tag fol">顺</span></div><p>这一段没有可炫耀的战绩，但决定了他后来的一切：他的第一能力不是找矿，是把矿权装进上市公司、用别人的钱验证。履历也不干净——1988 年因提交虚假内幕交易报告与 BCSC 和解（罚 C$500），1998–2002 年提交过破产提案（资产 14.1 万美元、债务 99.3 万美元），2002 年 Cybercom 被停牌、2004 年退市。Sargold 的 Furtei 是他第一次碰运营：1997 投产、2003 停，2007 弃矿，留下酸性岩排水——这段经历解释了他后来为什么坚决不建矿。</p></div><div class="detail-item"><div class="di-h"><span class="di-n">02</span><b>2005–2011 · Augusta 平台化 + Ventana 首捷</b><span class="tag inv">逆</span></div><p>Ventana 是「平台模式」的第一次完整验证：2008 年接手哥伦比亚 La Bodega，2010 年出首份资源量，2011 年 3 月被 Eike Batista 的 EBX 以 C$13.06/股现金收购。他没有等到可研、更没有等到建设——首次资源量发布后一年内就卖了。代价是项目从未建成，买家 EBX 也在 2013 年崩盘。</p></div><div class="detail-item"><div class="di-h"><span class="di-n">03</span><b>2012–2017 · 去风险变现 + Equinox 合作</b><span class="tag fol">顺</span></div><p>Augusta Resource 的 Rosemont 是「去风险后卖」的教科书：2007–2013 完成正可研、更新可研、Final EIS，2014 年经敌意要约、毒丸、BCSC 裁决后以换股卖给 Hudbay，EV 约 C$5.4 亿。五年后联邦法院撤销了 Rosemont 的许可，Hudbay 减值 US$2.42 亿——他已经不在船上了。同年他与 Beaty 一起把 NewCastle、Trek、Anfield 并成 Equinox Gold，但他只任战略顾问，董事长是 Beaty。</p></div><div class="detail-item"><div class="di-h"><span class="di-n">04</span><b>2018 · Arizona Mining 全垒打</b><span class="tag fol">顺</span></div><p>Hermosa-Taylor 是他职业生涯的最高点：2006 年从 Asarco 手里买下矿权（对方只要银和锰），2014 年 COO 发现 Taylor 锌铅银矿体，2018 年 8 月以 C$6.20/股全现金卖给 South32，较前收盘溢价 50%。他自己的说法是「这是我在这个行业里见过的最好的项目之一」，但仍然卖了——理由是锌价与经济前景的不确定性，以及「现金要约风险低得多」。</p></div><div class="detail-item"><div class="di-h"><span class="di-n">05</span><b>2019–2026 · 非稀释融资 + 预设退出</b><span class="tag inv">逆</span></div><p>Warintza 是他第一次把「不稀释」做到极致：2023 年 Orion 的 US$8,000 万是高级担保贷款（借钱，不是卖金属），2025 年 Royal Gold 的 US$2 亿是流矿 + 0.3% NSR（拿未来的金属换今天的现金）——两种工具，共同点是都不动股本。他公开说过「他们会收到一个无法拒绝的报价，而我们会非常乐意跟着一起退出」——退出是预设终局，不是选项。2026 年他又把触角伸到委内瑞拉：与 Gold Reserve 签 earn-in，4 年最多投 US$2 亿，换其权益的 50%（项目层约 22.5%），说明他仍处扩张期。</p></div></div>
+</section><section class="page" id="p2"><div class="pnum">PAGE 02</div><h2 class="pt">公司与资产</h2>
+<div class="psum">公司是容器，Augusta Group 是流水线：同一套团队、同一套融资关系，反复装不同的矿。21 家公司里真正创造价值的是 <b>4 次退出</b>，合计约 US$35 亿。</div>
+<h3 class="sh">按年的重大决策</h3>
+<svg viewBox="0 0 1200 190" width="100%" role="img" aria-label="按年的重大决策时间轴"><line x1="80" y1="84" x2="1150" y2="84" stroke="#DCD8E8" stroke-width="1"/><line x1="80.0" y1="80" x2="80.0" y2="88" stroke="#B4B2A9" stroke-width="1"/><text x="80.0" y="104" text-anchor="middle" font-size="11" fill="#7A7A7A">1985</text><line x1="207.4" y1="80" x2="207.4" y2="88" stroke="#B4B2A9" stroke-width="1"/><text x="207.4" y="104" text-anchor="middle" font-size="11" fill="#7A7A7A">1990</text><line x1="334.8" y1="80" x2="334.8" y2="88" stroke="#B4B2A9" stroke-width="1"/><text x="334.8" y="104" text-anchor="middle" font-size="11" fill="#7A7A7A">1995</text><line x1="462.1" y1="80" x2="462.1" y2="88" stroke="#B4B2A9" stroke-width="1"/><text x="462.1" y="104" text-anchor="middle" font-size="11" fill="#7A7A7A">2000</text><line x1="589.5" y1="80" x2="589.5" y2="88" stroke="#B4B2A9" stroke-width="1"/><text x="589.5" y="104" text-anchor="middle" font-size="11" fill="#7A7A7A">2005</text><line x1="716.9" y1="80" x2="716.9" y2="88" stroke="#B4B2A9" stroke-width="1"/><text x="716.9" y="104" text-anchor="middle" font-size="11" fill="#7A7A7A">2010</text><line x1="844.3" y1="80" x2="844.3" y2="88" stroke="#B4B2A9" stroke-width="1"/><text x="844.3" y="104" text-anchor="middle" font-size="11" fill="#7A7A7A">2015</text><line x1="971.7" y1="80" x2="971.7" y2="88" stroke="#B4B2A9" stroke-width="1"/><text x="971.7" y="104" text-anchor="middle" font-size="11" fill="#7A7A7A">2020</text><line x1="1099.0" y1="80" x2="1099.0" y2="88" stroke="#B4B2A9" stroke-width="1"/><text x="1099.0" y="104" text-anchor="middle" font-size="11" fill="#7A7A7A">2025</text><line x1="181.9" y1="84" x2="181.9" y2="63" stroke="#4C3B8C" stroke-width="0.8"/><circle cx="181.9" cy="84" r="4.5" fill="#4C3B8C"/><text x="181.9" y="56" text-anchor="middle" font-size="11" fill="#222">创立 Cybercom</text><line x1="411.2" y1="84" x2="411.2" y2="127" stroke="#4C3B8C" stroke-width="0.8"/><circle cx="411.2" cy="84" r="4.5" fill="#4C3B8C"/><text x="411.2" y="120" text-anchor="middle" font-size="11" fill="#222">买 Furtei</text><line x1="589.5" y1="84" x2="589.5" y2="63" stroke="#4C3B8C" stroke-width="0.8"/><circle cx="589.5" cy="84" r="4.5" fill="#4C3B8C"/><text x="589.5" y="56" text-anchor="middle" font-size="11" fill="#222">创 Augusta Group</text><line x1="666.0" y1="84" x2="666.0" y2="127" stroke="#4C3B8C" stroke-width="0.8"/><circle cx="666.0" cy="84" r="4.5" fill="#4C3B8C"/><text x="666.0" y="120" text-anchor="middle" font-size="11" fill="#222">接手 Ventana</text><line x1="742.4" y1="84" x2="742.4" y2="63" stroke="#4C3B8C" stroke-width="0.8"/><circle cx="742.4" cy="84" r="4.5" fill="#4C3B8C"/><text x="742.4" y="56" text-anchor="middle" font-size="11" fill="#222">卖 EBX</text><line x1="818.8" y1="84" x2="818.8" y2="127" stroke="#4C3B8C" stroke-width="0.8"/><circle cx="818.8" cy="84" r="4.5" fill="#4C3B8C"/><text x="818.8" y="120" text-anchor="middle" font-size="11" fill="#222">卖 Rosemont</text><line x1="895.2" y1="84" x2="895.2" y2="63" stroke="#4C3B8C" stroke-width="0.8"/><circle cx="895.2" cy="84" r="4.5" fill="#4C3B8C"/><text x="895.2" y="56" text-anchor="middle" font-size="11" fill="#222">组建 Equinox</text><line x1="920.7" y1="84" x2="920.7" y2="127" stroke="#4C3B8C" stroke-width="0.8"/><circle cx="920.7" cy="84" r="4.5" fill="#4C3B8C"/><text x="920.7" y="120" text-anchor="middle" font-size="11" fill="#222">卖 Hermosa</text><line x1="946.2" y1="84" x2="946.2" y2="35" stroke="#4C3B8C" stroke-width="0.8"/><circle cx="946.2" cy="84" r="4.5" fill="#4C3B8C"/><text x="946.2" y="28" text-anchor="middle" font-size="11" fill="#222">分拆 Solaris</text><line x1="1099.0" y1="84" x2="1099.0" y2="127" stroke="#4C3B8C" stroke-width="0.8"/><circle cx="1099.0" cy="84" r="4.5" fill="#4C3B8C"/><text x="1099.0" y="120" text-anchor="end" font-size="11" fill="#222">卖 Bullfrog</text></svg>
+<h3 class="sh">公司持有区间</h3>
+<div class="legend"><span><i style="background:#4C3B8C"></i>A 创立并控制</span><span><i style="background:#8B7BC4"></i>B 平台孵化</span><span><i style="background:#B4B2A9"></i>C 跨界</span><span><i class="dia"></i>退出时点（右侧数字为 US$M）</span></div>
+<svg viewBox="0 0 1200 367" width="100%" role="img" aria-label="公司持有周期矩阵"><line x1="210.0" y1="20" x2="210.0" y2="341" stroke="#F0F2F6" stroke-width="0.8"/><text x="210.0" y="16" text-anchor="middle" font-size="10.5" fill="#9AA3B0">1985</text><line x1="319.3" y1="20" x2="319.3" y2="341" stroke="#F0F2F6" stroke-width="0.8"/><text x="319.3" y="16" text-anchor="middle" font-size="10.5" fill="#9AA3B0">1990</text><line x1="428.6" y1="20" x2="428.6" y2="341" stroke="#F0F2F6" stroke-width="0.8"/><text x="428.6" y="16" text-anchor="middle" font-size="10.5" fill="#9AA3B0">1995</text><line x1="537.9" y1="20" x2="537.9" y2="341" stroke="#F0F2F6" stroke-width="0.8"/><text x="537.9" y="16" text-anchor="middle" font-size="10.5" fill="#9AA3B0">2000</text><line x1="647.2" y1="20" x2="647.2" y2="341" stroke="#F0F2F6" stroke-width="0.8"/><text x="647.2" y="16" text-anchor="middle" font-size="10.5" fill="#9AA3B0">2005</text><line x1="756.5" y1="20" x2="756.5" y2="341" stroke="#F0F2F6" stroke-width="0.8"/><text x="756.5" y="16" text-anchor="middle" font-size="10.5" fill="#9AA3B0">2010</text><line x1="865.8" y1="20" x2="865.8" y2="341" stroke="#F0F2F6" stroke-width="0.8"/><text x="865.8" y="16" text-anchor="middle" font-size="10.5" fill="#9AA3B0">2015</text><line x1="975.1" y1="20" x2="975.1" y2="341" stroke="#F0F2F6" stroke-width="0.8"/><text x="975.1" y="16" text-anchor="middle" font-size="10.5" fill="#9AA3B0">2020</text><line x1="1084.4" y1="20" x2="1084.4" y2="341" stroke="#F0F2F6" stroke-width="0.8"/><text x="1084.4" y="16" text-anchor="middle" font-size="10.5" fill="#9AA3B0">2025</text><text x="4" y="40.5" font-size="11.5" fill="#222">Cybercom Systems</text><rect x="297.4" y="31.0" width="349.8" height="11" rx="3" fill="#B4B2A9"/><text x="4" y="61.5" font-size="11.5" fill="#222">HudBay Arizona</text><rect x="450.5" y="52.0" width="153.0" height="11" rx="3" fill="#B4B2A9"/><text x="4" y="82.5" font-size="11.5" fill="#222">Sargold Resource</text><rect x="494.2" y="73.0" width="196.7" height="11" rx="3" fill="#B4B2A9"/><text x="4" y="103.5" font-size="11.5" fill="#222">Augusta Group（平台）</text><rect x="647.2" y="94.0" width="459.1" height="11" rx="3" fill="#4C3B8C"/><text x="4" y="124.5" font-size="11.5" fill="#222">Augusta Resource</text><rect x="647.2" y="115.0" width="196.7" height="11" rx="3" fill="#8B7BC4"/><polygon points="844.0,115.0 850.0,120.5 844.0,126.0 838.0,120.5" fill="#6FBA2C"/><text x="853.0" y="124.5" font-size="10" fill="#4E8A1A">490</text><text x="4" y="145.5" font-size="11.5" fill="#222">Arizona Mining</text><rect x="669.1" y="136.0" width="262.3" height="11" rx="3" fill="#8B7BC4"/><polygon points="931.4,136.0 937.4,141.5 931.4,147.0 925.4,141.5" fill="#6FBA2C"/><text x="940.4" y="145.5" font-size="10" fill="#4E8A1A">1600</text><text x="4" y="166.5" font-size="11.5" fill="#222">Ventana Gold</text><rect x="712.8" y="157.0" width="65.6" height="11" rx="3" fill="#8B7BC4"/><polygon points="778.4,157.0 784.4,162.5 778.4,168.0 772.4,162.5" fill="#6FBA2C"/><text x="787.4" y="166.5" font-size="10" fill="#4E8A1A">1300</text><text x="4" y="187.5" font-size="11.5" fill="#222">Plata Latina / Edge</text><rect x="756.5" y="178.0" width="109.3" height="11" rx="3" fill="#B4B2A9"/><text x="4" y="208.5" font-size="11.5" fill="#222">Titan Mining</text><rect x="800.2" y="199.0" width="306.0" height="11" rx="3" fill="#4C3B8C"/><text x="4" y="229.5" font-size="11.5" fill="#222">NewCastle Gold</text><rect x="887.7" y="220.0" width="21.9" height="11" rx="3" fill="#4C3B8C"/><text x="4" y="250.5" font-size="11.5" fill="#222">Equinox Gold</text><rect x="909.5" y="241.0" width="196.7" height="11" rx="3" fill="#4C3B8C"/><text x="4" y="271.5" font-size="11.5" fill="#222">Armor Minerals</text><rect x="931.4" y="262.0" width="174.9" height="11" rx="3" fill="#B4B2A9"/><text x="4" y="292.5" font-size="11.5" fill="#222">Solaris Resources</text><rect x="953.3" y="283.0" width="153.0" height="11" rx="3" fill="#4C3B8C"/><text x="4" y="313.5" font-size="11.5" fill="#222">Augusta Gold</text><rect x="975.1" y="304.0" width="109.3" height="11" rx="3" fill="#4C3B8C"/><polygon points="1084.4,304.0 1090.4,309.5 1084.4,315.0 1078.4,309.5" fill="#6FBA2C"/><text x="1093.4" y="313.5" font-size="10" fill="#4E8A1A">111</text><text x="4" y="334.5" font-size="11.5" fill="#222">Highlander Silver</text><rect x="1062.6" y="325.0" width="43.7" height="11" rx="3" fill="#4C3B8C"/></svg>
+<p class="note">仅列 15 家主要主体；另有 Riva Gold、Catalyst Copper、Tethyan 等董事/参股类未列。</p>
+<div class="two-col">
+  <div>
+    <h3 class="sh">资产分布：国家 × 矿种</h3>
+    <table class="matrix"><thead><tr><th class="lab">国家 \ 矿种</th><th>金</th><th>铜</th><th>锌</th><th>银</th><th>其他</th><th class="tot">合计</th></tr></thead><tbody><tr><th>美国</th><td class="">3</td><td class="">1</td><td class="">3</td><td class="z">—</td><td class="">2</td><td class="tot">9</td></tr><tr><th>巴西</th><td class="">4</td><td class="z">—</td><td class="z">—</td><td class="z">—</td><td class="z">—</td><td class="tot">4</td></tr><tr><th>墨西哥</th><td class="">3</td><td class="z">—</td><td class="z">—</td><td class="">1</td><td class="z">—</td><td class="tot">4</td></tr><tr><th>秘鲁</th><td class="">1</td><td class="z">—</td><td class="z">—</td><td class="">2</td><td class="z">—</td><td class="tot">3</td></tr><tr><th>哥伦比亚</th><td class="">2</td><td class="z">—</td><td class="z">—</td><td class="z">—</td><td class="z">—</td><td class="tot">2</td></tr><tr><th>厄瓜多尔</th><td class="z">—</td><td class="">2</td><td class="z">—</td><td class="z">—</td><td class="z">—</td><td class="tot">2</td></tr><tr><th>加拿大</th><td class="">2</td><td class="z">—</td><td class="z">—</td><td class="z">—</td><td class="z">—</td><td class="tot">2</td></tr><tr><th>委内瑞拉</th><td class="">1</td><td class="z">—</td><td class="z">—</td><td class="z">—</td><td class="z">—</td><td class="tot">1</td></tr><tr><th>意大利</th><td class="">1</td><td class="z">—</td><td class="z">—</td><td class="z">—</td><td class="z">—</td><td class="tot">1</td></tr><tr><th>尼加拉瓜</th><td class="">1</td><td class="z">—</td><td class="z">—</td><td class="z">—</td><td class="z">—</td><td class="tot">1</td></tr></tbody></table>
+  </div>
+  <div>
+    <h3 class="sh">资产最终流向谁</h3>
+    <div class="acqs"><div class="acq"><div class="acq-h"><b>South32</b><span>2018</span></div><div class="acq-t">Arizona Mining · Hermosa</div><div class="acq-a">US$16 亿</div></div><div class="acq"><div class="acq-h"><b>EBX Group（Batista）</b><span>2011</span></div><div class="acq-t">Ventana Gold · La Bodega</div><div class="acq-a">US$13 亿</div></div><div class="acq"><div class="acq-h"><b>Hudbay Minerals</b><span>2014</span></div><div class="acq-t">Augusta Resource · Rosemont</div><div class="acq-a">EV C$5.4 亿</div></div><div class="acq"><div class="acq-h"><b>AngloGold Ashanti</b><span>2025</span></div><div class="acq-t">Augusta Gold · Bullfrog</div><div class="acq-a">C$1.52 亿</div></div><div class="acq"><div class="acq-h"><b>Equinox Gold</b><span>2017</span></div><div class="acq-t">NewCastle Gold · Castle Mountain</div><div class="acq-a">换股</div></div><div class="acq"><div class="acq-h"><b>洛阳钼业</b><span>2026-01</span></div><div class="acq-t">Equinox 巴西四矿（2025-12 宣布）</div><div class="acq-a">US$10.15 亿</div></div></div>
+  </div>
+</div>
+<a class="maplaunch" href="warke-assets-map.html" target="_blank" rel="noopener">
+  <span class="ml-ico">◎</span>
+  <span class="ml-l"><b>资产地图 · 29 个矿点</b><span>独立全屏页，可按国家 / 矿种 / 阶段筛选，点矿点看储量、归属与退出状态</span></span>
+  <span class="ml-r">打开地图 ↗</span>
+</a>
+</section><section class="page" id="p3"><div class="pnum">PAGE 03</div><h2 class="pt">交易与退出</h2>
+<div class="psum">他赚的是<b>「发现溢价 + 许可去风险」</b>的钱，不是运营的钱。买入端几乎都是被大公司当非核心扔掉的矿权或停产矿山，卖出端全是有增长焦虑的巨头。</div>
+<h3 class="sh">买入与卖出对照</h3>
+<div class="tablewrap"><table class="deal"><thead><tr><th>标的</th><th>买入</th><th>卖方</th><th>卖出</th><th>买方</th><th>年数</th><th>价值驱动</th></tr></thead><tbody><tr><td class="nm">Ventana Gold</td><td>2008 任董事长（股权成本未披露）</td><td class="cp">—</td><td>C$13.06/股 · 约 US$13 亿（2011）</td><td class="cp">EBX Group</td><td class="c">3.0</td><td><span class="drv">资源重估</span></td></tr><tr><td class="nm">Augusta Resource</td><td>2005 收 Rosemont 矿权（未披露）</td><td class="cp">—</td><td>EV 约 C$5.4 亿（2014）</td><td class="cp">Hudbay</td><td class="c">9.0</td><td><span class="drv">许可去风险</span></td></tr><tr><td class="nm">Arizona Mining</td><td>2006 从 Asarco 买 Hermosa（未披露）</td><td class="cp">Asarco（Grupo Mexico）</td><td>C$6.20/股 · US$16 亿（2018）</td><td class="cp">South32</td><td class="c">12.0</td><td><span class="drv">发现重估</span></td></tr><tr><td class="nm">NewCastle Gold</td><td>2016 组建</td><td class="cp">—</td><td>换股并入 Equinox（2017）</td><td class="cp">Equinox Gold</td><td class="c">1.0</td><td><span class="drv">交易结构</span></td></tr><tr><td class="nm">Augusta Gold</td><td>2020 组建</td><td class="cp">—</td><td>C$1.52 亿 + US$3,260 万贷款（2025）</td><td class="cp">AngloGold</td><td class="c">5.0</td><td><span class="drv">周期</span></td></tr><tr><td class="nm">Solaris / Warintza</td><td>2019 自 Equinox 分拆</td><td class="cp">Equinox Gold</td><td>未退出</td><td class="cp">—</td><td class="c">6.5</td><td><span class="drv">未退出</span></td></tr><tr><td class="nm">Titan Mining</td><td>2012 接手 ESM</td><td class="cp">—</td><td>未退出</td><td class="cp">—</td><td class="c">13.5</td><td><span class="drv">运营</span></td></tr><tr><td class="nm">Highlander Silver</td><td>2024 入股并任主席</td><td class="cp">—</td><td>未退出（2026 并 Bear Creek）</td><td class="cp">—</td><td class="c">2.0</td><td><span class="drv">交易结构</span></td></tr></tbody></table></div>
+<h3 class="sh">发现能力：他接手后把矿做大了几倍</h3>
+<p class="note">10 座里 A 类 2、B 类 5、C 类 3。他不是地质出身，但 Augusta 的模式就是「识别被忽视的项目，用新勘探加值」——B 类是他的主战场。</p>
+<div class="disc"><div class="dc"><div class="dc-l"><span class="dc-tag b">B 棕地再发现</span><b>Hermosa / Taylor</b><span class="dc-loc">美国亚利桑那</span><div class="dc-mult">15.5×</div></div><div class="dc-r"><p><i>前因</i><span>Asarco 当年只要银和锰，把锌铅当废石；2014 年之前整块地一直按银矿估值，没人往深部找锌铅银。</span></p><p><i>转折</i><span>2011 年 COO Don Taylor 做航空 VTEM 物探、建地质模型；2014 年计划打 5 个孔时公司没钱，Warke 自己掏钱把钻打了。</span></p><p><i>结果</i><span class="dc-res">2014 年 7 月硫化物资源只有 6.535 Mt，2018 年 1 月做到 M&amp;I 101.0 Mst @ 10.4% ZnEq（15.5 倍）；同年以 US$16 亿卖给 South32。</span></p><div class="dc-why">这不是运气好，是有人敢在公司没钱的时候为自己的判断下注——Don Taylor 在 CIM 2018 的原话就是这么说的。</div></div></div><div class="dc"><div class="dc-l"><span class="dc-tag b">B 棕地再发现</span><b>Warintza</b><span class="dc-loc">厄瓜多尔</span><div class="dc-mult">3.9×（接手口径）</div></div><div class="dc-r"><p><i>前因</i><span>David Lowell 2000 年在这里圈出 1.24 亿吨推断资源，之后近 20 年没人推进——厄瓜多尔被当成「不能去的地方」，铜价也长期低迷。</span></p><p><i>转折</i><span>2019 年 Solaris 从 Equinox 分拆接手，Warke 任执行主席；2022–25 连续扩边钻探，把矿化往四周和深部打开。</span></p><p><i>结果</i><span class="dc-res">资源做到约 58 亿吨；按他接手时的口径约 3.9 倍（外面常说的 45 倍，分母是 2000 年 Lowell 的数字）。</span></p><div class="dc-why">发现者是 Lowell，他做的是把已知矿体扩到无法忽视——这是资本与工程能力，不是地质眼光。</div></div></div><div class="dc"><div class="dc-l"><span class="dc-tag a">A 绿地发现</span><b>La Bodega</b><span class="dc-loc">哥伦比亚</span><div class="dc-mult">13,000%</div></div><div class="dc-r"><p><i>前因</i><span>这块地只有民采痕迹，没有系统勘探，也没有资源量。</span></p><p><i>转折</i><span>2008 年 Warke 出任 Ventana 董事长兼 CEO，2010 年出首份资源量。</span></p><p><i>结果</i><span class="dc-res">约 350 万盎司金；2011 年被 EBX 以 C$13.06/股收购，早期投资者回报 13,000%。</span></p><div class="dc-why">这是他最接近绿地的一次，但本质仍是「把民采点做成可定价资产」，不是发现新矿带。</div></div></div></div>
+
+<h3 class="sh">退出对价排序（US$M）</h3>
+<svg viewBox="0 0 1200 154" width="100%" role="img" aria-label="退出对价排序"><text x="4" y="29" font-size="11.5" fill="#222">Arizona Mining</text><rect x="220" y="19" width="830.0" height="13" rx="3" fill="#4C3B8C"/><text x="1058.0" y="30" font-size="10.5" fill="#4E8A1A">1600</text><text x="4" y="55" font-size="11.5" fill="#222">Ventana Gold</text><rect x="220" y="45" width="674.4" height="13" rx="3" fill="#4C3B8C"/><text x="902.4" y="56" font-size="10.5" fill="#4E8A1A">1300</text><text x="4" y="81" font-size="11.5" fill="#222">Augusta Resource</text><rect x="220" y="71" width="254.2" height="13" rx="3" fill="#4C3B8C"/><text x="482.2" y="82" font-size="10.5" fill="#4E8A1A">490</text><text x="4" y="107" font-size="11.5" fill="#222">Augusta Gold</text><rect x="220" y="97" width="57.6" height="13" rx="3" fill="#4C3B8C"/><text x="285.6" y="108" font-size="10.5" fill="#4E8A1A">111</text></svg>
+<div class="facts"><div><b>4 / 4</b><span>买家是产业方，不是财务投资人</span></div><div><b>3 / 4</b><span>以现金结算（Augusta Resource 为换股）</span></div><div><b>3 / 4</b><span>卖在对应品种价格高位</span></div><div><b>0 / 4</b><span>进入建设阶段后才卖</span></div></div>
+</section><section class="page" id="p4"><div class="pnum">PAGE 04</div><h2 class="pt">投资哲学</h2>
+<div class="psum">他的公式不是「周期 × 资产 × 退出」，而是<b>「被忽视 × 去风险 × 预设退出」</b>。他不赌周期反转，只赌「资产好到有人必须买」。</div>
+<div class="formula">
+  <div class="fbox"><b>被忽视</b><span>大公司当非核心扔掉的矿权</span></div>
+  <div class="fx">×</div>
+  <div class="fbox"><b>去风险</b><span>勘探 → 资源量 → 可研 → 许可</span></div>
+  <div class="fx">×</div>
+  <div class="fbox"><b>预设退出</b><span>买入第一天就定好卖给谁</span></div>
+</div>
+<p class="note">三者是乘法：不被忽视就没有低价，不去风险就卖不出价，没有预设退出就会在周期里恋战。他从不赌「价格会涨」，只赌「资产好到有人必须买」。</p>
+<h3 class="sh">十条原则</h3>
+<div class="phils"><div class="phil"><div class="ph-top"><span class="ph-n">01</span><span class="ph-dim">周期</span></div><h4>周期看的是资本，不是价格</h4><p class="en">“To do deals in this environment, you need a track record, or loyal followers who have been involved in your previous success stories.”</p><p class="zh">在这种环境里做交易，你要么有业绩记录，要么有一批跟着你前面几个成功故事走过来的忠诚股东。</p><div class="ph-src">2016-04 · Northern Miner 访谈</div></div><div class="phil"><div class="ph-top"><span class="ph-n">02</span><span class="ph-dim">逆向</span></div><h4>逆向不是逆价格，是逆「资产处置」</h4><p class="en">“The Augusta Group has had great success over the years by identifying projects that have been overlooked in the market and adding value through new exploration, studies and approaches to development.”</p><p class="zh">Augusta 集团这些年之所以成功，是因为我们能识别市场上被忽视的项目，并通过新的勘探、新的研究、新的开发路径为其增值。</p><div class="ph-src">2018-11 · Titan Mining 公告</div></div><div class="phil"><div class="ph-top"><span class="ph-n">03</span><span class="ph-dim">风险</span></div><h4>扛不住保守价格的资产，不碰</h4><p class="en">“…when assets don't stack up to conservative commodity pricing … it's just something we didn't want to get involved in right now.”</p><p class="zh">当资产扛不住保守的商品价格假设时……这就是我们现阶段不想碰的东西。</p><div class="ph-src">2016-04 · Northern Miner 访谈</div></div><div class="phil"><div class="ph-top"><span class="ph-n">04</span><span class="ph-dim">资产</span></div><h4>基础设施、规模品位、社区、监管，四项都要</h4><p class="en">“The amount of infrastructure, attributes of the deposit such as size, grade and commodity, community support and regulatory environment – these and others need to be looked at in detail before proceeding.”</p><p class="zh">基础设施条件、矿床属性（规模、品位、矿种）、社区支持、监管环境——这些以及其他因素都必须在推进前仔细考察。</p><div class="ph-src">2018-12 · FinSMEs 专访</div></div><div class="phil"><div class="ph-top"><span class="ph-n">05</span><span class="ph-dim">去风险</span></div><h4>去风险的终点是「可研 + 许可」，不是投产</h4><p class="en">“This financing package funds the advancement of Warintza through studies and permitting, leading to a substantially de-risked Project.”</p><p class="zh">这个融资包为 Warintza 通过各项研究和许可提供资金，使项目实现大幅去风险。</p><div class="ph-src">2023-12 · Solaris 公告</div></div><div class="phil"><div class="ph-top"><span class="ph-n">06</span><span class="ph-dim">退出</span></div><h4>退出是预设终局，不是选项</h4><p class="en">“Warintza would be of interest to any major mining company, so I fully expect not too far away, maybe this year, they'll get an offer they can't refuse and we will be more than happy to exit with them.”</p><p class="zh">Warintza 会让任何一家大型矿业公司感兴趣，所以我完全预期不用太久——也许就在今年——他们会收到一个无法拒绝的报价，而我们会非常乐意跟着一起退出。</p><div class="ph-src">2021–22 · Solaris 路演材料</div></div><div class="phil"><div class="ph-top"><span class="ph-n">07</span><span class="ph-dim">资本</span></div><h4>不稀释，是第一原则</h4><p class="en">“Their swift efforts have positioned us for growth without foreseeable share dilution — a key win for our shareholders.”</p><p class="zh">他们的高效工作让我们在可预见的范围内实现增长而不稀释股权——这对我们的股东是一场关键胜利。</p><div class="ph-src">2025-05 · Solaris–Royal Gold 公告</div></div><div class="phil"><div class="ph-top"><span class="ph-n">08</span><span class="ph-dim">规模</span></div><h4>卖的是买家的「缺口」，不是矿</h4><p class="en">“The one thing that South32 lacked within its portfolio was growth.”</p><p class="zh">South32 组合里唯一缺的就是增长。</p><div class="ph-src">2018-06 · Northern Miner 访谈</div></div><div class="phil"><div class="ph-top"><span class="ph-n">09</span><span class="ph-dim">辖区</span></div><h4>私有土地可以绕过 8–9 年的联邦流程</h4><p class="en">“We can put the mines into production on the private lands and not go through the whole federal process for eight to nine years minimum.”</p><p class="zh">我们可以在私有土地上把矿建起来投产，而不必经历至少八到九年的完整联邦流程。</p><div class="ph-src">2018-06 · Financial Post 采访</div></div><div class="phil"><div class="ph-top"><span class="ph-n">10</span><span class="ph-dim">人</span></div><h4>团队是决定项，不是加分项</h4><p class="en">“A critical factor in the success of any mining project is the strength of the team that is guiding its progress.”</p><p class="zh">任何矿业项目成功的关键因素，是带领它前进的团队实力。</p><div class="ph-src">2018-12 · FinSMEs 专访</div></div></div>
+<h3 class="sh">辖区账本：他去过哪些国家，结果如何</h3>
+<div class="tablewrap"><table class="juris"><thead><tr><th>国家 / 地区</th><th>首次进入</th><th>代表项目</th><th>结果</th></tr></thead><tbody><tr><td class="nm">意大利</td><td class="c">1998</td><td>Furtei 金矿</td><td>1997 由前手投产，他 1998 接手，2008 放弃运营</td></tr><tr><td class="nm">美国</td><td class="c">1996</td><td>Rosemont / Hermosa / Castle Mountain / ESM</td><td>两次卖给巨头，ESM 仍在产</td></tr><tr><td class="nm">哥伦比亚</td><td class="c">2008</td><td>La Bodega</td><td>2011 卖 EBX，项目未建成</td></tr><tr><td class="nm">厄瓜多尔</td><td class="c">2019</td><td>Warintza</td><td>在推进，未退出</td></tr><tr><td class="nm">秘鲁</td><td class="c">2024</td><td>San Luis / Corani</td><td>在推进</td></tr><tr><td class="nm">委内瑞拉</td><td class="c">2026</td><td>Siembra Minera（earn-in）</td><td>换 Gold Reserve 权益 50%，项目层约 22.5%</td></tr></tbody></table></div>
+</section><section class="page" id="p5"><div class="pnum">PAGE 05</div><h2 class="pt">中国关系</h2>
+<div class="psum">他与中资只有<b>一次直接对撞</b>：2023 年聘中金做顾问，2024 年紫金拟以 C$1.30 亿认购 Solaris 15%，加拿大审查四个月未获批，公司以价格失真为由自愿终止。<b>洛钼那两笔都与他无关</b>——他不是 Lumina Gold 的股东，2017 年起也不在 Equinox 董事会。</div>
+<h3 class="sh">交易清单</h3>
+<div class="tablewrap"><table class="china"><thead><tr><th>时间</th><th>事项</th><th>中方对手方</th><th>金额</th><th>他的角色</th><th>结果</th></tr></thead><tbody><tr><td class="yr">2023-10</td><td>Solaris 聘中金为财务顾问</td><td>中金公司 CICC</td><td class="amt">未披露</td><td>执行主席（唯一署名发言人）</td><td class="ok">生效</td></tr><tr><td class="yr">2024-01</td><td>紫金拟定增认购 15%</td><td>紫金矿业（金龙新加坡）</td><td class="amt">C$1.30 亿</td><td>执行主席 + 最大股东 37.4%</td><td class="ok">终止（加拿大审查）</td></tr><tr><td class="yr">2025-04</td><td>洛钼收购 Lumina Gold</td><td>洛阳钼业</td><td class="amt">C$5.81 亿</td><td>无角色</td><td class="ok">与他无关</td></tr><tr><td class="yr">2025-12</td><td>洛钼收购 Equinox 巴西四矿</td><td>洛阳钼业</td><td class="amt">US$10.15 亿</td><td>无职务（仅共同创始人）</td><td class="ok">与他无关</td></tr></tbody></table></div>
+<div class="facts">
+  <div><b>2 / 4</b><span>与他直接相关（中金顾问、紫金定增）</span></div><div><b>0 / 4</b><span>股权交易成交</span></div><div><b>0 / 4</b><span>保留股权</span></div><div><b>2 / 4</b><span>常被误挂在他名下（洛钼两笔）</span></div>
+</div>
+<p class="note">必须分清：2025 年卖 Cangrejos 的是 Beaty 的 Lumina Gold，2026 年卖巴西四矿的是 Equinox——他 2017 年合并时就没进董事会，2026 年董事会 11 人里没有他。这两笔都不是他的交易。</p>
+<h3 class="sh">中国观怎么变的</h3>
+<div class="ctline" style="grid-template-columns:repeat(3,1fr)"><div class="ct"><div class="ct-y">2023</div><div class="ct-l">聘中金</div><div class="ct-t">Solaris 聘中金做中国财务顾问，他是唯一署名发言人</div></div><div class="ct"><div class="ct-y">2024</div><div class="ct-l">紫金定增终止</div><div class="ct-t">C$1.30 亿认购 15%，加拿大审查逾四个月后主动终止</div></div><div class="ct"><div class="ct-y">2025–26</div><div class="ct-l">洛钼两笔</div><div class="ct-t">Lumina Gold 与 Equinox 巴西四矿——都与他无关</div></div></div>
+<h3 class="sh">公开表态</h3>
+<div class="quote-empty"><b>未找到可核验的公开表态</b><p>未找到任何公开表态。检索范围：公司公告、SEC/SEDAR 文件、Northern Miner、Mining.com、Globe and Mail、BNN Bloomberg、PDAC 演讲、YouTube。他不谈中国，也不谈中资——涉华动作都由公司公告发出，署名的是 CEO 或公司，不是他。</p></div>
+<h3 class="sh">中方怎么看他</h3>
+<div class="facts three">
+  <div><b>2024</b><span>紫金公告评价的是 Solaris 与 Warintza 项目，未评价他本人</span></div><div><b>2025–26</b><span>洛钼两笔公告评价的是资产与「铜金双极」战略，均未提及他</span></div><div><b>—</b><span>未查到任何中方对他的个人评价</span></div>
+</div>
+<p class="note">中方材料里几乎找不到他——他既不是交易对手方的签字人，也不是被评价的对象。</p>
+<div class="hl" style="background:#eef4fb;border-left-color:#0f62fe;margin-top:14px"><b>判断</b>：他对中资不设意识形态门槛，也不主动站队——但 2023 年主动聘中金筛询盘，说明他把中资当竞价通道。Solaris 那笔被加拿大否掉，说明他的资产处在西方审查框架内；真正与中国资本发生关系的是他参与创立、但已不掌权的 Equinox。对 BD 的含义：他是「可谈、但谈的是资产不是公司」的类型。</div>
+</section><section class="page" id="p6"><div class="pnum">PAGE 06</div><h2 class="pt">争议与风险</h2>
+<div class="psum">他的模式成本集中在三处：<b>早期公司的合规与财务失败</b>（BCSC 和解、个人破产、Cybercom 退市）、<b>许可与社区</b>（Rosemont、Warintza）、以及<b>「卖太早」的机会成本</b>。</div>
+<h3 class="sh">争议与失败</h3>
+<div class="tablewrap"><table class="dispute"><thead><tr><th>时间</th><th>主体</th><th>发生了什么</th><th>结果</th><th>现状</th></tr></thead><tbody><tr><td class="yr">1988-10</td><td class="nm">Warke 个人</td><td>向 BCSC 提交虚假内幕交易报告</td><td>1989-11 和解，罚 C$500</td><td class="st">已了结</td></tr><tr><td class="yr">1998–2002</td><td class="nm">Warke 个人</td><td>提交破产提案：资产 US$14.1 万、债务 US$99.3 万</td><td>2002-11 以 US$52.3 万和解</td><td class="st">已了结</td></tr><tr><td class="yr">2002–2004</td><td class="nm">Cybercom Systems</td><td>BCSC 停牌令未解除，2004-07 从 TSXV 退市</td><td>退市</td><td class="st">公司消失</td></tr><tr><td class="yr">2003-06</td><td class="nm">Sargold / Furtei</td><td>TSXV 强制撤回「60 万盎司黄金资源」新闻稿</td><td>撤回</td><td class="st">历史</td></tr><tr><td class="yr">2007-10</td><td class="nm">Sargold / Lodestone</td><td>铁矿权减记后以 US$1 卖给自己的公司</td><td>关联交易完成</td><td class="st">未被监管认定</td></tr><tr><td class="yr">2008–2011</td><td class="nm">Furtei 环境</td><td>酸性排水、金属超标；清理费估 ≥US$2,000 万</td><td>未清理，政府出资研究</td><td class="st">遗留</td></tr><tr><td class="yr">2014</td><td class="nm">Augusta Resource / Hudbay</td><td>敌意要约 → 毒丸 → BCSC 停止 → 提价换股成交</td><td>成交，EV 约 C$5.4 亿</td><td class="st">已退出</td></tr><tr><td class="yr">2019-07</td><td class="nm">Rosemont（Hudbay）</td><td>联邦法院撤销许可并禁止施工</td><td>项目停摆；Hudbay 减值 US$2.42 亿</td><td class="st">未投产</td></tr><tr><td class="yr">2024-02</td><td class="nm">Warintza（厄瓜多尔）</td><td>Shuar 社区指控未获协商、披露误导</td><td>2025-09 与 PSHA 签约</td><td class="st">冲突缓和</td></tr><tr><td class="yr">2024-01</td><td class="nm">Solaris / 紫金</td><td>C$1.3 亿定增：加拿大审查四个月未批，Solaris 自愿终止</td><td>2024-05 终止</td><td class="st">未成交</td></tr><tr><td class="yr">2025-07</td><td class="nm">Augusta Gold</td><td>因需额外稀释与漫长建设期，接受 AngloGold 要约</td><td>2025-10 完成</td><td class="st">已出售</td></tr></tbody></table></div>
+<h3 class="sh">风险结构</h3>
+<div class="risks"><div class="risk"><h4>周期风险</h4><p class="rs">卖太早</p><p>Ventana 在首次资源量后就卖，项目从未建成；若持有到 2011 年金价顶部，对价可能更高。他接受这个代价。这是作者根据他三次卖出的时点做的概括，不是他的原话——他本人从未这样表述。</p></div><div class="risk"><h4>辖区风险</h4><p class="rs">前沿辖区的许可</p><p>Rosemont 2019 被联邦法院撤销许可、Warintza 2024 年爆发 FPIC 争议、2025-09 签约——都是他主动选择的风险，对冲方式是「在许可落地前退出」或「只投能承受归零的金额」。</p></div><div class="risk"><h4>稀释风险</h4><p class="rs">相对低，但靠杠杆</p><p>他确实少增发，代价是转向债务与关联方贷款（Orion US$8,000 万、EXIM 贷款），Augusta Gold 最终仍因「需额外稀释」卖身。</p></div><div class="risk"><h4>执行风险</h4><p class="rs">不建矿</p><p>他几乎从不到建设阶段，把执行风险留给买家。唯一的例外 Titan（ESM 在产）规模很小；早期 Furtei 的失败也说明运营不是他的能力。</p></div></div>
+<div class="final"><b>事实概括</b><p>Warke 的模式可以概括为：用最低的价格买「被大公司判定为非核心」的资产，用勘探、资源量、可研与许可把它做成可交割的资产包，在价格前景转弱、而买家仍有增长焦虑时卖掉。他不赌价格，不建矿山，不长期持有——他赚的是「发现溢价 + 许可去风险」的钱。</p></div>
+</section>
+</main>
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tabs button'));
+  var pages=[].slice.call(document.querySelectorAll('.page'));
+  var pager=document.getElementById('pager');
+  var main=document.getElementById('main');
+  var cur=0;
+  var hm=location.hash.match(/p(\d)/); if(hm){cur=+hm[1]-1;}
+  function go(i){
+    if(i<0)i=0; if(i>=pages.length)i=pages.length-1;
+    cur=i;
+    tabs.forEach(function(b,k){b.classList.toggle('on',k===i)});
+    pages.forEach(function(p,k){p.classList.toggle('on',k===i)});
+    pager.textContent=(i+1)+' / '+pages.length;
+    main.scrollTop=0;
+    try{history.replaceState(null,'','#p'+(i+1))}catch(err){}
+  }
+  tabs.forEach(function(b,i){b.addEventListener('click',function(){go(i)})});
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight')go(cur+1);
+    if(e.key==='ArrowLeft')go(cur-1);
+  });
+  go(cur);
+})();
+</script>
+</body></html>
