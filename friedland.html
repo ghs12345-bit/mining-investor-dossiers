@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Robert Friedland · 人物经历档案</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --p:#4C3B8C; --pd:#3A2C6B; --pl:#5B4A99; --plight:#EBE7F3; --plight2:#F4F1FA;
+  --g:#6FBA2C; --gd:#4E8A1A; --ink:#222; --ink2:#454545; --mut:#7A7A7A;
+  --line:#DCD8E8; --bg:#F7F7FA; --card:#fff;
+}
+html,body{height:100%}
+body{font-family:"Microsoft YaHei","微软雅黑",-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;overflow:hidden}
+.top{height:62px;background:var(--p);color:#fff;display:flex;align-items:center;gap:22px;padding:0 26px;position:relative;z-index:10}
+.who b{font-size:16px;font-weight:700;letter-spacing:.2px}
+.who span{display:block;font-size:11px;color:#D8D2EC;margin-top:1px}
+.tabs{display:flex;gap:2px;margin-left:auto}
+.tabs button{border:none;background:transparent;color:#CFC8E6;font-size:12.5px;padding:8px 13px;border-radius:6px 6px 0 0;cursor:pointer;font-family:inherit;transition:.15s}
+.tabs button:hover{background:rgba(255,255,255,.10);color:#fff}
+.tabs button.on{background:var(--bg);color:var(--p);font-weight:700}
+.pager{font-size:11.5px;color:#CFC8E6;min-width:40px;text-align:right}
+main{height:calc(100% - 62px);overflow-y:auto;overflow-x:hidden}
+.page{display:none;max-width:1280px;margin:0 auto;padding:30px 42px 70px}
+.page.on{display:block}
+.pnum{font-size:11px;letter-spacing:2.5px;color:var(--g);font-weight:700}
+h2.pt{font-size:24px;font-weight:700;color:var(--pd);margin:3px 0 8px;letter-spacing:-.3px}
+.psum{font-size:14px;color:var(--ink2);line-height:1.85;max-width:980px;padding-left:12px;border-left:3px solid var(--g);margin-bottom:22px}
+h3.sh{font-size:14px;color:var(--pd);font-weight:700;margin:26px 0 12px;padding-left:9px;border-left:3px solid var(--p)}
+.note{font-size:11.5px;color:var(--mut);margin:-6px 0 10px}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:6px}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.kpi b{display:block;font-size:19px;color:var(--pd);line-height:1.25;letter-spacing:-.3px}
+.kpi span{display:block;font-size:11px;color:var(--mut);margin-top:4px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:#fff}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{text-align:left;padding:9px 11px;border-bottom:1px solid #F0EEF6;vertical-align:top}
+thead th{background:var(--plight);color:var(--pd);font-weight:700;font-size:12px;border-bottom:1px solid var(--line);white-space:nowrap}
+tbody tr:last-child td,tbody tr:last-child th{border-bottom:none}
+tbody tr:hover td{background:#FBFAFE}
+.stagewrap{border-radius:10px 10px 0 0}
+table.stage{table-layout:fixed}
+table.stage th.lab{width:86px;background:#fff;border-bottom:none}
+table.stage thead th.stg{width:auto;text-align:left;padding:10px 9px;border-left:1px solid #E6E1F2}
+
+table.stage thead th.stg .yr{display:block;font-size:10.5px;color:var(--pl);letter-spacing:.5px;font-weight:400}
+table.stage thead th.stg .nm{display:block;font-size:12px;font-weight:700;margin-top:2px;line-height:1.35}
+table.stage tbody th{background:#FBFAFE;font-size:11.5px;color:var(--mut);font-weight:400;white-space:nowrap}
+table.stage tbody td{font-size:11.5px;line-height:1.6;color:var(--ink2);border-left:1px solid #F4F2FA;padding:9px 8px}
+.tag{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:20px}
+.tag.inv{background:#FDF0DD;color:#B26A00}
+.tag.fol{background:#EAF3DE;color:var(--gd)}
+.detail{background:#fff;border:1px solid var(--line);border-top:none;border-radius:0 0 10px 10px;padding:2px 20px 10px}
+.detail-item{padding:15px 0 13px;border-top:1px solid #EFECF6}
+.detail-item:first-child{border-top:none}
+.di-n{display:inline-flex;align-items:center;justify-content:center;width:23px;height:18px;border-radius:5px;background:var(--p);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.5px}
+.detail-item p{margin-top:2px}
+
+
+
+.di-h{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.di-h b{font-size:13px;color:var(--pd)}
+.detail p{font-size:12.5px;color:var(--ink2);line-height:1.85}
+.hint{font-size:11px;color:var(--mut);margin-top:6px}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:11px;color:var(--mut);margin-bottom:4px}
+.legend span{display:flex;align-items:center;gap:5px}
+.legend i{width:11px;height:8px;border-radius:2px;display:inline-block}
+.legend i.dia{width:8px;height:8px;background:var(--g);transform:rotate(45deg)}
+.two-col{display:grid;grid-template-columns:1.15fr .85fr;gap:26px;margin-top:4px}
+table.matrix{font-size:12px}
+table.matrix th.lab{background:#FBFAFE;font-size:11px;color:var(--mut);font-weight:400}
+table.matrix td{text-align:center;font-size:12px}
+table.matrix td.z{color:#C9C5D6}
+table.matrix td.tot,table.matrix th.tot{background:var(--plight2);font-weight:700;color:var(--pd);text-align:center}
+.acqs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.acq{border:1px solid var(--line);border-radius:9px;padding:9px 11px;background:#fff}
+.acq-h{display:flex;justify-content:space-between;align-items:baseline}
+.acq-h b{font-size:12.5px;color:var(--pd)}
+.acq-h span{font-size:10.5px;color:var(--mut)}
+.acq-t{font-size:11px;color:var(--ink2);margin-top:3px;line-height:1.45}
+.acq-a{font-size:11.5px;color:var(--gd);font-weight:700;margin-top:2px}
+table.deal td.nm{font-weight:700;color:var(--pd)}
+table.deal td.c,table.judge td.c,table.juris td.c{text-align:center;color:var(--mut)}
+table.deal .drv{font-size:10.5px;background:var(--plight);color:var(--pd);padding:2px 7px;border-radius:20px;white-space:nowrap}
+table.judge td.yr,table.china td.yr,table.dispute td.yr{white-space:nowrap;color:var(--pl);font-weight:700}
+table.judge td.j{font-weight:700;color:var(--pd)}
+table.juris td.nm{font-weight:700;color:var(--pd)}
+table.china td.amt{white-space:nowrap;font-weight:700;color:var(--gd)}
+table.china td.ok{color:var(--gd);font-weight:700}
+.quotes{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
+.quote{border-left:3px solid var(--p);background:var(--plight2);padding:12px 15px;border-radius:0 8px 8px 0;margin:0}
+.q-h{display:flex;gap:12px;font-size:11px;color:var(--mut);margin-bottom:6px}
+.q-h span:first-child{color:var(--pl);font-weight:700}
+.quote p.en{font-size:12px;color:#5A5468;font-style:italic;line-height:1.75;margin-bottom:6px}
+.quote p.zh{font-size:12.5px;color:var(--ink2);line-height:1.8}
+table.dispute td.nm{font-weight:700;color:var(--pd);max-width:210px}
+table.dispute td.st{white-space:nowrap;color:var(--pl)}
+.risks{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.risk{background:#fff;border:1px solid var(--line);border-radius:10px;padding:13px 15px}
+.risk h4{font-size:13px;color:var(--pd);margin-bottom:3px}
+.risk p{font-size:11.5px;color:var(--ink2);line-height:1.7}
+.risk p.rs{color:var(--pl);font-weight:700;margin-bottom:4px}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0 4px}
+.facts div{background:#fff;border:1px solid var(--line);border-radius:9px;padding:11px 13px}
+.facts.three{grid-template-columns:repeat(3,1fr)}
+.facts b{display:block;font-size:16px;color:var(--gd);line-height:1.2}
+.facts span{display:block;font-size:11px;color:var(--mut);margin-top:3px}
+.phils{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.phil{border:1px solid var(--line);border-radius:10px;padding:14px 16px;background:#fff}
+.ph-top{display:flex;align-items:center;gap:8px;margin-bottom:2px}
+.ph-n{font-size:11px;font-weight:700;color:var(--gd);letter-spacing:1px}
+.ph-dim{font-size:10px;font-weight:700;color:#fff;background:var(--p);padding:1px 7px;border-radius:9px;letter-spacing:.5px}
+.phil h4{font-size:13.5px;color:var(--pd);margin:4px 0 8px}
+.phil p.en{font-size:11.5px;color:#5A5468;font-style:italic;line-height:1.7;margin-bottom:6px}
+.phil p.zh{font-size:12.5px;color:var(--ink2);line-height:1.75}
+.ph-src{font-size:10.5px;color:var(--mut);margin-top:7px}
+.disc{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.dc{display:grid;grid-template-columns:200px 1fr;gap:18px;border:1px solid var(--line);border-radius:10px;padding:14px 18px;background:#fff}
+.dc-l{display:flex;flex-direction:column;gap:5px;border-right:1px solid #EFECF6;padding-right:14px}
+.dc-l b{font-size:13px;color:var(--pd);line-height:1.35}
+.dc-mult{font-size:21px;font-weight:800;color:var(--gd);letter-spacing:-.5px;margin-top:2px}
+.dc-tag{font-size:9.5px;font-weight:700;padding:1px 6px;border-radius:8px;color:#fff;letter-spacing:.3px}
+.dc-tag.a{background:#4E8A1A}
+.dc-tag.b{background:var(--p)}
+.dc-loc{font-size:10px;color:var(--mut)}
+.dc-r p{display:flex;gap:9px;font-size:12px;color:var(--ink2);line-height:1.9;margin-bottom:5px}
+.dc-r p i{flex:0 0 30px;color:var(--mut);font-style:normal;font-weight:700;letter-spacing:.5px}
+.dc-res{color:var(--gd);font-weight:700}
+.dc-why{font-size:11.5px;color:#5A5468;line-height:1.7;border-top:1px dashed #E6E1F2;padding-top:7px;margin-top:7px}
+.dc-why:before{content:"判断 · ";color:var(--p);font-weight:700}
+.quote-empty{border:1px dashed #D9D2EC;background:#FAF9FD;border-radius:10px;padding:16px 18px}
+.quote-empty b{display:block;font-size:12.5px;color:var(--pd);margin-bottom:5px}
+.quote-empty p{font-size:12px;color:var(--ink2);line-height:1.8}
+.ph-k{font-size:9.5px;font-weight:700;color:#8A6A00;background:#FBF0D2;padding:1px 6px;border-radius:8px;letter-spacing:.3px}
+.phil p.ev{font-size:11.5px;color:#5A5468;line-height:1.7;margin-bottom:6px;padding-left:9px;border-left:2px solid #E6E1F2}
+.ctline{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);margin-top:6px}
+.ct{padding:16px 18px 6px 0;position:relative}
+.ct:before{content:"";position:absolute;left:0;top:-5px;width:9px;height:9px;border-radius:50%;background:var(--p)}
+.ct-y{font-size:12px;font-weight:700;color:var(--p)}
+.ct-l{font-size:12.5px;font-weight:700;color:var(--pd);margin:2px 0 3px}
+.ct-t{font-size:11.5px;color:var(--ink2);line-height:1.65}
+table.deal td.cp{color:var(--pl);font-size:11.5px}
+.formula{display:flex;align-items:stretch;gap:8px;margin:14px 0 8px}
+.fbox{flex:1;background:#fff;border:1px solid var(--line);border-top:3px solid var(--p);border-radius:8px;padding:12px 14px}
+.fbox b{display:block;font-size:13.5px;color:var(--pd);margin-bottom:3px}
+.fbox span{font-size:11.5px;color:var(--ink2);line-height:1.6}
+.fx{display:flex;align-items:center;font-size:20px;font-weight:300;color:var(--pl);padding:0 2px}
+.maplaunch{display:flex;align-items:center;gap:14px;margin-top:20px;padding:14px 18px;border:1px solid var(--line);border-left:4px solid var(--p);border-radius:10px;background:linear-gradient(90deg,#F7F5FB,#FFFFFF);text-decoration:none;transition:.15s}
+.maplaunch:hover{background:#F0ECF9;border-color:#D9D2EC}
+.ml-ico{font-size:20px;color:var(--p);line-height:1}
+.ml-l b{display:block;font-size:13.5px;color:var(--pd);margin-bottom:2px}
+.ml-l span{display:block;font-size:11.5px;color:var(--mut);line-height:1.55}
+.ml-r{margin-left:auto;font-size:12.5px;font-weight:700;color:var(--p);white-space:nowrap}
+.final{margin-top:22px;background:var(--plight);border-radius:10px;padding:16px 18px}
+.final b{font-size:12px;color:var(--pd);letter-spacing:1px}
+.final p{font-size:13px;color:var(--ink2);line-height:1.9;margin-top:6px}
+@media (max-width:1100px){
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .two-col{grid-template-columns:1fr}
+  .risks{grid-template-columns:1fr}
+  .acqs{grid-template-columns:1fr}
+  .page{padding:22px 20px 60px}
+}
+</style></head>
+<body>
+<header class="top">
+  <div class="who"><b>Robert Friedland</b><span>Ivanhoe Mines 创始人 · Ivanhoe Electric 执行主席 · 数据基准 2026-10-21</span></div>
+  <nav class="tabs"><button class="on">01 生涯时间线</button><button class="">02 公司与资产</button><button class="">03 交易与退出</button><button class="">04 投资哲学</button><button class="">05 中国关系</button><button class="">06 争议与风险</button></nav>
+  <div class="pager" id="pager">1 / 6</div>
+</header>
+<main id="main">
+<section class="page on" id="p1"><div class="pnum">PAGE 01</div><h2 class="pt">生涯时间线</h2>
+<div class="psum">他的主线只有一条：<b>找到世界级矿床，讲成别人无法拒绝的故事，把一半卖给需要它的人，用对方的钱把矿建起来</b>。他一生都在卖项目，但从不卖舞台。</div>
+<div class="kpis"><div class="kpi"><b>18 家</b><span>公司总数</span></div><div class="kpi"><b>91 项</b><span>矿山级资产</span></div><div class="kpi"><b>US$33 亿</b><span>2 家公司退出对价</span></div><div class="kpi"><b>澳大利亚 · 美国 · 刚果（金）</b><span>主要国家（按资产数）</span></div><div class="kpi"><b>铜 · 金 · 煤</b><span>主要矿种（按资产数）</span></div></div>
+<p class="note">退出对价只统计他本人拿到现金/股票的两笔：Diamond Fields（C$43 亿）与 Fort Knox（US$1.52 亿换股）。Turquoise Hill 2022 年 US$33 亿是 Rio 收购剩余 49% 的价格——他 2012 年已离场，那不是他的钱。91 项资产中 76 项可落图。</p>
+<h3 class="sh">五阶段对照</h3>
+<div class="tablewrap stagewrap"><table class="stage"><thead><tr><th class="lab"></th><th class="stg"><span class="yr">1980s</span><span class="nm">起步：用故事换钱</span></th><th class="stg"><span class="yr">1990s</span><span class="nm">Voisey's Bay 一战成名</span></th><th class="stg"><span class="yr">2000s</span><span class="nm">蒙古 Oyu Tolgoi</span></th><th class="stg"><span class="yr">2010s</span><span class="nm">刚果 Kamoa：用中国资本建世界级铜矿</span></th><th class="stg"><span class="yr">2020s</span><span class="nm">能源转型与「国家安全」</span></th></tr></thead><tbody><tr><th>市场环境</th><td>金 613→383；铜 1.01→1.31；镍崩盘</td><td>铜 −41%；金 383→279；镍低迷</td><td>铜 4.5 倍；镍 54,200 美元/吨</td><td>铜 4.00→2.21→2.96；金 1,572→1,393</td><td>铜 2.10→6.72；金 5,590；镍被打崩</td></tr><tr><th>主流怎么做</th><td>Inco / Falconbridge 减产；Barrick 买 Goldstrike</td><td>Barrick 收 Lac / Arequipa；Newmont 收 Santa Fe</td><td>Vale 收 Inco；Xstrata 收 Falconbridge</td><td>Freeport 卖 TFM 给洛钼；紫金买 Kamoa</td><td>BHP 买 OZ；三次报价 Anglo；Rio 买 Arcadium</td></tr><tr><th>他的判断</th><td>故事能换钱，但救不了工程</td><td>一个世界级发现改变公司命运</td><td>拿世界级矿，引巨头分摊</td><td>用中国资本 + 中国工程</td><td>关键矿产是国家安全</td></tr><tr><th>顺 / 逆</th><td><span class="tag inv">逆</span></td><td><span class="tag inv">逆</span></td><td><span class="tag inv">逆</span></td><td><span class="tag inv">逆</span></td><td><span class="tag fol">顺</span></td></tr><tr><th>关键动作</th><td>创 Galactic；买 Summitville</td><td>C$50 万期权拿下 Voisey's Bay</td><td>US$1,100 万买 OT 探矿权</td><td>引紫金 49.5%；引中信 29.4%</td><td>IE 上市；引 QIA；Santa Cruz PFS</td></tr><tr><th>结果</th><td>1992 破产，2000 年和解约 2,030 万</td><td>卖 Inco · C$43 亿</td><td>2012 失控制权，OT 归 Rio</td><td>Kamoa 2021 投产</td><td>未退出 · 隐含 125 亿美元</td></tr></tbody></table></div><div class="detail"><div class="detail-item"><div class="di-h"><span class="di-n">01</span><b>1980s · 起步：用故事换钱</b><span class="tag inv">逆</span></div><p>他的起点是一次公开的失败：1984 年买下科罗拉多 Summitville 金矿，1986 年氰化堆浸投产，1992 年破产，1994 年被列入 EPA Superfund，清理费 1.5–2 亿美元。他 1990 年辞去全部职务，2000 年 12 月个人支付约 2,030 万美元和解（另有 2,070 / 2,700 两个二手口径）。这是他最著名的一次环境失败，也是他后来「先把工程与许可做扎实」的起点。</p></div><div class="detail-item"><div class="di-h"><span class="di-n">02</span><b>1990s · Voisey's Bay 一战成名</b><span class="tag inv">逆</span></div><p>1993 年 5 月，他的 Diamond Fields 用 C$50 万 + 两年承诺，从两位找矿人（Archean Resources）手里拿到一块原本找钻石的区域勘查期权。1994 年 11 月发现 Voisey's Bay 镍铜钴矿，1996 年 8 月以 C$43 亿卖给 Inco。三年，从 50 万到 43 亿——这是他一生回报倍数最高的一笔，也定义了「发现的价值」。</p></div><div class="detail-item"><div class="di-h"><span class="di-n">03</span><b>2000s · 蒙古 Oyu Tolgoi</b><span class="tag inv">逆</span></div><p>2000 年 5 月，他用 500 万美元现金 + 600 万美元勘查承诺，从 BHP 手里买下蒙古 Oyu Tolgoi 的 238 平方公里探矿权——当时连资源量都没有。2006–07 年引入 Rio Tinto，两笔合计约 US$6.9 亿；2012 年 Rio 按协议取得 51% 控制权，公司更名 Turquoise Hill，他出局。他失去了公司，但把 OT 变成了世界级铜金矿。</p></div><div class="detail-item"><div class="di-h"><span class="di-n">04</span><b>2010s · 刚果 Kamoa：用中国资本建世界级铜矿</b><span class="tag inv">逆</span></div><p>2012 年他把 Platreef、Kamoa、Kipushi 装进 Ivanplats 上市，2013 年更名 Ivanhoe Mines——这是第二条完全独立的法人链。2015 年紫金以 US$4.12 亿拿走 Kamoa 49.5%（其中 1.69 亿是承接股东贷款），2018–19 年中信两笔合计约 US$10.1 亿成为第一大股东。他用中国资本和中国工程队，把刚果约 2.7% 品位的铜矿做成了全球成本曲线最左端之一。</p></div><div class="detail-item"><div class="di-h"><span class="di-n">05</span><b>2020s · 能源转型与「国家安全」</b><span class="tag fol">顺</span></div><p>他把叙事从「铜短缺」升级为「战争与供应链」：2026 年 Bloomberg Odd Lots 上他说，没有镓就没有英伟达的芯片，而这些金属「全是中国开发的，美国本土没有」。同年 Santa Cruz 完成 PFS（Probable 1.401 亿吨 @ 1.08% 铜，2029 年首铜），Ivanhoe Electric 拿到了 EXIM 的融资意向。他仍在扩张，没有退出。</p></div></div>
+</section><section class="page" id="p2"><div class="pnum">PAGE 02</div><h2 class="pt">公司与资产</h2>
+<div class="psum">他的版图是<b>「两条 Ivanhoe 法人链 + 一堆项目公司」</b>：原版 Ivanhoe（OT）归了 Rio，现版 Ivanhoe（Kamoa）还在手里。公司是融资与叙事的容器，矿床才是资产。</div>
+<h3 class="sh">按年的重大决策</h3>
+<svg viewBox="0 0 1200 190" width="100%" role="img" aria-label="按年的重大决策时间轴"><line x1="80" y1="84" x2="1150" y2="84" stroke="#DCD8E8" stroke-width="1"/><line x1="80.0" y1="80" x2="80.0" y2="88" stroke="#B4B2A9" stroke-width="1"/><text x="80.0" y="104" text-anchor="middle" font-size="11" fill="#7A7A7A">1980</text><line x1="191.5" y1="80" x2="191.5" y2="88" stroke="#B4B2A9" stroke-width="1"/><text x="191.5" y="104" text-anchor="middle" font-size="11" fill="#7A7A7A">1985</text><line x1="302.9" y1="80" x2="302.9" y2="88" stroke="#B4B2A9" stroke-width="1"/><text x="302.9" y="104" text-anchor="middle" font-size="11" fill="#7A7A7A">1990</text><line x1="414.4" y1="80" x2="414.4" y2="88" stroke="#B4B2A9" stroke-width="1"/><text x="414.4" y="104" text-anchor="middle" font-size="11" fill="#7A7A7A">1995</text><line x1="525.8" y1="80" x2="525.8" y2="88" stroke="#B4B2A9" stroke-width="1"/><text x="525.8" y="104" text-anchor="middle" font-size="11" fill="#7A7A7A">2000</text><line x1="637.3" y1="80" x2="637.3" y2="88" stroke="#B4B2A9" stroke-width="1"/><text x="637.3" y="104" text-anchor="middle" font-size="11" fill="#7A7A7A">2005</text><line x1="748.8" y1="80" x2="748.8" y2="88" stroke="#B4B2A9" stroke-width="1"/><text x="748.8" y="104" text-anchor="middle" font-size="11" fill="#7A7A7A">2010</text><line x1="860.2" y1="80" x2="860.2" y2="88" stroke="#B4B2A9" stroke-width="1"/><text x="860.2" y="104" text-anchor="middle" font-size="11" fill="#7A7A7A">2015</text><line x1="971.7" y1="80" x2="971.7" y2="88" stroke="#B4B2A9" stroke-width="1"/><text x="971.7" y="104" text-anchor="middle" font-size="11" fill="#7A7A7A">2020</text><line x1="1083.1" y1="80" x2="1083.1" y2="88" stroke="#B4B2A9" stroke-width="1"/><text x="1083.1" y="104" text-anchor="middle" font-size="11" fill="#7A7A7A">2025</text><line x1="102.3" y1="84" x2="102.3" y2="63" stroke="#4C3B8C" stroke-width="0.8"/><circle cx="102.3" cy="84" r="4.5" fill="#4C3B8C"/><text x="102.3" y="56" text-anchor="start" font-size="11" fill="#222">创 Galactic</text><line x1="369.8" y1="84" x2="369.8" y2="127" stroke="#4C3B8C" stroke-width="0.8"/><circle cx="369.8" cy="84" r="4.5" fill="#4C3B8C"/><text x="369.8" y="120" text-anchor="middle" font-size="11" fill="#222">期权 Voisey's Bay</text><line x1="436.7" y1="84" x2="436.7" y2="63" stroke="#4C3B8C" stroke-width="0.8"/><circle cx="436.7" cy="84" r="4.5" fill="#4C3B8C"/><text x="436.7" y="56" text-anchor="middle" font-size="11" fill="#222">卖 Inco</text><line x1="525.8" y1="84" x2="525.8" y2="127" stroke="#4C3B8C" stroke-width="0.8"/><circle cx="525.8" cy="84" r="4.5" fill="#4C3B8C"/><text x="525.8" y="120" text-anchor="middle" font-size="11" fill="#222">买 OT 探矿权</text><line x1="793.3" y1="84" x2="793.3" y2="63" stroke="#4C3B8C" stroke-width="0.8"/><circle cx="793.3" cy="84" r="4.5" fill="#4C3B8C"/><text x="793.3" y="56" text-anchor="middle" font-size="11" fill="#222">失去 OT 控制权</text><line x1="860.2" y1="84" x2="860.2" y2="127" stroke="#4C3B8C" stroke-width="0.8"/><circle cx="860.2" cy="84" r="4.5" fill="#4C3B8C"/><text x="860.2" y="120" text-anchor="middle" font-size="11" fill="#222">引紫金入 Kamoa</text><line x1="949.4" y1="84" x2="949.4" y2="63" stroke="#4C3B8C" stroke-width="0.8"/><circle cx="949.4" cy="84" r="4.5" fill="#4C3B8C"/><text x="949.4" y="56" text-anchor="middle" font-size="11" fill="#222">引中信</text><line x1="1016.2" y1="84" x2="1016.2" y2="127" stroke="#4C3B8C" stroke-width="0.8"/><circle cx="1016.2" cy="84" r="4.5" fill="#4C3B8C"/><text x="1016.2" y="120" text-anchor="middle" font-size="11" fill="#222">IE 上市</text><line x1="1105.4" y1="84" x2="1105.4" y2="63" stroke="#4C3B8C" stroke-width="0.8"/><circle cx="1105.4" cy="84" r="4.5" fill="#4C3B8C"/><text x="1105.4" y="56" text-anchor="end" font-size="11" fill="#222">卖 Alacrán</text></svg>
+<h3 class="sh">公司持有区间</h3>
+<div class="legend"><span><i style="background:#4C3B8C"></i>A 创立并控制</span><span><i style="background:#8B7BC4"></i>B 平台孵化</span><span><i style="background:#B4B2A9"></i>C 跨界</span><span><i class="dia"></i>退出时点（右侧数字为 US$M）</span></div>
+<svg viewBox="0 0 1200 388" width="100%" role="img" aria-label="公司持有周期矩阵"><line x1="210.0" y1="20" x2="210.0" y2="362" stroke="#F0F2F6" stroke-width="0.8"/><text x="210.0" y="16" text-anchor="middle" font-size="10.5" fill="#9AA3B0">1980</text><line x1="307.9" y1="20" x2="307.9" y2="362" stroke="#F0F2F6" stroke-width="0.8"/><text x="307.9" y="16" text-anchor="middle" font-size="10.5" fill="#9AA3B0">1985</text><line x1="405.8" y1="20" x2="405.8" y2="362" stroke="#F0F2F6" stroke-width="0.8"/><text x="405.8" y="16" text-anchor="middle" font-size="10.5" fill="#9AA3B0">1990</text><line x1="503.8" y1="20" x2="503.8" y2="362" stroke="#F0F2F6" stroke-width="0.8"/><text x="503.8" y="16" text-anchor="middle" font-size="10.5" fill="#9AA3B0">1995</text><line x1="601.7" y1="20" x2="601.7" y2="362" stroke="#F0F2F6" stroke-width="0.8"/><text x="601.7" y="16" text-anchor="middle" font-size="10.5" fill="#9AA3B0">2000</text><line x1="699.6" y1="20" x2="699.6" y2="362" stroke="#F0F2F6" stroke-width="0.8"/><text x="699.6" y="16" text-anchor="middle" font-size="10.5" fill="#9AA3B0">2005</text><line x1="797.5" y1="20" x2="797.5" y2="362" stroke="#F0F2F6" stroke-width="0.8"/><text x="797.5" y="16" text-anchor="middle" font-size="10.5" fill="#9AA3B0">2010</text><line x1="895.4" y1="20" x2="895.4" y2="362" stroke="#F0F2F6" stroke-width="0.8"/><text x="895.4" y="16" text-anchor="middle" font-size="10.5" fill="#9AA3B0">2015</text><line x1="993.3" y1="20" x2="993.3" y2="362" stroke="#F0F2F6" stroke-width="0.8"/><text x="993.3" y="16" text-anchor="middle" font-size="10.5" fill="#9AA3B0">2020</text><line x1="1091.2" y1="20" x2="1091.2" y2="362" stroke="#F0F2F6" stroke-width="0.8"/><text x="1091.2" y="16" text-anchor="middle" font-size="10.5" fill="#9AA3B0">2025</text><text x="4" y="40.5" font-size="11.5" fill="#222">Galactic Resources</text><rect x="229.6" y="31.0" width="215.4" height="11" rx="3" fill="#4C3B8C"/><text x="4" y="61.5" font-size="11.5" fill="#222">Ivanhoe Capital（平台）</text><rect x="347.1" y="52.0" width="763.8" height="11" rx="3" fill="#4C3B8C"/><text x="4" y="82.5" font-size="11.5" fill="#222">Fairbanks Gold</text><rect x="386.2" y="73.0" width="58.8" height="11" rx="3" fill="#8B7BC4"/><polygon points="445.0,73.0 451.0,78.5 445.0,84.0 439.0,78.5" fill="#6FBA2C"/><text x="454.0" y="82.5" font-size="10" fill="#4E8A1A">152</text><text x="4" y="103.5" font-size="11.5" fill="#222">Diamond Fields</text><rect x="445.0" y="94.0" width="78.3" height="11" rx="3" fill="#4C3B8C"/><polygon points="523.3,94.0 529.3,99.5 523.3,105.0 517.3,99.5" fill="#6FBA2C"/><text x="532.3" y="103.5" font-size="10" fill="#4E8A1A">3153</text><text x="4" y="124.5" font-size="11.5" fill="#222">Ivanhoe Mines（现版）</text><rect x="836.7" y="115.0" width="274.2" height="11" rx="3" fill="#4C3B8C"/><text x="4" y="145.5" font-size="11.5" fill="#222">Ivanhoe Mines（原版）</text><rect x="484.2" y="136.0" width="548.3" height="11" rx="3" fill="#4C3B8C"/><polygon points="1032.5,136.0 1038.5,141.5 1032.5,147.0 1026.5,141.5" fill="#6FBA2C"/><text x="1041.5" y="145.5" font-size="10" fill="#4E8A1A">3100</text><text x="4" y="166.5" font-size="11.5" fill="#222">Ivanhoe Energy</text><rect x="582.1" y="157.0" width="313.3" height="11" rx="3" fill="#B4B2A9"/><text x="4" y="187.5" font-size="11.5" fill="#222">SouthGobi Resources</text><rect x="738.8" y="178.0" width="156.7" height="11" rx="3" fill="#4C3B8C"/><polygon points="895.4,178.0 901.4,183.5 895.4,189.0 889.4,183.5" fill="#6FBA2C"/><text x="904.4" y="187.5" font-size="10" fill="#4E8A1A">31</text><text x="4" y="208.5" font-size="11.5" fill="#222">Ivanhoe Australia</text><rect x="758.3" y="199.0" width="97.9" height="11" rx="3" fill="#B4B2A9"/><text x="4" y="229.5" font-size="11.5" fill="#222">I-Pulse</text><rect x="758.3" y="220.0" width="352.5" height="11" rx="3" fill="#B4B2A9"/><text x="4" y="250.5" font-size="11.5" fill="#222">HPX / Ivanhoe Atlantic</text><rect x="817.1" y="241.0" width="293.8" height="11" rx="3" fill="#4C3B8C"/><text x="4" y="271.5" font-size="11.5" fill="#222">SK Global</text><rect x="856.2" y="262.0" width="156.7" height="11" rx="3" fill="#B4B2A9"/><text x="4" y="292.5" font-size="11.5" fill="#222">VRB Energy</text><rect x="895.4" y="283.0" width="215.4" height="11" rx="3" fill="#B4B2A9"/><text x="4" y="313.5" font-size="11.5" fill="#222">Sunrise Energy Metals</text><rect x="915.0" y="304.0" width="195.8" height="11" rx="3" fill="#B4B2A9"/><text x="4" y="334.5" font-size="11.5" fill="#222">Cordoba Minerals</text><rect x="973.8" y="325.0" width="137.1" height="11" rx="3" fill="#B4B2A9"/><text x="4" y="355.5" font-size="11.5" fill="#222">Ivanhoe Electric</text><rect x="993.3" y="346.0" width="117.5" height="11" rx="3" fill="#4C3B8C"/></svg>
+<p class="note">仅列 16 家主要主体；另有 Asia Now、Ivanhoe Nickel &amp; Platinum 等早期主体未列。</p>
+<div class="two-col">
+  <div>
+    <h3 class="sh">资产分布：国家 × 矿种</h3>
+    <table class="matrix"><thead><tr><th class="lab">国家 \ 矿种</th><th>铜</th><th>金</th><th>重油</th><th>煤</th><th>其他</th><th class="tot">合计</th></tr></thead><tbody><tr><th>澳大利亚</th><td class="">12</td><td class="">1</td><td class="z">—</td><td class="z">—</td><td class="">5</td><td class="tot">18</td></tr><tr><th>美国</th><td class="">4</td><td class="">8</td><td class="">1</td><td class="z">—</td><td class="">2</td><td class="tot">15</td></tr><tr><th>刚果（金）</th><td class="">10</td><td class="z">—</td><td class="z">—</td><td class="z">—</td><td class="">1</td><td class="tot">11</td></tr><tr><th>蒙古</th><td class="">4</td><td class="z">—</td><td class="z">—</td><td class="">5</td><td class="">1</td><td class="tot">10</td></tr><tr><th>中国</th><td class="">2</td><td class="">2</td><td class="z">—</td><td class="z">—</td><td class="">6</td><td class="tot">10</td></tr><tr><th>加拿大</th><td class="z">—</td><td class="z">—</td><td class="">2</td><td class="z">—</td><td class="">2</td><td class="tot">4</td></tr><tr><th>印度尼西亚</th><td class="z">—</td><td class="">1</td><td class="z">—</td><td class="">1</td><td class="">1</td><td class="tot">3</td></tr><tr><th>泰国</th><td class="z">—</td><td class="">3</td><td class="z">—</td><td class="z">—</td><td class="z">—</td><td class="tot">3</td></tr><tr><th>缅甸</th><td class="">1</td><td class="">1</td><td class="z">—</td><td class="z">—</td><td class="z">—</td><td class="tot">2</td></tr><tr><th>韩国</th><td class="z">—</td><td class="">2</td><td class="z">—</td><td class="z">—</td><td class="z">—</td><td class="tot">2</td></tr><tr><th>南非</th><td class="z">—</td><td class="z">—</td><td class="z">—</td><td class="z">—</td><td class="">1</td><td class="tot">1</td></tr><tr><th>几内亚</th><td class="z">—</td><td class="z">—</td><td class="z">—</td><td class="z">—</td><td class="">1</td><td class="tot">1</td></tr><tr><th>厄瓜多尔</th><td class="z">—</td><td class="z">—</td><td class="">1</td><td class="z">—</td><td class="z">—</td><td class="tot">1</td></tr><tr><th>其他</th><td class="">2</td><td class="">4</td><td class="">2</td><td class="z">—</td><td class="">2</td><td class="tot">10</td></tr></tbody></table>
+  </div>
+  <div>
+    <h3 class="sh">资产最终流向谁</h3>
+    <div class="acqs"><div class="acq"><div class="acq-h"><b>Inco</b><span>1996</span></div><div class="acq-t">Diamond Fields · Voisey's Bay</div><div class="acq-a">C$43 亿</div></div><div class="acq"><div class="acq-h"><b>Rio Tinto</b><span>2022</span></div><div class="acq-t">Turquoise Hill 剩余 49%（非其所得）</div><div class="acq-a">US$33 亿</div></div><div class="acq"><div class="acq-h"><b>紫金矿业</b><span>2015</span></div><div class="acq-t">Kamoa 49.5%（含 1.69 亿股东贷款）</div><div class="acq-a">US$4.12 亿</div></div><div class="acq"><div class="acq-h"><b>中信金属</b><span>2018–19</span></div><div class="acq-t">Ivanhoe Mines 29.4%</div><div class="acq-a">约 US$10.1 亿</div></div><div class="acq"><div class="acq-h"><b>中国万宝</b><span>2011</span></div><div class="acq-t">Monywa 50%</div><div class="acq-a">US$1.03 亿</div></div><div class="acq"><div class="acq-h"><b>金诚信 JCHX</b><span>2023–26</span></div><div class="acq-t">Alacrán 100%</div><div class="acq-a">最高 US$2.28 亿</div></div><div class="acq"><div class="acq-h"><b>山西东辉</b><span>2013</span></div><div class="acq-t">Ivanhoe Australia</div><div class="acq-a">A$1.6 亿</div></div><div class="acq"><div class="acq-h"><b>Amax Gold</b><span>1992</span></div><div class="acq-t">Fairbanks Gold · Fort Knox</div><div class="acq-a">US$1.52 亿</div></div></div>
+  </div>
+</div>
+<a class="maplaunch" href="friedland-assets-map.html" target="_blank" rel="noopener">
+  <span class="ml-ico">◎</span>
+  <span class="ml-l"><b>资产地图 · 76 个矿点</b><span>独立全屏页，可按国家 / 矿种 / 阶段筛选，点矿点看储量、归属与退出状态</span></span>
+  <span class="ml-r">打开地图 ↗</span>
+</a>
+</section><section class="page" id="p3"><div class="pnum">PAGE 03</div><h2 class="pt">交易与退出</h2>
+<div class="psum">他赚的是<b>「发现溢价 + 交易结构」</b>的钱：从找矿人、破产管理人、私人手里低价拿矿权，做成世界级资源量，再把 40–50% 卖给巨头或中国资本。他很少卖整家公司。</div>
+<h3 class="sh">买入与卖出对照</h3>
+<div class="tablewrap"><table class="deal"><thead><tr><th>标的</th><th>买入</th><th>卖方</th><th>卖出</th><th>买方</th><th>年数</th><th>价值驱动</th></tr></thead><tbody><tr><td class="nm">Voisey's Bay</td><td>1993 C$50 万期权</td><td class="cp">Archean Resources</td><td>C$43 亿（1996）</td><td class="cp">Inco</td><td class="c">3.3</td><td><span class="drv">资源重估</span></td></tr><tr><td class="nm">Fort Knox</td><td>1989–90 取得 51%</td><td class="cp">Ventures Trident</td><td>US$1.52 亿（1992，换股）</td><td class="cp">Amax Gold</td><td class="c">2.8</td><td><span class="drv">发现 + 可研</span></td></tr><tr><td class="nm">Monywa</td><td>1996 设 50:50 合资</td><td class="cp">缅甸 ME-1（国企）</td><td>US$1.03 亿（2011）</td><td class="cp">中国万宝</td><td class="c">15.0</td><td><span class="drv">运营 + 周期</span></td></tr><tr><td class="nm">Bakyrchik</td><td>1996 合资进入</td><td class="cp">哈萨克政府</td><td>US$3 亿（2013，卖 50%）</td><td class="cp">Sumeru Gold</td><td class="c">17.0</td><td><span class="drv">周期</span></td></tr><tr><td class="nm">Oyu Tolgoi</td><td>2000 US$1,100 万</td><td class="cp">BHP</td><td>2012 控制权转 Rio</td><td class="cp">Rio Tinto</td><td class="c">11.7</td><td><span class="drv">资源重估</span></td></tr><tr><td class="nm">Kamoa 49.5%</td><td>2007 取得矿权</td><td class="cp">刚果（金）政府</td><td>US$4.12 亿（2015）</td><td class="cp">紫金矿业</td><td class="c">18.0</td><td><span class="drv">资源重估</span></td></tr><tr><td class="nm">Kipushi 68%</td><td>2011 取得</td><td class="cp">Gécamines</td><td>未退出</td><td class="cp">—</td><td class="c">15.0</td><td><span class="drv">资源重估</span></td></tr><tr><td class="nm">Platreef</td><td>1998 取得探勘许可</td><td class="cp">未查到</td><td>未退出</td><td class="cp">—</td><td class="c">28.0</td><td><span class="drv">资源重估</span></td></tr><tr><td class="nm">Alacrán</td><td>2015 US$1,575 万期权</td><td class="cp">OMNI</td><td>最高 US$2.28 亿（2023–26）</td><td class="cp">金诚信 JCHX</td><td class="c">10.4</td><td><span class="drv">交易结构</span></td></tr><tr><td class="nm">Ivanhoe Australia</td><td>2003 A$600 万</td><td class="cp">Selwyn 破产管理人</td><td>A$1.6 亿（2013）</td><td class="cp">山西东辉</td><td class="c">10.2</td><td><span class="drv">周期</span></td></tr><tr><td class="nm">Santa Cruz</td><td>2020–24 分期选择权</td><td class="cp">私人土地持有人</td><td>未退出</td><td class="cp">—</td><td class="c">6.0</td><td><span class="drv">资源重估</span></td></tr><tr><td class="nm">SouthGobi</td><td>2007 注入上市</td><td class="cp">—</td><td>C$4,260 万（2014–15）</td><td class="cp">NUR / Novel Sunrise</td><td class="c">8.0</td><td><span class="drv">交易结构</span></td></tr></tbody></table></div>
+<h3 class="sh">发现能力：他接手后把矿做大了几倍</h3>
+<p class="note">9 座里 A 类 3、B 类 4、C 类 2。他是四人里唯一反复打第一孔的人——OT 那条最能说明问题：BHP 钻到断层就停了。</p>
+<div class="disc"><div class="dc"><div class="dc-l"><span class="dc-tag b">B 棕地再发现</span><b>Oyu Tolgoi</b><span class="dc-loc">蒙古</span><div class="dc-mult">18.8×</div></div><div class="dc-r"><p><i>前因</i><span>BHP 1997–98 在这块地上打了 23 个孔、3,789 米，估出 438 Mt @ 0.52% Cu；OTD010 孔见 37 m @ 0.4% Cu + 1.2 g/t 后钻遇断层，BHP 判断断层以下没有矿，撤了。</span></p><p><i>转折</i><span>2000 年 Ivanhoe 以 US$500 万现金 + US$600 万勘查承诺从 BHP 手里买下探矿权；2001 年 OTD150 孔直接往下打穿断层。</span></p><p><i>结果</i><span class="dc-res">OTD150 见 508 m @ 0.81% Cu、1.17 g/t；资源从 2.28 Mt Cu 做到 42.8 Mt Cu（18.8 倍）。2012 年 Rio 取得控制权，他出局，但 OT 成了世界级铜金矿。</span></p><div class="dc-why">BHP 认定断层以下是死区，他往下再钻 500 米——这是全表最硬的一条「敢在别人的结论上下注」。</div></div></div><div class="dc"><div class="dc-l"><span class="dc-tag a">A 绿地发现</span><b>Kamoa / Kakula</b><span class="dc-loc">刚果（金）</span><div class="dc-mult">两次绿地</div></div><div class="dc-r"><p><i>前因</i><span>2007 年取得矿权时这里没有已知矿，只有地质推理：刚果铜带西缘应该有高品位铜矿。</span></p><p><i>转折</i><span>2008 年团队首批孔见厚层辉铜矿；2016 年又在旁边发现 Kakula，品位更高、更厚。</span></p><p><i>结果</i><span class="dc-res">今天 Kamoa-Kakula 是全球品位最高的大型铜矿之一，2021 年投产，2025 年冶炼厂点火。</span></p><div class="dc-why">真绿地，而且连续两次——四个人里只有他做到。</div></div></div><div class="dc"><div class="dc-l"><span class="dc-tag b">B 棕地再发现</span><b>Flatreef</b><span class="dc-loc">南非</span><div class="dc-mult">深部新矿体</div></div><div class="dc-r"><p><i>前因</i><span>Platreef 露头在布什维尔德北翼早被认识，但浅部品位低、厚度不稳，大公司只把它当「边缘资源」。</span></p><p><i>转折</i><span>Ivanhoe 1998 年拿到探勘许可后一直往下想；2010 年深钻确认了厚层高品位 Flatreef。</span></p><p><i>结果</i><span class="dc-res">把一座「露头矿」做成可规模化开发的地下矿，2025 年 11 月首产。</span></p><div class="dc-why">老矿区里找到新矿体，逻辑和 Taylor 一样——不是找新地方，是重新解释老地方。</div></div></div></div>
+
+<h3 class="sh">退出对价排序（US$M）</h3>
+<svg viewBox="0 0 1200 206" width="100%" role="img" aria-label="退出对价排序"><text x="4" y="29" font-size="11.5" fill="#222">Diamond Fields</text><rect x="220" y="19" width="830.0" height="13" rx="3" fill="#4C3B8C"/><text x="1058.0" y="30" font-size="10.5" fill="#4E8A1A">3153</text><text x="4" y="55" font-size="11.5" fill="#222">Bakyrchik（卖 50%）</text><rect x="220" y="45" width="79.0" height="13" rx="3" fill="#4C3B8C"/><text x="307.0" y="56" font-size="10.5" fill="#4E8A1A">300</text><text x="4" y="81" font-size="11.5" fill="#222">Alacrán</text><rect x="220" y="71" width="60.0" height="13" rx="3" fill="#4C3B8C"/><text x="288.0" y="82" font-size="10.5" fill="#4E8A1A">228</text><text x="4" y="107" font-size="11.5" fill="#222">Fort Knox</text><rect x="220" y="97" width="40.0" height="13" rx="3" fill="#4C3B8C"/><text x="268.0" y="108" font-size="10.5" fill="#4E8A1A">152</text><text x="4" y="133" font-size="11.5" fill="#222">Ivanhoe Australia</text><rect x="220" y="123" width="30.5" height="13" rx="3" fill="#4C3B8C"/><text x="258.5" y="134" font-size="10.5" fill="#4E8A1A">116</text><text x="4" y="159" font-size="11.5" fill="#222">Monywa</text><rect x="220" y="149" width="27.1" height="13" rx="3" fill="#4C3B8C"/><text x="255.1" y="160" font-size="10.5" fill="#4E8A1A">103</text></svg>
+<div class="facts"><div><b>3 笔</b><span>从「找矿人/破产管理人」手里买（Voisey's Bay、Selwyn、Alacrán）</span></div><div><b>4 笔</b><span>卖给中国资本（Monywa、Kamoa、Alacrán、老股）</span></div><div><b>2 笔</b><span>引入巨头做战投（Rio 入 OT、紫金入 Kamoa）</span></div><div><b>3 笔</b><span>持有超过 15 年（Kamoa、Kipushi、Platreef）</span></div></div>
+</section><section class="page" id="p4"><div class="pnum">PAGE 04</div><h2 class="pt">投资哲学</h2>
+<div class="psum">他的公式是<b>「世界级矿床 × 引入巨头 × 项目层退出」</b>。所谓「讲故事」，本质是把地质事实转换成资本的能力——没有前者，后者就是骗局。</div>
+<div class="formula">
+  <div class="fbox"><b>世界级矿床</b><span>只做能改变公司命运的量级</span></div>
+  <div class="fx">×</div>
+  <div class="fbox"><b>引入巨头</b><span>把 40–50% 卖给需要它的人</span></div>
+  <div class="fx">×</div>
+  <div class="fbox"><b>项目层退出</b><span>卖股权，不卖控制权与叙事权</span></div>
+</div>
+<p class="note">三者相乘：没有世界级矿床，巨头不会来；不引入巨头，建不起；不肯在项目层退出，就撑不到投产。他的「讲故事」不是虚的——那是把地质事实转换成资本的能力。</p>
+<h3 class="sh">十条原则</h3>
+<div class="phils"><div class="phil"><div class="ph-top"><span class="ph-n">01</span><span class="ph-dim">周期</span></div><h4>铜的缺口是文明级的</h4><p class="en">“We need to mine as much copper in the next 18 years as we did in the last 10,000 years just to maintain global 3% GDP growth without the electrification of the world economy.”</p><p class="zh">仅为了维持全球 3% 的 GDP 增长（还不算世界经济全面电气化），我们在未来 18 年需要开采的铜，等于过去一万年的总和。</p><div class="ph-src">2026-09 · Bloomberg Odd Lots</div></div><div class="phil"><div class="ph-top"><span class="ph-n">02</span><span class="ph-dim">逆向</span></div><h4>去非洲，是参与一个惊人的成功故事</h4><p class="en">“Africa is definitely open for business. […] And it's even greater to make history than it is to make money.”</p><p class="zh">非洲绝对欢迎做生意。……而且，创造历史比赚钱更伟大。</p><div class="ph-src">— · 公开演讲</div></div><div class="phil"><div class="ph-top"><span class="ph-n">03</span><span class="ph-dim">风险</span></div><h4>在亚洲做生意，先搞清谁说了算</h4><p class="en">“To do business in Asia you not only have to know how, you have to know who.”</p><p class="zh">在亚洲做生意，你不仅要知道怎么做，还要知道找谁。</p><div class="ph-src">1997-06 · Multinational Monitor 采访</div></div><div class="phil"><div class="ph-top"><span class="ph-n">04</span><span class="ph-dim">资产</span></div><h4>只做「地球上 30 年没出现过」的量级</h4><p class="en">“Nothing of this scale has been found on Planet Earth in the last 30 years. We can't find the limits of it.”</p><p class="zh">过去 30 年，地球上没有发现过这个量级的东西。我们甚至找不到它的边界。</p><div class="ph-src">2005-10 · 谈 Oyu Tolgoi（坦帕演讲）</div></div><div class="phil"><div class="ph-top"><span class="ph-n">05</span><span class="ph-dim">去风险</span></div><h4>引入巨头，是把不确定性换成确定性</h4><p class="en">“The measure of certainty that Rio Tinto's financial resources and global industry leadership bring to the realization of our long-cherished Oyu Tolgoi dream is reassuring.”</p><p class="zh">力拓的财力与全球行业领导力，为我们期盼已久的 Oyu Tolgoi 梦想带来的确定性，令人安心。</p><div class="ph-src">2012-04 · 辞任公告</div></div><div class="phil"><div class="ph-top"><span class="ph-n">06</span><span class="ph-dim">退出</span><span class="ph-k">行为反推</span></div><h4>卖项目层股权，不卖控制权（行为反推）</h4><p class="ev">Monywa 卖 50%、Kamoa 卖 49.5%、Alacrán 卖 100%——但 Ivanhoe Mines 的控制权与叙事权始终在他手里；2012 年失去 OT 是唯一例外。</p><p class="zh">他卖的是项目，不是公司；卖完之后，他还在台上讲下一个故事。</p><div class="ph-src">— · 据 6 笔交易反推，无逐字原话</div></div><div class="phil"><div class="ph-top"><span class="ph-n">07</span><span class="ph-dim">资本</span></div><h4>把 47 个买家变成谈判筹码</h4><p class="en">“When Ivanhoe and Morgan Stanley started talking about this project, 47 international mining companies approached us, to become our partner.”</p><p class="zh">当艾芬豪和摩根士丹利开始谈这个项目时，有 47 家国际矿业公司来找过我们，想成为合作伙伴。</p><div class="ph-src">2021-05 · 紫金官网</div></div><div class="phil"><div class="ph-top"><span class="ph-n">08</span><span class="ph-dim">规模</span></div><h4>一期能养二期，这才叫世界级</h4><p class="en">“The first operation will be able to finance two further mines and a smelter (…) That is mind-boggling and we've never seen that before.”</p><p class="zh">第一座矿山就能养活另外两座矿和一座冶炼厂……这令人难以置信，我们以前从没见过。</p><div class="ph-src">— · 谈 Kamoa 分期开发</div></div><div class="phil"><div class="ph-top"><span class="ph-n">09</span><span class="ph-dim">辖区</span></div><h4>最该挖矿的地方，现在是刚果</h4><p class="en">“It's not clear any longer, when global warming gas becomes a central indicia, that Chile is the obvious place to mine. Quite the contrary. The obvious place to mine is now the Congo.”</p><p class="zh">当温室气体成为核心指标后，智利是否还是显而易见的采矿地，已经不清楚了。恰恰相反，现在显而易见的采矿地是刚果。</p><div class="ph-src">— · 公开演讲</div></div><div class="phil"><div class="ph-top"><span class="ph-n">10</span><span class="ph-dim">叙事</span></div><h4>故事要能被转发</h4><p class="en">“You and I can talk, it can go viral and it goes worldwide.”</p><p class="zh">你和我聊一聊，它就能病毒式传播，传遍全世界。</p><div class="ph-src">— · 谈传播</div></div></div>
+<h3 class="sh">辖区账本：他去过哪些国家，结果如何</h3>
+<div class="tablewrap"><table class="juris"><thead><tr><th>国家 / 地区</th><th>首次进入</th><th>代表项目</th><th>结果</th></tr></thead><tbody><tr><td class="nm">加拿大</td><td class="c">1987</td><td>Voisey's Bay</td><td>C$43 亿卖 Inco</td></tr><tr><td class="nm">美国</td><td class="c">1984</td><td>Summitville / Fort Knox / Santa Cruz</td><td>一次破产、一次成功、一次在推进</td></tr><tr><td class="nm">缅甸</td><td class="c">1996</td><td>Monywa</td><td>2011 卖万宝</td></tr><tr><td class="nm">哈萨克斯坦</td><td class="c">1996</td><td>Bakyrchik（今 Kyzyl）</td><td>2013 卖 Sumeru</td></tr><tr><td class="nm">蒙古</td><td class="c">2000</td><td>Oyu Tolgoi</td><td>2012 控制权归 Rio</td></tr><tr><td class="nm">刚果（金）</td><td class="c">2007</td><td>Kamoa / Kipushi</td><td>在产，中资深度参与</td></tr><tr><td class="nm">南非</td><td class="c">1998</td><td>Platreef</td><td>2025 首产</td></tr><tr><td class="nm">澳大利亚</td><td class="c">2003</td><td>Cloncurry 资产包</td><td>2013 卖山西东辉</td></tr><tr><td class="nm">中国</td><td class="c">1990s</td><td>Zitong / 长山壕等 JV</td><td>已退出或转让</td></tr><tr><td class="nm">几内亚</td><td class="c">2011</td><td>Nimba 铁矿</td><td>在推进</td></tr></tbody></table></div>
+</section><section class="page" id="p5"><div class="pnum">PAGE 05</div><h2 class="pt">中国关系</h2>
+<div class="psum">他是四个人里与中国资本绑定最深的：<b>6 笔交易、3 笔卖资产、3 笔引股东</b>。但他从不放弃控制权与叙事权——现持股约 11.5%，仍任执行联席主席。</div>
+<h3 class="sh">交易清单</h3>
+<div class="tablewrap"><table class="china"><thead><tr><th>时间</th><th>事项</th><th>中方对手方</th><th>金额</th><th>他的角色</th><th>结果</th></tr></thead><tbody><tr><td class="yr">2011-06</td><td>Monywa 50% 权益出售</td><td>中国万宝矿产</td><td class="amt">US$1.03 亿</td><td>董事长</td><td class="ok">完成</td></tr><tr><td class="yr">2015-05</td><td>Kamoa 49.5% 引入紫金</td><td>紫金矿业</td><td class="amt">US$4.12 亿</td><td>执行主席</td><td class="ok">完成</td></tr><tr><td class="yr">2018-06</td><td>Ivanhoe 定增 19.9%</td><td>中信金属</td><td class="amt">US$5.56 亿</td><td>执行主席</td><td class="ok">完成</td></tr><tr><td class="yr">2019-04</td><td>增持至 29.4%</td><td>中信金属</td><td class="amt">US$4.54 亿</td><td>执行主席</td><td class="ok">完成</td></tr><tr><td class="yr">2019-10</td><td>老股转让 4,865 万股</td><td>紫金矿业</td><td class="amt">C$1.94 亿</td><td>减持方之一</td><td class="ok">完成</td></tr><tr><td class="yr">2026-03</td><td>Alacrán 剩余 50%</td><td>金诚信 JCHX</td><td class="amt">最高 US$1.28 亿</td><td>董事长</td><td class="ok">完成</td></tr></tbody></table></div>
+<div class="facts">
+  <div><b>3 笔</b><span>卖资产给中资（Monywa、Alacrán、老股）</span></div><div><b>3 笔</b><span>引入中资做股东（紫金 2015、中信 2018/2019）</span></div><div><b>1 笔</b><span>项目层对等合资（Kamoa 49.5%）</span></div><div><b>0 笔</b><span>因中资进入而失去控制权</span></div>
+</div>
+<p class="note">口径提醒：紫金「44.2%」是含间接权益的口径，不是增持；中信持股 29.4%（另有 29.9% 口径）。Kamoa 那笔 US$4.12 亿里，US$1.69 亿是承接的股东贷款，纯股权只有 US$2.43 亿。</p>
+<h3 class="sh">中国观怎么变的</h3>
+<div class="ctline" style="grid-template-columns:repeat(4,1fr)"><div class="ct"><div class="ct-y">2011</div><div class="ct-l">卖 Monywa</div><div class="ct-t">把缅甸铜矿 50% 卖给万宝，铜价高位</div></div><div class="ct"><div class="ct-y">2015</div><div class="ct-l">引紫金</div><div class="ct-t">Kamoa 49.5%，US$4.12 亿</div></div><div class="ct"><div class="ct-y">2019</div><div class="ct-l">引中信</div><div class="ct-t">两笔约 US$10.1 亿，成第一大股东</div></div><div class="ct"><div class="ct-y">2026</div><div class="ct-l">卖 Alacrán</div><div class="ct-t">把哥伦比亚项目卖给金诚信</div></div></div>
+<h3 class="sh">公开表态</h3>
+<div class="quotes"><div class="quote"><div class="q-h"><span>2015-04</span><span>紫金定增完成（公司公告）</span></div><p class="en">“We are delighted to welcome Zijin Mining both as an old friend of Ivanhoe Mines and a strategic investor that shares our long-term vision.”</p><p class="zh">我们很高兴欢迎紫金矿业——既是艾芬豪的老朋友，也是认同我们长期愿景的战略投资者。</p></div><div class="quote"><div class="q-h"><span>2019-06</span><span>悼念中信王军（公开信）</span></div><p class="en">“The marriage with CITIC Metal is a representation of my deep friendship with Wang Laoban and the results of the strategic alliance between Ivanhoe and CITIC during the past 16 years.”</p><p class="zh">与中信金属的联姻，是我与王老板深厚友谊的体现，也是艾芬豪与中信过去 16 年战略联盟的成果。</p></div><div class="quote"><div class="q-h"><span>2021-05</span><span>谈紫金入股 Kamoa（紫金官网）</span></div><p class="en">“47 international mining companies approached us, to become our partner. […] I sincerely believe that Zijin will become the No.1 mining company of China.”</p><p class="zh">有 47 家国际矿业公司来找过我们，想成为合作伙伴。我真诚地相信，紫金会成为中国第一的矿业公司。</p></div><div class="quote"><div class="q-h"><span>2024-01</span><span>谈中国铜需求（彭博）</span></div><p class="en">“This year, China consumed more copper than any other year, signalling that demand remains strong in the world's top consumer economy.”</p><p class="zh">今年中国消费的铜比以往任何一年都多，说明这个全球最大消费经济体的需求依然强劲。</p></div><div class="quote"><div class="q-h"><span>2026-09</span><span>谈关键矿产（Bloomberg Odd Lots）</span></div><p class="en">“Without gallium, there is no Nvidia, no Nvidia chips. Without scandium, rhenium, dysprosium, niobium, tantalum… And unfortunately, all of them are developed by China.”</p><p class="zh">没有镓，就没有英伟达，没有英伟达的芯片。没有钪、铼、镝、铌、钽……不幸的是，这些全都由中国开发。</p></div></div>
+<h3 class="sh">中方怎么看他</h3>
+<div class="facts three">
+  <div><b>2015</b><span>是他在公告里称紫金为「老朋友」；陈景河同文称二人「十多年朋友」，并钦佩其团队在非洲的发现成就</span></div><div><b>2025</b><span>五矿经研院：金融家出身，对周期与市场规则理解深刻，往往在资产价格高位出售</span></div><div><b>2026</b><span>金诚信公告评价的是 Alacrán 项目本身，未评价他</span></div>
+</div>
+<p class="note">中方对他最直接的一句评价来自五矿经研院——不是「矿业传奇」，而是「在资产价格高位出售」。这句比任何英文媒体的赞美都更接近他的真实打法。</p>
+<div class="hl" style="background:#eef4fb;border-left-color:#0f62fe;margin-top:14px"><b>判断</b>：他是四个人里与中国资本绑定最深的一个——不是「卖给中资退出」，而是「引入中资共持、用中国工程建矿、再在项目层卖给中国承包商」。对 BD 的含义：他愿意让中资做股东，但控制权与叙事权始终握在自己手里（现持股约 11.5%，仍任执行联席主席）。</div>
+</section><section class="page" id="p6"><div class="pnum">PAGE 06</div><h2 class="pt">争议与风险</h2>
+<div class="psum">他的模式成本集中在<b>执行与辖区</b>：Summitville 的环境灾难、OT 的控制权丢失、Kamoa 的淹井与储量下调。他擅长发现与融资，不擅长建设与运营——所以他把建设交给别人。</div>
+<h3 class="sh">争议与失败</h3>
+<div class="tablewrap"><table class="dispute"><thead><tr><th>时间</th><th>主体</th><th>发生了什么</th><th>结果</th><th>现状</th></tr></thead><tbody><tr><td class="yr">1984–1992</td><td class="nm">Summitville（美国）</td><td>氰化堆浸泄漏，约 27 公里河道污染</td><td>1992 破产；1994 列 Superfund；他 2000 年个人和解 US$2,070 万</td><td class="st">已了结</td></tr><tr><td class="yr">1994–2000</td><td class="nm">Voisey's Bay（加拿大）</td><td>Innu / Labrador Inuit 原住民权益谈判</td><td>1997 后陆续达成协议</td><td class="st">已了结</td></tr><tr><td class="yr">2012–2022</td><td class="nm">Oyu Tolgoi（蒙古）</td><td>政府股权、税务、地下矿延误；2022 Rio 与蒙古达成债务豁免</td><td>项目继续</td><td class="st">已缓解</td></tr><tr><td class="yr">2013</td><td class="nm">Ivanhoe Australia</td><td>以 A$0.22/股卖给山西东辉，较上市价大幅折让</td><td>公司改名 Chinova</td><td class="st">已退出</td></tr><tr><td class="yr">2015</td><td class="nm">Ivanhoe Energy</td><td>Tamarack 油砂失败，2015 年依 BIA 破产</td><td>资产被 KPMG 接管</td><td class="st">已破产</td></tr><tr><td class="yr">2015–2026</td><td class="nm">Kamoa-Kakula（刚果）</td><td>2025-05 地震淹井；2026 储量下调至 13.1 Mt Cu；2026-08 精矿出口禁令</td><td>复产与扩建中</td><td class="st">进行中</td></tr><tr><td class="yr">2018–2026</td><td class="nm">Platreef（南非）</td><td>社区与电力问题，投产多次延期</td><td>2025-11 首产</td><td class="st">已缓解</td></tr><tr><td class="yr">2012–2026</td><td class="nm">Kipushi（刚果）</td><td>与 Gécamines 的合资纠纷史，1993 年停产后长期搁置</td><td>2024 复产</td><td class="st">已缓解</td></tr><tr><td class="yr">2012</td><td class="nm">Ivanplats IPO</td><td>上市时被质疑三个非洲项目无电无路、估值过高</td><td>完成 C$3.01 亿融资</td><td class="st">已了结</td></tr><tr><td class="yr">2000s–今</td><td class="nm">「promoter」标签</td><td>被批评善于推销、过度承诺产能</td><td>支持者认为他把不可能的项目做成了</td><td class="st">长期存在</td></tr></tbody></table></div>
+<h3 class="sh">风险结构</h3>
+<div class="risks"><div class="risk"><h4>周期风险</h4><p class="rs">中</p><p>他判断铜的长期短缺，但短期价格波动会打击融资窗口；2026 年 Kamoa 指引从 380–420 kt 一路下调到 290–310 kt，就是执行对叙事的修正。</p></div><div class="risk"><h4>辖区风险</h4><p class="rs">最高</p><p>刚果、蒙古、南非、几内亚——他专挑「制度不稳定但资源极好」的地方。对冲方式不是法律条款，而是「把当地政府变成股东」。</p></div><div class="risk"><h4>稀释风险</h4><p class="rs">高</p><p>他一生都在发股：Ivanplats IPO、IE IPO、多次定增。他的逻辑是「用股权换时间」，代价是老股东被不断稀释。</p></div><div class="risk"><h4>执行风险</h4><p class="rs">高</p><p>他卖的是故事，但矿要别人建：OT 由 Rio 建、Kamoa 由紫金工程队建、Platreef 延期多年。他本人的执行记录集中在「发现与融资」，不在「建设与运营」。</p></div></div>
+<div class="final"><b>事实概括</b><p>Friedland 的模式可以概括为：用世界级地质目标讲一个别人无法拒绝的故事，把 40–50% 卖给需要它的巨头或中国资本，用对方的钱和工程能力把矿建起来，自己保留上市公司、控制权与下一个故事的叙事权。他卖项目，不卖舞台。</p></div>
+</section>
+</main>
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tabs button'));
+  var pages=[].slice.call(document.querySelectorAll('.page'));
+  var pager=document.getElementById('pager');
+  var main=document.getElementById('main');
+  var cur=0;
+  var hm=location.hash.match(/p(\d)/); if(hm){cur=+hm[1]-1;}
+  function go(i){
+    if(i<0)i=0; if(i>=pages.length)i=pages.length-1;
+    cur=i;
+    tabs.forEach(function(b,k){b.classList.toggle('on',k===i)});
+    pages.forEach(function(p,k){p.classList.toggle('on',k===i)});
+    pager.textContent=(i+1)+' / '+pages.length;
+    main.scrollTop=0;
+    try{history.replaceState(null,'','#p'+(i+1))}catch(err){}
+  }
+  tabs.forEach(function(b,i){b.addEventListener('click',function(){go(i)})});
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight')go(cur+1);
+    if(e.key==='ArrowLeft')go(cur-1);
+  });
+  go(cur);
+})();
+</script>
+</body></html>
