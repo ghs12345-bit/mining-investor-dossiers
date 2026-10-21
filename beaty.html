@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ross J. Beaty · 人物经历档案</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --p:#4C3B8C; --pd:#3A2C6B; --pl:#5B4A99; --plight:#EBE7F3; --plight2:#F4F1FA;
+  --g:#6FBA2C; --gd:#4E8A1A; --ink:#222; --ink2:#454545; --mut:#7A7A7A;
+  --line:#DCD8E8; --bg:#F7F7FA; --card:#fff;
+}
+html,body{height:100%}
+body{font-family:"Microsoft YaHei","微软雅黑",-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;overflow:hidden}
+.top{height:62px;background:var(--p);color:#fff;display:flex;align-items:center;gap:22px;padding:0 26px;position:relative;z-index:10}
+.who b{font-size:16px;font-weight:700;letter-spacing:.2px}
+.who span{display:block;font-size:11px;color:#D8D2EC;margin-top:1px}
+.tabs{display:flex;gap:2px;margin-left:auto}
+.tabs button{border:none;background:transparent;color:#CFC8E6;font-size:12.5px;padding:8px 13px;border-radius:6px 6px 0 0;cursor:pointer;font-family:inherit;transition:.15s}
+.tabs button:hover{background:rgba(255,255,255,.10);color:#fff}
+.tabs button.on{background:var(--bg);color:var(--p);font-weight:700}
+.pager{font-size:11.5px;color:#CFC8E6;min-width:40px;text-align:right}
+main{height:calc(100% - 62px);overflow-y:auto;overflow-x:hidden}
+.page{display:none;max-width:1280px;margin:0 auto;padding:30px 42px 70px}
+.page.on{display:block}
+.pnum{font-size:11px;letter-spacing:2.5px;color:var(--g);font-weight:700}
+h2.pt{font-size:24px;font-weight:700;color:var(--pd);margin:3px 0 8px;letter-spacing:-.3px}
+.psum{font-size:14px;color:var(--ink2);line-height:1.85;max-width:980px;padding-left:12px;border-left:3px solid var(--g);margin-bottom:22px}
+h3.sh{font-size:14px;color:var(--pd);font-weight:700;margin:26px 0 12px;padding-left:9px;border-left:3px solid var(--p)}
+.note{font-size:11.5px;color:var(--mut);margin:-6px 0 10px}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:6px}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.kpi b{display:block;font-size:19px;color:var(--pd);line-height:1.25;letter-spacing:-.3px}
+.kpi span{display:block;font-size:11px;color:var(--mut);margin-top:4px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:#fff}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{text-align:left;padding:9px 11px;border-bottom:1px solid #F0EEF6;vertical-align:top}
+thead th{background:var(--plight);color:var(--pd);font-weight:700;font-size:12px;border-bottom:1px solid var(--line);white-space:nowrap}
+tbody tr:last-child td,tbody tr:last-child th{border-bottom:none}
+tbody tr:hover td{background:#FBFAFE}
+.stagewrap{border-radius:10px 10px 0 0}
+table.stage{table-layout:fixed}
+table.stage th.lab{width:86px;background:#fff;border-bottom:none}
+table.stage thead th.stg{width:auto;text-align:left;padding:10px 9px;border-left:1px solid #E6E1F2}
+
+table.stage thead th.stg .yr{display:block;font-size:10.5px;color:var(--pl);letter-spacing:.5px;font-weight:400}
+table.stage thead th.stg .nm{display:block;font-size:12px;font-weight:700;margin-top:2px;line-height:1.35}
+table.stage tbody th{background:#FBFAFE;font-size:11.5px;color:var(--mut);font-weight:400;white-space:nowrap}
+table.stage tbody td{font-size:11.5px;line-height:1.6;color:var(--ink2);border-left:1px solid #F4F2FA;padding:9px 8px}
+.tag{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:20px}
+.tag.inv{background:#FDF0DD;color:#B26A00}
+.tag.fol{background:#EAF3DE;color:var(--gd)}
+.detail{background:#fff;border:1px solid var(--line);border-top:none;border-radius:0 0 10px 10px;padding:2px 20px 10px}
+.detail-item{padding:15px 0 13px;border-top:1px solid #EFECF6}
+.detail-item:first-child{border-top:none}
+.di-n{display:inline-flex;align-items:center;justify-content:center;width:23px;height:18px;border-radius:5px;background:var(--p);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.5px}
+.detail-item p{margin-top:2px}
+
+
+
+.di-h{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.di-h b{font-size:13px;color:var(--pd)}
+.detail p{font-size:12.5px;color:var(--ink2);line-height:1.85}
+.hint{font-size:11px;color:var(--mut);margin-top:6px}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:11px;color:var(--mut);margin-bottom:4px}
+.legend span{display:flex;align-items:center;gap:5px}
+.legend i{width:11px;height:8px;border-radius:2px;display:inline-block}
+.legend i.dia{width:8px;height:8px;background:var(--g);transform:rotate(45deg)}
+.two-col{display:grid;grid-template-columns:1.15fr .85fr;gap:26px;margin-top:4px}
+table.matrix{font-size:12px}
+table.matrix th.lab{background:#FBFAFE;font-size:11px;color:var(--mut);font-weight:400}
+table.matrix td{text-align:center;font-size:12px}
+table.matrix td.z{color:#C9C5D6}
+table.matrix td.tot,table.matrix th.tot{background:var(--plight2);font-weight:700;color:var(--pd);text-align:center}
+.acqs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.acq{border:1px solid var(--line);border-radius:9px;padding:9px 11px;background:#fff}
+.acq-h{display:flex;justify-content:space-between;align-items:baseline}
+.acq-h b{font-size:12.5px;color:var(--pd)}
+.acq-h span{font-size:10.5px;color:var(--mut)}
+.acq-t{font-size:11px;color:var(--ink2);margin-top:3px;line-height:1.45}
+.acq-a{font-size:11.5px;color:var(--gd);font-weight:700;margin-top:2px}
+table.deal td.nm{font-weight:700;color:var(--pd)}
+table.deal td.c,table.judge td.c,table.juris td.c{text-align:center;color:var(--mut)}
+table.deal .drv{font-size:10.5px;background:var(--plight);color:var(--pd);padding:2px 7px;border-radius:20px;white-space:nowrap}
+table.judge td.yr,table.china td.yr,table.dispute td.yr{white-space:nowrap;color:var(--pl);font-weight:700}
+table.judge td.j{font-weight:700;color:var(--pd)}
+table.juris td.nm{font-weight:700;color:var(--pd)}
+table.china td.amt{white-space:nowrap;font-weight:700;color:var(--gd)}
+table.china td.ok{color:var(--gd);font-weight:700}
+.quotes{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
+.quote{border-left:3px solid var(--p);background:var(--plight2);padding:12px 15px;border-radius:0 8px 8px 0;margin:0}
+.q-h{display:flex;gap:12px;font-size:11px;color:var(--mut);margin-bottom:6px}
+.q-h span:first-child{color:var(--pl);font-weight:700}
+.quote p.en{font-size:12px;color:#5A5468;font-style:italic;line-height:1.75;margin-bottom:6px}
+.quote p.zh{font-size:12.5px;color:var(--ink2);line-height:1.8}
+table.dispute td.nm{font-weight:700;color:var(--pd);max-width:210px}
+table.dispute td.st{white-space:nowrap;color:var(--pl)}
+.risks{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.risk{background:#fff;border:1px solid var(--line);border-radius:10px;padding:13px 15px}
+.risk h4{font-size:13px;color:var(--pd);margin-bottom:3px}
+.risk p{font-size:11.5px;color:var(--ink2);line-height:1.7}
+.risk p.rs{color:var(--pl);font-weight:700;margin-bottom:4px}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0 4px}
+.facts div{background:#fff;border:1px solid var(--line);border-radius:9px;padding:11px 13px}
+.facts.three{grid-template-columns:repeat(3,1fr)}
+.facts b{display:block;font-size:16px;color:var(--gd);line-height:1.2}
+.facts span{display:block;font-size:11px;color:var(--mut);margin-top:3px}
+.phils{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.phil{border:1px solid var(--line);border-radius:10px;padding:14px 16px;background:#fff}
+.ph-top{display:flex;align-items:center;gap:8px;margin-bottom:2px}
+.ph-n{font-size:11px;font-weight:700;color:var(--gd);letter-spacing:1px}
+.ph-dim{font-size:10px;font-weight:700;color:#fff;background:var(--p);padding:1px 7px;border-radius:9px;letter-spacing:.5px}
+.phil h4{font-size:13.5px;color:var(--pd);margin:4px 0 8px}
+.phil p.en{font-size:11.5px;color:#5A5468;font-style:italic;line-height:1.7;margin-bottom:6px}
+.phil p.zh{font-size:12.5px;color:var(--ink2);line-height:1.75}
+.ph-src{font-size:10.5px;color:var(--mut);margin-top:7px}
+.disc{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.dc{display:grid;grid-template-columns:200px 1fr;gap:18px;border:1px solid var(--line);border-radius:10px;padding:14px 18px;background:#fff}
+.dc-l{display:flex;flex-direction:column;gap:5px;border-right:1px solid #EFECF6;padding-right:14px}
+.dc-l b{font-size:13px;color:var(--pd);line-height:1.35}
+.dc-mult{font-size:21px;font-weight:800;color:var(--gd);letter-spacing:-.5px;margin-top:2px}
+.dc-tag{font-size:9.5px;font-weight:700;padding:1px 6px;border-radius:8px;color:#fff;letter-spacing:.3px}
+.dc-tag.a{background:#4E8A1A}
+.dc-tag.b{background:var(--p)}
+.dc-loc{font-size:10px;color:var(--mut)}
+.dc-r p{display:flex;gap:9px;font-size:12px;color:var(--ink2);line-height:1.9;margin-bottom:5px}
+.dc-r p i{flex:0 0 30px;color:var(--mut);font-style:normal;font-weight:700;letter-spacing:.5px}
+.dc-res{color:var(--gd);font-weight:700}
+.dc-why{font-size:11.5px;color:#5A5468;line-height:1.7;border-top:1px dashed #E6E1F2;padding-top:7px;margin-top:7px}
+.dc-why:before{content:"判断 · ";color:var(--p);font-weight:700}
+.quote-empty{border:1px dashed #D9D2EC;background:#FAF9FD;border-radius:10px;padding:16px 18px}
+.quote-empty b{display:block;font-size:12.5px;color:var(--pd);margin-bottom:5px}
+.quote-empty p{font-size:12px;color:var(--ink2);line-height:1.8}
+.ph-k{font-size:9.5px;font-weight:700;color:#8A6A00;background:#FBF0D2;padding:1px 6px;border-radius:8px;letter-spacing:.3px}
+.phil p.ev{font-size:11.5px;color:#5A5468;line-height:1.7;margin-bottom:6px;padding-left:9px;border-left:2px solid #E6E1F2}
+.ctline{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);margin-top:6px}
+.ct{padding:16px 18px 6px 0;position:relative}
+.ct:before{content:"";position:absolute;left:0;top:-5px;width:9px;height:9px;border-radius:50%;background:var(--p)}
+.ct-y{font-size:12px;font-weight:700;color:var(--p)}
+.ct-l{font-size:12.5px;font-weight:700;color:var(--pd);margin:2px 0 3px}
+.ct-t{font-size:11.5px;color:var(--ink2);line-height:1.65}
+table.deal td.cp{color:var(--pl);font-size:11.5px}
+.formula{display:flex;align-items:stretch;gap:8px;margin:14px 0 8px}
+.fbox{flex:1;background:#fff;border:1px solid var(--line);border-top:3px solid var(--p);border-radius:8px;padding:12px 14px}
+.fbox b{display:block;font-size:13.5px;color:var(--pd);margin-bottom:3px}
+.fbox span{font-size:11.5px;color:var(--ink2);line-height:1.6}
+.fx{display:flex;align-items:center;font-size:20px;font-weight:300;color:var(--pl);padding:0 2px}
+.maplaunch{display:flex;align-items:center;gap:14px;margin-top:20px;padding:14px 18px;border:1px solid var(--line);border-left:4px solid var(--p);border-radius:10px;background:linear-gradient(90deg,#F7F5FB,#FFFFFF);text-decoration:none;transition:.15s}
+.maplaunch:hover{background:#F0ECF9;border-color:#D9D2EC}
+.ml-ico{font-size:20px;color:var(--p);line-height:1}
+.ml-l b{display:block;font-size:13.5px;color:var(--pd);margin-bottom:2px}
+.ml-l span{display:block;font-size:11.5px;color:var(--mut);line-height:1.55}
+.ml-r{margin-left:auto;font-size:12.5px;font-weight:700;color:var(--p);white-space:nowrap}
+.final{margin-top:22px;background:var(--plight);border-radius:10px;padding:16px 18px}
+.final b{font-size:12px;color:var(--pd);letter-spacing:1px}
+.final p{font-size:13px;color:var(--ink2);line-height:1.9;margin-top:6px}
+@media (max-width:1100px){
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .two-col{grid-template-columns:1fr}
+  .risks{grid-template-columns:1fr}
+  .acqs{grid-template-columns:1fr}
+  .page{padding:22px 20px 60px}
+}
+</style></head>
+<body>
+<header class="top">
+  <div class="who"><b>Ross J. Beaty</b><span>Lumina Metals 执行董事长 · Pan American Silver 创始人 · 数据基准 2026-10-20</span></div>
+  <nav class="tabs"><button class="on">01 生涯时间线</button><button class="">02 公司与资产</button><button class="">03 交易与退出</button><button class="">04 投资哲学</button><button class="">05 中国关系</button><button class="">06 争议与风险</button></nav>
+  <div class="pager" id="pager">1 / 6</div>
+</header>
+<main id="main">
+<section class="page on" id="p1"><div class="pnum">PAGE 01</div><h2 class="pt">生涯时间线</h2>
+<div class="psum">他的主线只有一条：<b>在行业最悲观时买入被抛弃的资产，用别人的钱完成去风险，在周期高位卖给需要它的人</b>。46 年里变的是资产类型和规模，不是这条逻辑。</div>
+<div class="kpis"><div class="kpi"><b>20 家</b><span>公司总数</span></div><div class="kpi"><b>59 项</b><span>矿山级资产</span></div><div class="kpi"><b>US$19.6 亿</b><span>8 家公司退出对价</span></div><div class="kpi"><b>智利 · 阿根廷 · 秘鲁</b><span>主要国家（矿业对价）</span></div><div class="kpi"><b>铜 · 金</b><span>主要矿种（已退出对价）</span></div></div>
+<p class="note">国家/矿种按已披露的矿业退出对价归集；不含资产出售（如 2026 年 Equinox 巴西 4 矿 US$10.15 亿）与 Alterra（可再生，含债 EV C$11 亿）。</p>
+<h3 class="sh">五阶段对照</h3>
+<div class="tablewrap stagewrap"><table class="stage"><thead><tr><th class="lab"></th><th class="stg"><span class="yr">1980–1994</span><span class="nm">起步与首度退出</span></th><th class="stg"><span class="yr">1994–2005</span><span class="nm">白银龙头 + 铜熊市抄底</span></th><th class="stg"><span class="yr">2005–2010</span><span class="nm">平台化 + 密集退出</span></th><th class="stg"><span class="yr">2010–2024</span><span class="nm">规模整合与上市</span></th><th class="stg"><span class="yr">2024–2026</span><span class="nm">主动退出收官</span></th></tr></thead><tbody><tr><th>市场环境</th><td>铜 1,374–2,848 美元/吨；金 318–608；金矿长期熊市</td><td>铜 1,559–3,679 美元/吨（2001 见底）；金 271–445；银 4.4–7.3</td><td>铜 3,679→7,535 美元/吨；金 445→1,225（+175%）；2008 崩盘后 V 型</td><td>铜 4,868–9,317 美元/吨；金 1,161–2,388；勘探预算 215→73 亿美元</td><td>金 2,388→4,123 美元/盎司；铜 9,142→14,500；2025 并购 &gt;700 亿美元</td></tr><tr><th>主流怎么做</th><td>Sohio 买 Kennecott（1981）；RTZ 买 BP Minerals（1989）；Barrick 买 Lac（1994）</td><td>Newmont 买 Normandy（2002）；Barrick 买 Placer Dome（2005）；大矿企砍草根勘探</td><td>Vale 买 Inco（2006）；Rio 买 Alcan（2007）；Teck 买 Fording（2008）</td><td>Barrick 买 Equinox Minerals（2011）；Freeport 卖 Tenke（2016）；Barrick/Newmont 股票合并</td><td>Anglo+Teck 合并（2025）；BHP+Lundin 买 Filo（2024）；黄金巨头回购而非勘探</td></tr><tr><th>他的判断</th><td>熊市里，勘探权最便宜</td><td>人人都在说「铜的末日」，这就是买点</td><td>去风险、系蝴蝶结，卖给有资本的人</td><td>规模决定一切；只在美洲，不去怪地方</td><td>泡沫后期，该落袋；但不清仓</td></tr><tr><th>顺 / 逆</th><td><span class="tag inv">逆</span></td><td><span class="tag inv">逆</span></td><td><span class="tag fol">顺</span></td><td><span class="tag fol">顺</span></td><td><span class="tag inv">逆</span></td></tr><tr><th>关键动作</th><td>创立 Equinox → Rosebud 合资去风险 → 锁定 51.2 万盎司</td><td>创立 Pan American（白银）；另设 Lumina Copper，用 US$1,000 万期权囤 10 个铜矿</td><td>卖 Regalito / Lumina Resources（2006）→ 卖 Northern Peru / Global Copper（2008）</td><td>组建 Leagold → 三方合并组建 Equinox → 并入 Leagold</td><td>卖 Lumina Gold → 卖巴西 4 矿 → Lumina Metals 上市</td></tr><tr><th>结果</th><td>1994 卖 Hecla · US$0.76 亿 · 8.8 年</td><td>2005-05 一拆四，分拆本身无现金对价</td><td>四笔约 US$9.8 亿 · 2008 两笔 US$0.039/lb</td><td>产量 20 万→110 万盎司 · 2026-07 卸任</td><td>两笔约 US$14.3 亿 · 新股半年 -36%</td></tr></tbody></table></div><div class="detail"><div class="detail-item"><div class="di-h"><span class="di-n">01</span><b>1980–1994 · 起步与首度退出</b><span class="tag inv">逆</span></div><p>这一段的底色是「拥抱风险」。他在黄金熊市里创业，首轮融资来自母亲、兄弟和叔叔。真正的转折不是发现 Rosebud，而是学会用合资把钻探风险分给别人：LAC Minerals 出钱 earn-in 到 51%，等资源成型后他再以 US$550 万买回。这套「借别人的钱去风险、自己留上行」的动作，后来在 Lumina 系被反复复制。</p></div><div class="detail-item"><div class="di-h"><span class="di-n">02</span><b>1994–2005 · 白银龙头 + 铜熊市抄底</b><span class="tag inv">逆</span></div><p>这是他一战成名的逆向操作。他的判断依据不是「铜会涨」，而是「勘探被砍了五年，五年后一定缺矿」。所以他不买在产矿，买的是别人不要的探矿权——10 个项目里只要成一个就够。2005 年一拆四，把「一个故事」变成「四个可独立出售的壳」，这是纯金融工程，不是矿业工程。</p></div><div class="detail-item"><div class="di-h"><span class="di-n">03</span><b>2005–2010 · 平台化 + 密集退出</b><span class="tag fol">顺</span></div><p>这一段是「卖」的艺术。他卖的时点几乎都在铜价 7,000 美元/吨以上，买家不是按 DCF 定价，而是按「资源缺口」定价——Teck 明说这笔收购让它的铜资源增加 25%。他真正卖的不是矿，是买家报表上的缺口。同期跨界做地热（Alterra），他自述烧掉 1 亿美元打干井，是少见的失败。</p></div><div class="detail-item"><div class="di-h"><span class="di-n">04</span><b>2010–2024 · 规模整合与上市</b><span class="tag fol">顺</span></div><p>从「打包卖」转向「做大上市」，这是他晚年最大的一次理念跃迁。代价是持续发股：Leagold 股东占 45%、Greenstone 40% 用 4,200 万股支付、2026 年 Orla 全股票合并。规模是买来的，不是长出来的——这也是他后来反复被问「稀释」的原因。这一段开头的 2011 年，他还把 Lumina Royalty 以 US$0.66 亿卖给 Franco-Nevada，把 4 个项目的 NSR 单独证券化——分拆资产的最后一块变现。</p></div><div class="detail-item"><div class="di-h"><span class="di-n">05</span><b>2024–2026 · 主动退出收官</b><span class="tag inv">逆</span></div><p>他在 2026-01 公开说「这是泡沫，是时候落袋一部分」，同时又说「一股不卖」。两句话不矛盾：他卖的是公司资产，不是自己的股份。这是他一贯的做法——把资产卖给需要它的人，自己保留平台和期权。</p></div></div>
+</section><section class="page" id="p2"><div class="pnum">PAGE 02</div><h2 class="pt">公司与资产</h2>
+<div class="psum">他不追求「拥有矿山」，追求<b>「控制可出售的资产包」</b>。公司只是容器——装进去的是探矿权，做出来的是资源量，卖出去的是按吨或盎司定价的资产。四块业务（白银、铜、黄金、波兰铜银）只是不同时期选的容器。</div>
+<h3 class="sh">按年的重大决策</h3>
+<svg viewBox="0 0 1200 190" width="100%" role="img" aria-label="按年的重大决策时间轴"><line x1="80" y1="84" x2="1150" y2="84" stroke="#DCD8E8" stroke-width="1"/><line x1="80.0" y1="80" x2="80.0" y2="88" stroke="#B4B2A9" stroke-width="1"/><text x="80.0" y="104" text-anchor="middle" font-size="11" fill="#7A7A7A">1985</text><line x1="204.4" y1="80" x2="204.4" y2="88" stroke="#B4B2A9" stroke-width="1"/><text x="204.4" y="104" text-anchor="middle" font-size="11" fill="#7A7A7A">1990</text><line x1="328.8" y1="80" x2="328.8" y2="88" stroke="#B4B2A9" stroke-width="1"/><text x="328.8" y="104" text-anchor="middle" font-size="11" fill="#7A7A7A">1995</text><line x1="453.3" y1="80" x2="453.3" y2="88" stroke="#B4B2A9" stroke-width="1"/><text x="453.3" y="104" text-anchor="middle" font-size="11" fill="#7A7A7A">2000</text><line x1="577.7" y1="80" x2="577.7" y2="88" stroke="#B4B2A9" stroke-width="1"/><text x="577.7" y="104" text-anchor="middle" font-size="11" fill="#7A7A7A">2005</text><line x1="702.1" y1="80" x2="702.1" y2="88" stroke="#B4B2A9" stroke-width="1"/><text x="702.1" y="104" text-anchor="middle" font-size="11" fill="#7A7A7A">2010</text><line x1="826.5" y1="80" x2="826.5" y2="88" stroke="#B4B2A9" stroke-width="1"/><text x="826.5" y="104" text-anchor="middle" font-size="11" fill="#7A7A7A">2015</text><line x1="950.9" y1="80" x2="950.9" y2="88" stroke="#B4B2A9" stroke-width="1"/><text x="950.9" y="104" text-anchor="middle" font-size="11" fill="#7A7A7A">2020</text><line x1="1075.3" y1="80" x2="1075.3" y2="88" stroke="#B4B2A9" stroke-width="1"/><text x="1075.3" y="104" text-anchor="middle" font-size="11" fill="#7A7A7A">2025</text><line x1="80.0" y1="84" x2="80.0" y2="63" stroke="#4C3B8C" stroke-width="0.8"/><circle cx="80.0" cy="84" r="4.5" fill="#4C3B8C"/><text x="80.0" y="56" text-anchor="start" font-size="11" fill="#222">创立 Equinox</text><line x1="304.0" y1="84" x2="304.0" y2="127" stroke="#4C3B8C" stroke-width="0.8"/><circle cx="304.0" cy="84" r="4.5" fill="#4C3B8C"/><text x="304.0" y="120" text-anchor="middle" font-size="11" fill="#222">卖给 Hecla</text><line x1="527.9" y1="84" x2="527.9" y2="63" stroke="#4C3B8C" stroke-width="0.8"/><circle cx="527.9" cy="84" r="4.5" fill="#4C3B8C"/><text x="527.9" y="56" text-anchor="middle" font-size="11" fill="#222">抄底 10 个铜矿</text><line x1="577.7" y1="84" x2="577.7" y2="127" stroke="#4C3B8C" stroke-width="0.8"/><circle cx="577.7" cy="84" r="4.5" fill="#4C3B8C"/><text x="577.7" y="120" text-anchor="middle" font-size="11" fill="#222">一拆四</text><line x1="652.3" y1="84" x2="652.3" y2="63" stroke="#4C3B8C" stroke-width="0.8"/><circle cx="652.3" cy="84" r="4.5" fill="#4C3B8C"/><text x="652.3" y="56" text-anchor="middle" font-size="11" fill="#222">卖 N.Peru / Global</text><line x1="727.0" y1="84" x2="727.0" y2="127" stroke="#4C3B8C" stroke-width="0.8"/><circle cx="727.0" cy="84" r="4.5" fill="#4C3B8C"/><text x="727.0" y="120" text-anchor="middle" font-size="11" fill="#222">卖 Lumina Royalty</text><line x1="801.6" y1="84" x2="801.6" y2="63" stroke="#4C3B8C" stroke-width="0.8"/><circle cx="801.6" cy="84" r="4.5" fill="#4C3B8C"/><text x="801.6" y="56" text-anchor="middle" font-size="11" fill="#222">卖 Lumina Copper</text><line x1="876.3" y1="84" x2="876.3" y2="127" stroke="#4C3B8C" stroke-width="0.8"/><circle cx="876.3" cy="84" r="4.5" fill="#4C3B8C"/><text x="876.3" y="120" text-anchor="middle" font-size="11" fill="#222">组建 Equinox Gold</text><line x1="1075.3" y1="84" x2="1075.3" y2="63" stroke="#4C3B8C" stroke-width="0.8"/><circle cx="1075.3" cy="84" r="4.5" fill="#4C3B8C"/><text x="1075.3" y="56" text-anchor="end" font-size="11" fill="#222">卖 Lumina Gold</text><line x1="1100.2" y1="84" x2="1100.2" y2="127" stroke="#4C3B8C" stroke-width="0.8"/><circle cx="1100.2" cy="84" r="4.5" fill="#4C3B8C"/><text x="1100.2" y="120" text-anchor="end" font-size="11" fill="#222">卖巴西 4 矿</text></svg>
+<h3 class="sh">公司持有区间</h3>
+<div class="legend"><span><i style="background:#4C3B8C"></i>A 创立并控制</span><span><i style="background:#8B7BC4"></i>B 平台孵化</span><span><i style="background:#B4B2A9"></i>C 跨界</span><span><i class="dia"></i>退出时点（右侧数字为 US$M）</span></div>
+<svg viewBox="0 0 1200 388" width="100%" role="img" aria-label="公司持有周期矩阵"><line x1="210.0" y1="20" x2="210.0" y2="362" stroke="#F0F2F6" stroke-width="0.8"/><text x="210.0" y="16" text-anchor="middle" font-size="10.5" fill="#9AA3B0">1980</text><line x1="307.9" y1="20" x2="307.9" y2="362" stroke="#F0F2F6" stroke-width="0.8"/><text x="307.9" y="16" text-anchor="middle" font-size="10.5" fill="#9AA3B0">1985</text><line x1="405.8" y1="20" x2="405.8" y2="362" stroke="#F0F2F6" stroke-width="0.8"/><text x="405.8" y="16" text-anchor="middle" font-size="10.5" fill="#9AA3B0">1990</text><line x1="503.8" y1="20" x2="503.8" y2="362" stroke="#F0F2F6" stroke-width="0.8"/><text x="503.8" y="16" text-anchor="middle" font-size="10.5" fill="#9AA3B0">1995</text><line x1="601.7" y1="20" x2="601.7" y2="362" stroke="#F0F2F6" stroke-width="0.8"/><text x="601.7" y="16" text-anchor="middle" font-size="10.5" fill="#9AA3B0">2000</text><line x1="699.6" y1="20" x2="699.6" y2="362" stroke="#F0F2F6" stroke-width="0.8"/><text x="699.6" y="16" text-anchor="middle" font-size="10.5" fill="#9AA3B0">2005</text><line x1="797.5" y1="20" x2="797.5" y2="362" stroke="#F0F2F6" stroke-width="0.8"/><text x="797.5" y="16" text-anchor="middle" font-size="10.5" fill="#9AA3B0">2010</text><line x1="895.4" y1="20" x2="895.4" y2="362" stroke="#F0F2F6" stroke-width="0.8"/><text x="895.4" y="16" text-anchor="middle" font-size="10.5" fill="#9AA3B0">2015</text><line x1="993.3" y1="20" x2="993.3" y2="362" stroke="#F0F2F6" stroke-width="0.8"/><text x="993.3" y="16" text-anchor="middle" font-size="10.5" fill="#9AA3B0">2020</text><line x1="1091.2" y1="20" x2="1091.2" y2="362" stroke="#F0F2F6" stroke-width="0.8"/><text x="1091.2" y="16" text-anchor="middle" font-size="10.5" fill="#9AA3B0">2025</text><text x="4" y="40.5" font-size="11.5" fill="#222">Beaty 地质</text><rect x="210.0" y="31.0" width="137.1" height="11" rx="3" fill="#4C3B8C"/><text x="4" y="61.5" font-size="11.5" fill="#222">Equinox Resources</text><rect x="307.9" y="52.0" width="176.2" height="11" rx="3" fill="#4C3B8C"/><polygon points="484.2,52.0 490.2,57.5 484.2,63.0 478.2,57.5" fill="#6FBA2C"/><text x="493.2" y="61.5" font-size="10" fill="#4E8A1A">76</text><text x="4" y="82.5" font-size="11.5" fill="#222">Pan American Silver</text><rect x="484.2" y="73.0" width="528.8" height="11" rx="3" fill="#4C3B8C"/><text x="4" y="103.5" font-size="11.5" fill="#222">Lumina Copper（老）</text><rect x="660.4" y="94.0" width="39.2" height="11" rx="3" fill="#4C3B8C"/><text x="4" y="124.5" font-size="11.5" fill="#222">Regalito Copper</text><rect x="699.6" y="115.0" width="19.6" height="11" rx="3" fill="#8B7BC4"/><polygon points="719.2,115.0 725.2,120.5 719.2,126.0 713.2,120.5" fill="#6FBA2C"/><text x="728.2" y="124.5" font-size="10" fill="#4E8A1A">137</text><text x="4" y="145.5" font-size="11.5" fill="#222">Northern Peru Copper</text><rect x="699.6" y="136.0" width="58.8" height="11" rx="3" fill="#8B7BC4"/><polygon points="758.3,136.0 764.3,141.5 758.3,147.0 752.3,141.5" fill="#6FBA2C"/><text x="767.3" y="145.5" font-size="10" fill="#4E8A1A">424</text><text x="4" y="166.5" font-size="11.5" fill="#222">Global Copper</text><rect x="699.6" y="157.0" width="58.8" height="11" rx="3" fill="#8B7BC4"/><polygon points="758.3,157.0 764.3,162.5 758.3,168.0 752.3,162.5" fill="#6FBA2C"/><text x="767.3" y="166.5" font-size="10" fill="#4E8A1A">389</text><text x="4" y="187.5" font-size="11.5" fill="#222">Lumina Resources</text><rect x="699.6" y="178.0" width="19.6" height="11" rx="3" fill="#8B7BC4"/><polygon points="719.2,178.0 725.2,183.5 719.2,189.0 713.2,183.5" fill="#6FBA2C"/><text x="728.2" y="187.5" font-size="10" fill="#4E8A1A">27</text><text x="4" y="208.5" font-size="11.5" fill="#222">Lumina Copper（新）</text><rect x="758.3" y="199.0" width="117.5" height="11" rx="3" fill="#4C3B8C"/><polygon points="875.8,199.0 881.8,204.5 875.8,210.0 869.8,204.5" fill="#6FBA2C"/><text x="884.8" y="208.5" font-size="10" fill="#4E8A1A">426</text><text x="4" y="229.5" font-size="11.5" fill="#222">Lumina Royalty</text><rect x="817.1" y="220.0" width="3.0" height="11" rx="3" fill="#4C3B8C"/><polygon points="817.1,220.0 823.1,225.5 817.1,231.0 811.1,225.5" fill="#6FBA2C"/><text x="826.1" y="229.5" font-size="10" fill="#4E8A1A">66</text><text x="4" y="250.5" font-size="11.5" fill="#222">Lumina Metals</text><rect x="817.1" y="241.0" width="293.8" height="11" rx="3" fill="#4C3B8C"/><text x="4" y="271.5" font-size="11.5" fill="#222">Lumina Gold</text><rect x="875.8" y="262.0" width="215.4" height="11" rx="3" fill="#4C3B8C"/><polygon points="1091.2,262.0 1097.2,267.5 1091.2,273.0 1085.2,267.5" fill="#6FBA2C"/><text x="1100.2" y="271.5" font-size="10" fill="#4E8A1A">416</text><text x="4" y="292.5" font-size="11.5" fill="#222">Leagold Mining</text><rect x="915.0" y="283.0" width="78.3" height="11" rx="3" fill="#4C3B8C"/><text x="4" y="313.5" font-size="11.5" fill="#222">Equinox Gold</text><rect x="934.6" y="304.0" width="176.3" height="11" rx="3" fill="#4C3B8C"/><text x="4" y="334.5" font-size="11.5" fill="#222">Luminex Resources</text><rect x="954.2" y="325.0" width="117.5" height="11" rx="3" fill="#4C3B8C"/><text x="4" y="355.5" font-size="11.5" fill="#222">Alterra Power</text><rect x="758.3" y="346.0" width="195.8" height="11" rx="3" fill="#B4B2A9"/><polygon points="954.2,346.0 960.2,351.5 954.2,357.0 948.2,351.5" fill="#6FBA2C"/><text x="963.2" y="355.5" font-size="10" fill="#4E8A1A">849</text></svg>
+<p class="note">仅列 16 家主要主体；另有 Western Copper、Anfield Gold、MTB Metals、Faraday Copper 4 家董事/参股类未列。</p>
+<div class="two-col">
+  <div>
+    <h3 class="sh">资产分布：国家 × 矿种</h3>
+    <table class="matrix"><thead><tr><th class="lab">国家 \ 矿种</th><th>金</th><th>铜</th><th>银</th><th>风电（可再生电力）</th><th>其他</th><th class="tot">合计</th></tr></thead><tbody><tr><th>加拿大</th><td class="">5</td><td class="">4</td><td class="">2</td><td class="">1</td><td class="">1</td><td class="tot">13</td></tr><tr><th>美国</th><td class="">5</td><td class="z">—</td><td class="z">—</td><td class="">2</td><td class="z">—</td><td class="tot">7</td></tr><tr><th>巴西</th><td class="">7</td><td class="z">—</td><td class="z">—</td><td class="z">—</td><td class="z">—</td><td class="tot">7</td></tr><tr><th>秘鲁</th><td class="">2</td><td class="">2</td><td class="">1</td><td class="z">—</td><td class="z">—</td><td class="tot">5</td></tr><tr><th>阿根廷</th><td class="z">—</td><td class="">2</td><td class="">3</td><td class="z">—</td><td class="z">—</td><td class="tot">5</td></tr><tr><th>墨西哥</th><td class="">3</td><td class="z">—</td><td class="">1</td><td class="z">—</td><td class="z">—</td><td class="tot">4</td></tr><tr><th>厄瓜多尔</th><td class="">2</td><td class="">2</td><td class="z">—</td><td class="z">—</td><td class="z">—</td><td class="tot">4</td></tr><tr><th>智利</th><td class="">2</td><td class="">2</td><td class="z">—</td><td class="z">—</td><td class="z">—</td><td class="tot">4</td></tr><tr><th>波兰</th><td class="z">—</td><td class="">3</td><td class="z">—</td><td class="z">—</td><td class="z">—</td><td class="tot">3</td></tr><tr><th>危地马拉</th><td class="z">—</td><td class="z">—</td><td class="">1</td><td class="z">—</td><td class="">1</td><td class="tot">2</td></tr><tr><th>尼加拉瓜</th><td class="">2</td><td class="z">—</td><td class="z">—</td><td class="z">—</td><td class="z">—</td><td class="tot">2</td></tr><tr><th>冰岛</th><td class="z">—</td><td class="z">—</td><td class="z">—</td><td class="z">—</td><td class="">1</td><td class="tot">1</td></tr><tr><th>玻利维亚</th><td class="z">—</td><td class="z">—</td><td class="">1</td><td class="z">—</td><td class="z">—</td><td class="tot">1</td></tr><tr><th>其他</th><td class="z">—</td><td class="">1</td><td class="z">—</td><td class="z">—</td><td class="z">—</td><td class="tot">1</td></tr></tbody></table>
+  </div>
+  <div>
+    <h3 class="sh">资产最终流向谁</h3>
+    <div class="acqs"><div class="acq"><div class="acq-h"><b>五矿 + 江铜</b><span>2008</span></div><div class="acq-t">Northern Peru Copper</div><div class="acq-a">C$4.55 亿</div></div><div class="acq"><div class="acq-h"><b>Teck</b><span>2008</span></div><div class="acq-t">Global Copper</div><div class="acq-a">C$4.15 亿</div></div><div class="acq"><div class="acq-h"><b>First Quantum</b><span>2014</span></div><div class="acq-t">Lumina Copper（新）</div><div class="acq-a">C$4.70 亿</div></div><div class="acq"><div class="acq-h"><b>洛阳钼业</b><span>2025–26</span></div><div class="acq-t">Lumina Gold + Equinox 巴西 4 矿</div><div class="acq-a">US$4.19 亿 + US$10.15 亿</div></div><div class="acq"><div class="acq-h"><b>Hecla</b><span>1994</span></div><div class="acq-t">Equinox Resources</div><div class="acq-a">US$0.76 亿</div></div><div class="acq"><div class="acq-h"><b>Pan Pacific</b><span>2006</span></div><div class="acq-t">Regalito Copper</div><div class="acq-a">US$1.37 亿</div></div><div class="acq"><div class="acq-h"><b>Franco-Nevada</b><span>2011</span></div><div class="acq-t">Lumina Royalty</div><div class="acq-a">US$0.66 亿</div></div><div class="acq"><div class="acq-h"><b>Western Copper</b><span>2006</span></div><div class="acq-t">Lumina Resources</div><div class="acq-a">C$0.30 亿</div></div><div class="acq"><div class="acq-h"><b>Innergex</b><span>2018</span></div><div class="acq-t">Alterra Power</div><div class="acq-a">C$11 亿（含债）</div></div></div>
+  </div>
+</div>
+<a class="maplaunch" href="beaty-assets-map.html" target="_blank" rel="noopener">
+  <span class="ml-ico">◎</span>
+  <span class="ml-l"><b>资产地图 · 59 个矿点</b><span>独立全屏页，可按国家 / 矿种 / 阶段筛选，点矿点看储量、归属与退出状态</span></span>
+  <span class="ml-r">打开地图 ↗</span>
+</a>
+</section><section class="page" id="p3"><div class="pnum">PAGE 03</div><h2 class="pt">交易与退出</h2>
+<div class="psum">他赚的不是运营的钱，是<b>定价权转移的钱</b>：从「没人要的勘探权」到「按资源量定价的可售资产」。买入端是 9 家初级公司或私人矿权人，卖出端全是巨头或有战略诉求的买家——他从不从巨头手里买，也从不卖给没有能力建矿的人。</div>
+<h3 class="sh">买入与卖出对照</h3>
+<div class="tablewrap"><table class="deal"><thead><tr><th>标的</th><th>买入</th><th>卖方</th><th>卖出</th><th>买方</th><th>年数</th><th>价值驱动</th></tr></thead><tbody><tr><td class="nm">Equinox Resources</td><td>1985 自建</td><td class="cp">—</td><td>US$0.76 亿（1994）</td><td class="cp">Hecla</td><td class="c">8.8</td><td><span class="drv">周期 + 运营</span></td></tr><tr><td class="nm">Lumina Copper（老）</td><td>约 US$0.10 亿（逐项期权）</td><td class="cp">9 家初级公司</td><td>分拆，无现金（2005）</td><td class="cp">—</td><td class="c">2.0</td><td><span class="drv">交易结构</span></td></tr><tr><td class="nm">Regalito Copper</td><td>US$0.009 亿（期权）</td><td class="cp">Caserones / California</td><td>US$1.37 亿（2006）</td><td class="cp">Pan Pacific</td><td class="c">2.6</td><td><span class="drv">资源重估</span></td></tr><tr><td class="nm">Lumina Resources</td><td>约 US$0.01 亿</td><td class="cp">CRS Copper</td><td>C$0.30 亿（2006）</td><td class="cp">Western Copper</td><td class="c">1.5</td><td><span class="drv">交易结构</span></td></tr><tr><td class="nm">Northern Peru Copper</td><td>US$0.02 亿（期权）</td><td class="cp">Las Asuncion</td><td>C$4.55 亿（2008）</td><td class="cp">五矿 + 江铜</td><td class="c">2.9</td><td><span class="drv">资源重估</span></td></tr><tr><td class="nm">Global Copper</td><td>US$0.06 亿（Relincho）</td><td class="cp">Andes Pacific</td><td>C$4.15 亿（2008）</td><td class="cp">Teck</td><td class="c">3.0</td><td><span class="drv">资源重估</span></td></tr><tr><td class="nm">Lumina Copper（新）</td><td>自 Global Copper 分拆</td><td class="cp">—</td><td>C$4.70 亿（2014）</td><td class="cp">First Quantum</td><td class="c">6.2</td><td><span class="drv">资源重估</span></td></tr><tr><td class="nm">Lumina Royalty</td><td>自 Lumina Copper 分拆</td><td class="cp">—</td><td>US$0.66 亿（2011）</td><td class="cp">Franco-Nevada</td><td class="c">0.5</td><td><span class="drv">交易结构</span></td></tr><tr><td class="nm">Lumina Gold</td><td>未查到</td><td class="cp">Kinross（未核实）</td><td>C$5.81 亿（2025）</td><td class="cp">洛阳钼业</td><td class="c">11.0</td><td><span class="drv">资源重估</span></td></tr><tr><td class="nm">Leagold Mining</td><td>US$4.38 亿（Los Filos）</td><td class="cp">Goldcorp</td><td>换股并入 Equinox（2020）</td><td class="cp">Equinox Gold</td><td class="c">3.5</td><td><span class="drv">周期 + 运营</span></td></tr><tr><td class="nm">Equinox Gold</td><td>US$0.18 亿（个人投入）</td><td class="cp">Trek / NewCastle / Anfield</td><td>未退出</td><td class="cp">—</td><td class="c">8.8</td><td><span class="drv">交易结构</span></td></tr><tr><td class="nm">Luminex Resources</td><td>自 Lumina Gold 分拆</td><td class="cp">—</td><td>全股票，未披露（2024）</td><td class="cp">Adventus</td><td class="c">6.0</td><td><span class="drv">交易结构</span></td></tr><tr><td class="nm">Alterra Power</td><td>未查到（自建）</td><td class="cp">自建 / Plutonic</td><td>C$11 亿含债（2018）</td><td class="cp">Innergex</td><td class="c">9.7</td><td><span class="drv">运营 + 规模</span></td></tr></tbody></table></div>
+<h3 class="sh">发现能力：他接手后把矿做大了几倍</h3>
+<p class="note">11 座主要资产里 A 类 3、B 类 5、C 类 3。他的原话是「只做没有地质风险、只有价格风险的资产」——买已证明有矿的东西，再用钻探回答「有多大」。</p>
+<div class="disc"><div class="dc"><div class="dc-l"><span class="dc-tag b">B 棕地再发现</span><b>Galeno</b><span class="dc-loc">秘鲁北部</span><div class="dc-mult">换模型</div></div><div class="dc-r"><p><i>前因</i><span>这块地 Newmont 1991–97 只打了 4 孔 774 米就撤；North 1997–98 接着打了 30 个 RC 孔（6,514 米）加 34 个金刚石孔（5,857 米），两次内部研究都写「不满足投资标准」；Rio Tinto 2000 年接手，看完资料直接放弃。三家巨头合计钻了两万多米，结论一致：品位不够。</span></p><p><i>转折</i><span>2003 年 Lumina 用 US$200 万分项期权拿下，2005 年上两台钻机——换了一套算法，不按高品位窄矿体算，按低品位大吨位算。</span></p><p><i>结果</i><span class="dc-res">2006 年 8 月即出 Indicated 764 Mt @ 0.64% CuEq + Inferred 98 Mt；2008 年以 C$4.55 亿卖给五矿 + 江铜。</span></p><div class="dc-why">三家巨头不是没钻，是算错了账；他赢在换了一个经济模型，不是找到了新矿。</div></div></div><div class="dc"><div class="dc-l"><span class="dc-tag a">A 绿地发现</span><b>Rosebud</b><span class="dc-loc">美国内华达</span><div class="dc-mult">从零到一</div></div><div class="dc-r"><p><i>前因</i><span>1985 年他自己在 Pershing County 圈了 46 个矿权，此前这里没有已知矿；公司只有几个人，首轮钱来自母亲、兄弟和叔叔。</span></p><p><i>转折</i><span>1989 年首钻，第三孔见 55 ft @ 0.12 oz/t；他没有停在「见矿」，而是连续四年补钻把资源做实。</span></p><p><i>结果</i><span class="dc-res">1993 年底 P&amp;P 51.2 万盎司；1994 年随 Equinox 一起卖给 Hecla，US$7,600 万。</span></p><div class="dc-why">这是他唯一一次从零到一的绿地发现，也是他后半生「不赌地质」的起点——他知道发现有多难。</div></div></div><div class="dc"><div class="dc-l"><span class="dc-tag b">B 棕地再发现</span><b>La Colorada 矽卡岩</b><span class="dc-loc">墨西哥</span><div class="dc-mult">深部盲矿</div></div><div class="dc-r"><p><i>前因</i><span>La Colorada 是墨西哥老银矿，浅部脉状矿采了几十年，深部矽卡岩体一直没被当成目标——前手按脉状矿品位算，深部看起来「太贫」。</span></p><p><i>转折</i><span>2018 年 Pan American 用系统深钻验证矽卡岩模型，在已知脉状矿之下打出厚大矿体。</span></p><p><i>结果</i><span class="dc-res">265.4 Mt @ 约 36 g/t Ag，合 309 Moz 银，是全表最大的一次资源增量。</span></p><div class="dc-why">归因要小心：当时 CEO 已是 Michael Steinmann，Beaty 是董事长——战略是他的，执行不是他的。</div></div></div></div>
+<h3 class="sh">投入 vs 回收</h3><p class="note">仅 4 笔同时披露买入与卖出对价；对角线以上即为赚钱。买入对价为期权/股权成本，未计勘探支出。</p><svg viewBox="0 0 1200 330" width="100%" role="img" aria-label="买入成本与卖出对价对比"><line x1="110.0" y1="24" x2="110.0" y2="268" stroke="#F0EEF6"/><text x="110.0" y="286" text-anchor="middle" font-size="10.5" fill="#7A7A7A">0.1</text><line x1="595.0" y1="24" x2="595.0" y2="268" stroke="#F0EEF6"/><text x="595.0" y="286" text-anchor="middle" font-size="10.5" fill="#7A7A7A">1</text><line x1="1080.0" y1="24" x2="1080.0" y2="268" stroke="#F0EEF6"/><text x="1080.0" y="286" text-anchor="middle" font-size="10.5" fill="#7A7A7A">10</text><line x1="110" y1="268.0" x2="1080" y2="268.0" stroke="#F0EEF6"/><text x="102" y="272.0" text-anchor="end" font-size="10.5" fill="#7A7A7A">10</text><line x1="110" y1="146.0" x2="1080" y2="146.0" stroke="#F0EEF6"/><text x="102" y="150.0" text-anchor="end" font-size="10.5" fill="#7A7A7A">100</text><line x1="110" y1="24.0" x2="1080" y2="24.0" stroke="#F0EEF6"/><text x="102" y="28.0" text-anchor="end" font-size="10.5" fill="#7A7A7A">1000</text><line x1="110.0" y1="390.0" x2="595.0" y2="268.0" stroke="#B4B2A9" stroke-dasharray="4 4"/><text x="589.0" y="262.0" font-size="10.5" fill="#7A7A7A" text-anchor="end">10 倍线</text><circle cx="572.8" cy="129.3" r="7" fill="#4C3B8C" opacity="0.88"/><text x="584.8" y="130.3" text-anchor="start" font-size="11.5" fill="#222">Regalito</text><text x="584.8" y="144.3" text-anchor="start" font-size="11" fill="#4E8A1A">×152</text><circle cx="595.0" cy="215.6" r="7" fill="#4C3B8C" opacity="0.88"/><text x="607.0" y="216.6" text-anchor="start" font-size="11.5" fill="#222">Lumina Resources</text><text x="607.0" y="230.6" text-anchor="start" font-size="11" fill="#4E8A1A">×27</text><circle cx="741.0" cy="69.5" r="7" fill="#4C3B8C" opacity="0.88"/><text x="753.0" y="70.5" text-anchor="start" font-size="11.5" fill="#222">Northern Peru</text><text x="753.0" y="84.5" text-anchor="start" font-size="11" fill="#4E8A1A">×212</text><circle cx="972.4" cy="74.0" r="7" fill="#4C3B8C" opacity="0.88"/><text x="960.4" y="75.0" text-anchor="end" font-size="11.5" fill="#222">Global Copper</text><text x="960.4" y="89.0" text-anchor="end" font-size="11" fill="#4E8A1A">×65</text><text x="595.0" y="324" text-anchor="middle" font-size="11" fill="#7A7A7A">买入对价（US$M，对数轴）</text><text x="22" y="146.0" font-size="11" fill="#7A7A7A" transform="rotate(-90 22 146.0)" text-anchor="middle">卖出对价（US$M）</text></svg>
+<h3 class="sh">退出对价排序（US$M）</h3>
+<svg viewBox="0 0 1200 284" width="100%" role="img" aria-label="退出对价排序"><text x="4" y="29" font-size="11.5" fill="#222">Alterra Power</text><rect x="220" y="19" width="830.0" height="13" rx="3" fill="#4C3B8C"/><text x="1058.0" y="30" font-size="10.5" fill="#4E8A1A">849</text><text x="4" y="55" font-size="11.5" fill="#222">Lumina Copper（新）</text><rect x="220" y="45" width="416.0" height="13" rx="3" fill="#4C3B8C"/><text x="644.0" y="56" font-size="10.5" fill="#4E8A1A">426</text><text x="4" y="81" font-size="11.5" fill="#222">Northern Peru</text><rect x="220" y="71" width="414.3" height="13" rx="3" fill="#4C3B8C"/><text x="642.3" y="82" font-size="10.5" fill="#4E8A1A">424</text><text x="4" y="107" font-size="11.5" fill="#222">Lumina Gold</text><rect x="220" y="97" width="406.3" height="13" rx="3" fill="#4C3B8C"/><text x="634.3" y="108" font-size="10.5" fill="#4E8A1A">416</text><text x="4" y="133" font-size="11.5" fill="#222">Global Copper</text><rect x="220" y="123" width="380.2" height="13" rx="3" fill="#4C3B8C"/><text x="608.2" y="134" font-size="10.5" fill="#4E8A1A">389</text><text x="4" y="159" font-size="11.5" fill="#222">Regalito</text><rect x="220" y="149" width="133.9" height="13" rx="3" fill="#4C3B8C"/><text x="361.9" y="160" font-size="10.5" fill="#4E8A1A">137</text><text x="4" y="185" font-size="11.5" fill="#222">Equinox Resources</text><rect x="220" y="175" width="74.6" height="13" rx="3" fill="#4C3B8C"/><text x="302.6" y="186" font-size="10.5" fill="#4E8A1A">76</text><text x="4" y="211" font-size="11.5" fill="#222">Lumina Royalty</text><rect x="220" y="201" width="64.5" height="13" rx="3" fill="#4C3B8C"/><text x="292.5" y="212" font-size="10.5" fill="#4E8A1A">66</text><text x="4" y="237" font-size="11.5" fill="#222">Lumina Resources</text><rect x="220" y="227" width="26.3" height="13" rx="3" fill="#4C3B8C"/><text x="254.3" y="238" font-size="10.5" fill="#4E8A1A">27</text></svg>
+
+</section><section class="page" id="p4"><div class="pnum">PAGE 04</div><h2 class="pt">投资哲学</h2>
+<div class="psum">他的超额收益不来自「看对价格」，来自<b>三者相乘：周期位置 × 资产质量 × 退出设计</b>。任何一项为零，收益就归零——所以他先站对周期，再挑不会归零的资产，最后从买入第一天就想好卖给谁。</div>
+<div class="formula">
+  <div class="fbox"><b>周期位置</b><span>在下行有限时买入，不赌时点</span></div>
+  <div class="fx">×</div>
+  <div class="fbox"><b>资产质量</b><span>大、已知、无致命缺陷</span></div>
+  <div class="fx">×</div>
+  <div class="fbox"><b>退出设计</b><span>买入时就定好卖给谁</span></div>
+</div>
+<p class="note">三者是乘法不是加法：周期看错，好资产也赚不到钱；资产有致命缺陷，再好的周期也归零；没有退出设计，前两项都只是账面浮盈。</p>
+<h3 class="sh">十条原则</h3>
+<div class="phils"><div class="phil"><div class="ph-top"><span class="ph-n">01</span><span class="ph-dim">周期</span></div><h4>周期位置决定收益，不预测底部</h4><p class="en">“If you invest at the top of the market, you're going to lose money for sure. If you invest at the bottom of the market, almost anything you invest in is going to do well and you're going to have outsized returns.”</p><p class="zh">在顶部投资必亏；在底部投资，几乎投什么都行，而且回报会超出常规。</p><div class="ph-src">2019-11 · CEO.CA 访谈</div></div><div class="phil"><div class="ph-top"><span class="ph-n">02</span><span class="ph-dim">逆向</span></div><h4>在所有人被迫卖出时买入</h4><p class="en">“You cannot find a better time to buy than when everyone else wants to sell.”</p><p class="zh">你找不到比「其他所有人都想卖」更好的买点。</p><div class="ph-src">2022-05 · Northern Miner 现场访谈</div></div><div class="phil"><div class="ph-top"><span class="ph-n">03</span><span class="ph-dim">风险</span></div><h4>先算赔率，再承担时点的不确定性</h4><p class="en">“The risk/reward ratio has to be right. I'm quite happy to swing for the fences and strike out.”</p><p class="zh">风险回报比必须合适。我很乐意全力挥棒，哪怕被三振出局。</p><div class="ph-src">2018-12 · Stratum 书面问答</div></div><div class="phil"><div class="ph-top"><span class="ph-n">04</span><span class="ph-dim">资产</span></div><h4>只买大、已知、无致命缺陷的矿床</h4><p class="en">“I ran around and bought all kinds of copper deposits that had no value, dirt, cheap, big known deposits in the ground, that had no fatal flaws, metallurgy, social licence, that kind of stuff.”</p><p class="zh">我到处去买那些没有价值的铜矿床——便宜得像泥土、大型、已知、埋在地下，而且没有致命缺陷：冶金、社会许可这一类。</p><div class="ph-src">2022-05 · Northern Miner 现场访谈</div></div><div class="phil"><div class="ph-top"><span class="ph-n">05</span><span class="ph-dim">去风险</span></div><h4>去风险是一道工序，不是判断</h4><p class="en">“Before we could sell, we had to actually prove these deposits had value. […] And then you basically take the project, wrap it up in a box, tie a beautiful bow around it and then put it for sale.”</p><p class="zh">在能卖之前，我们必须先证明这些矿床有价值。[…] 然后你把项目装进盒子、系上漂亮的蝴蝶结，挂牌出售。</p><div class="ph-src">2018-12 · Rick Rule 访谈</div></div><div class="phil"><div class="ph-top"><span class="ph-n">06</span><span class="ph-dim">退出</span></div><h4>退出要在买入时就想好</h4><p class="en">“That was one strategy for the Lumina Group: to buy low, sell high. To sell, that's the key.”</p><p class="zh">Lumina 的策略就是低买高卖。卖，才是关键。</p><div class="ph-src">2018-12 · Rick Rule 访谈</div></div><div class="phil"><div class="ph-top"><span class="ph-n">07</span><span class="ph-dim">资本</span></div><h4>用别人的钱承担勘探风险</h4><p class="en">“We had joint ventures with every company under the sun because if I could use someone else's money on properties that we had exposure to, I felt that was like a zero-cost option on discovery.”</p><p class="zh">我们和天底下每一家公司都做合资，因为如果能用别人的钱，在我们有权益的矿权上勘探，那就像一份零成本的发现期权。</p><div class="ph-src">2018-12 · Rick Rule 访谈</div></div><div class="phil"><div class="ph-top"><span class="ph-n">08</span><span class="ph-dim">规模</span></div><h4>小项目有大麻烦，没有大回报</h4><p class="en">“Little projects have all the hassle of big projects and none of the upside. So go for big projects always.”</p><p class="zh">小项目拥有大项目的全部麻烦，却一点上行都没有。所以永远去做大项目。</p><div class="ph-src">2018-12 · Stratum 书面问答</div></div><div class="phil"><div class="ph-top"><span class="ph-n">09</span><span class="ph-dim">辖区</span></div><h4>资源比政府活得久</h4><p class="en">“You just can't be too choosy, because countries change quickly, and resources tend to outlive governments.”</p><p class="zh">你就是不能太挑，因为国家变化很快，而资源往往比政府活得久。</p><div class="ph-src">2019-11 · CEO.CA 访谈</div></div><div class="phil"><div class="ph-top"><span class="ph-n">10</span><span class="ph-dim">人</span></div><h4>先看人，但把「说到做到」当硬门槛</h4><p class="en">“The first thing you look for in an investment is who are the people running the business.”</p><p class="zh">做一项投资，你首先要看的是谁在经营这门生意。</p><div class="ph-src">2018-12 · Stratum 书面问答</div></div></div>
+<h3 class="sh">辖区账本：他去过哪些国家，结果如何</h3>
+<div class="tablewrap"><table class="juris"><thead><tr><th>国家 / 地区</th><th>首次进入</th><th>代表项目</th><th>结果</th></tr></thead><tbody><tr><td class="nm">加拿大</td><td class="c">1980s</td><td>Casino / Hushamu / Redstone</td><td>2006 年换股并入 Western，C$0.30 亿</td></tr><tr><td class="nm">美国</td><td class="c">1985</td><td>Rosebud（内华达）</td><td>1994 年随 Equinox 卖给 Hecla，US$0.76 亿</td></tr><tr><td class="nm">秘鲁</td><td class="c">2003</td><td>Galeno</td><td>2008 年卖给五矿+江铜，C$4.55 亿</td></tr><tr><td class="nm">智利</td><td class="c">2003</td><td>Regalito / Relincho</td><td>2006、2008 年分别卖出</td></tr><tr><td class="nm">阿根廷</td><td class="c">2003</td><td>Taca Taca</td><td>2014 年卖给 First Quantum，C$4.70 亿</td></tr><tr><td class="nm">厄瓜多尔</td><td class="c">2014</td><td>Cangrejos</td><td>2025 年卖给洛阳钼业，C$5.81 亿</td></tr><tr><td class="nm">墨西哥</td><td class="c">1994</td><td>La Colorada</td><td>在产三十年，仍是 Pan American 核心资产</td></tr><tr><td class="nm">危地马拉</td><td class="c">2005</td><td>Marlin</td><td>Glamis 立项建成；2006 售予 Goldcorp，冲突与闭矿在其后</td></tr><tr><td class="nm">俄罗斯</td><td class="c">1990s</td><td>圣彼得堡项目</td><td>他自述：建设中被夺，退出，此后不再去</td></tr><tr><td class="nm">玻利维亚</td><td class="c">1990s</td><td>勘探项目</td><td>他自述：勘探八年，未成，退出</td></tr></tbody></table></div>
+</section><section class="page" id="p5"><div class="pnum">PAGE 05</div><h2 class="pt">中国关系</h2>
+<div class="psum">他对中国资本没有意识形态，只有两条标准：<b>出价是否最高、有没有能力把矿建起来</b>。三笔交易，他都是卖方；2007 年他先嫌 C$13.25 不够，最终拿到 C$13.75，并把自己 23.56% 的股份锁进要约。</div>
+<h3 class="sh">交易清单</h3>
+<div class="tablewrap"><table class="china"><thead><tr><th>时间</th><th>事项</th><th>中方对手方</th><th>金额</th><th>他的角色</th><th>结果</th></tr></thead><tbody><tr><td class="yr">2008-01</td><td>卖 Northern Peru Copper（Galeno 铜矿）</td><td>五矿有色 + 江西铜业</td><td class="amt">C$4.55 亿</td><td>董事长</td><td class="ok">完成</td></tr><tr><td class="yr">2025-06</td><td>卖 Lumina Gold（Cangrejos 金矿）</td><td>洛阳钼业</td><td class="amt">C$5.81 亿</td><td>董事长</td><td class="ok">完成</td></tr><tr><td class="yr">2026-01</td><td>卖 Equinox 巴西 4 矿</td><td>洛阳钼业</td><td class="amt">US$10.15 亿</td><td>董事长（至 2026-07）</td><td class="ok">完成</td></tr></tbody></table></div>
+<div class="facts">
+  <div><b>3 / 3</b><span>整体出售（公司或资产包）</span></div><div><b>3 / 3</b><span>他任董事长</span></div><div><b>0 / 3</b><span>保留股权</span></div><div><b>0 / 3</b><span>设立合资</span></div>
+</div>
+<p class="note">未成交记录：2024-01 Solaris Resources 拟向紫金矿业定向增发 15%（C$1.3 亿），Beaty 为重要股东；交易因加拿大《投资法》审查逾四个月未决，2024-05-21 由公司主动终止。</p>
+<h3 class="sh">中国观怎么变的</h3>
+<div class="ctline" style="grid-template-columns:repeat(4,1fr)"><div class="ct"><div class="ct-y">2002</div><div class="ct-l">访华</div><div class="ct-t">以白银协会主席身份率团谈判，被中国的发展震住</div></div><div class="ct"><div class="ct-y">2013</div><div class="ct-l">一次性增长</div><div class="ct-t">中国增长是「一次性」的，不会再来一次</div></div><div class="ct"><div class="ct-y">2025</div><div class="ct-l">精炼主导</div><div class="ct-t">缺的不是矿，是精炼；关税只会推高价格</div></div><div class="ct"><div class="ct-y">2026</div><div class="ct-l">中游巨头</div><div class="ct-t">中国是金属生产、精炼、冶炼的巨型机器</div></div></div>
+<h3 class="sh">公开表态</h3>
+<div class="quotes"><div class="quote"><div class="q-h"><span>2007-12</span><span>Northern Peru 卖给五矿 + 江铜 · 董事长背书（SEC 6-K）</span></div><p class="en">“Minmetals and Jiangxi presented us with the best offer to acquire NOC and we are happy to accept their offer. Both are large companies with extensive experience in the copper sector, and are fully capable of developing Galeno into one of the world's premier copper mining operations.”</p><p class="zh">五矿和江铜向我们提出了收购 NOC 的最优报价，我们乐于接受。两家都是大型企业，在铜行业经验丰富，完全有能力把 Galeno 开发成世界一流的铜矿之一。</p></div><div class="quote"><div class="q-h"><span>2011-12</span><span>回忆 2002 年访华（Northern Miner 专访）</span></div><p class="en">“I had a real epiphany when I went to China in 2002. I was president of the Silver Institute and led a delegation there to try to convince them to stop dumping silver on world markets. […] I was just blown away by the development of China and the attitude.”</p><p class="zh">2002 年我去中国时，有过一次真正的顿悟。我当时是白银协会主席，率团去试图说服他们停止向世界市场抛售白银。我被中国的发展程度和那种劲头彻底震住了。</p></div><div class="quote"><div class="q-h"><span>2011-12</span><span>回忆 2002 年访华：中国成为巨大消费国（Northern Miner 专访）</span></div><p class="en">“China was emerging as a enormous consumer of commodities.”</p><p class="zh">中国正在成为一个巨大的商品消费国。（原文语法如此：a enormous）</p></div><div class="quote"><div class="q-h"><span>2013-04</span><span>谈 2008 年前的超级周期（The Big Score 访谈）</span></div><p class="en">“…the pre-2008 market when it was being turbocharged by the easy-money bubble and by one-off growth in China and other developing nations…”</p><p class="zh">……2008 年以前那种被宽松货币泡沫、以及中国和其他发展中国家「一次性增长」涡轮增压的市场……</p></div><div class="quote"><div class="q-h"><span>2025-09</span><span>谈关键矿产与关税（Kitco 专访）</span></div><p class="en">“What there is not is a supply of metals — in other words, refined product. That's where China dominates. If we put tariff barriers up to Chinese metals, you're just going to have higher prices for all metals.”</p><p class="zh">缺的不是矿，而是金属供应——也就是精炼产品。那才是中国主导的地方。如果我们对中国金属设关税壁垒，结果只会是所有金属价格更高。</p></div><div class="quote"><div class="q-h"><span>2026-06</span><span>谈铜供给与波兰项目（Resourcing Tomorrow）</span></div><p class="en">“They're trying to, just like US and other countries like Canada and Australia are doing – understanding how China is a juggernaut now of metal production, refining and smelting – get on the program of adding internal metal production so [Europe] can control its supply.”</p><p class="zh">要认识到中国现在是金属生产、精炼和冶炼领域的一台巨型机器——然后开始搞「内部金属生产」，让欧洲能控制自己的供应。</p></div></div>
+<h3 class="sh">中方怎么看他</h3>
+<div class="facts three">
+  <div><b>2007</b><span>五矿、江铜的公告评价的是「项目团队与矿山前景」，没有一句评价他本人</span></div><div><b>2025</b><span>洛钼由董事长刘建锋出面，评价对象是巴西资产与「铜金双极」战略</span></div><div><b>2024</b><span>紫金唯一交集是一笔未成交的 Solaris 定增（15%，C$1.3 亿），无公开评价</span></div>
+</div>
+<p class="note">可检索的中方材料里，他始终是「卖方 / 董事长」，不是被评价的对象。「矿业传奇」这个标签来自英文媒体和他自己的访谈，不是中方。</p>
+
+</section><section class="page" id="p6"><div class="pnum">PAGE 06</div><h2 class="pt">争议与风险</h2>
+<div class="psum">这套打法自带三种成本：<b>周期错判的减值、前沿辖区的社区冲突、做大规模带来的稀释</b>。不是失误，是模式的价格——他赚的是「周期 × 资产 × 退出」的钱，代价也就出在这三处。</div>
+<h3 class="sh">争议与失败</h3>
+<div class="tablewrap"><table class="dispute"><thead><tr><th>时间</th><th>主体</th><th>发生了什么</th><th>结果</th><th>现状</th></tr></thead><tbody><tr><td class="yr">2003–09</td><td class="nm">Glamis Gold（Beaty 为创始人）/ 加州 Imperial 项目</td><td>依 NAFTA 起诉美国政府，索赔不低于 US$5,000 万</td><td>2009-06 仲裁庭全部驳回，并判 Glamis 承担 2/3 仲裁费</td><td class="st">已了结</td></tr><tr><td class="yr">2005-06</td><td class="nm">危地马拉 Marlin / Sipacapa</td><td>原住民社区公投否决采矿，许可程序未做事前协商</td><td>公投无法律约束力，矿山继续建设</td><td class="st">2017 年终止商业开采</td></tr><tr><td class="yr">2009–12</td><td class="nm">Pan American Silver / 阿根廷 Navidad</td><td>收购当年 MD&amp;A 已写明 Chubut 法律禁止露天开采，仍完成收购</td><td>2012-Q4 计提 US$1.00 亿减值，项目转维护</td><td class="st">仍未开发</td></tr><tr><td class="yr">2012–13</td><td class="nm">Pan American Silver / 墨西哥 Dolores</td><td>收购 Minefinders 后遇金银价格下跌</td><td>2013 年税后减值合计 US$4.204 亿，全年净亏 US$4.458 亿</td><td class="st">已计提，矿继续运营</td></tr><tr><td class="yr">2017–26</td><td class="nm">危地马拉 Escobal（Tahoe，2019 年起属 PAAS）</td><td>最高法院中止采矿许可，原住民协商未完成</td><td>停产至今 9 年；2019 年 PAAS 以 US$10.7 亿收购并承继诉讼</td><td class="st">仍停产</td></tr><tr><td class="yr">2020–26</td><td class="nm">Equinox Gold / 墨西哥 Los Filos</td><td>社区居民封路，三轮停产（2020、2021、2025）</td><td>2025-04 全面停产；2026-06 签 20 年土地准入协议</td><td class="st">重启准备</td></tr><tr><td class="yr">2024-08</td><td class="nm">Equinox Gold / 加州 Castle Mountain</td><td>一期停采，等待二期扩建许可</td><td>改按开发项目报告，2026-Q3 仅残浸 21,508 盎司</td><td class="st">仍停</td></tr><tr><td class="yr">2026</td><td class="nm">Lumina Metals / 波兰 Nowa Sól</td><td>IPO 定价 C$12.50，上市后持续走弱</td><td>2026-10-19 收 C$7.95，较发行价 -36%</td><td class="st">仍上市</td></tr></tbody></table></div>
+<h3 class="sh">风险结构</h3>
+<div class="risks"><div class="risk"><h4>周期风险</h4><p class="rs">买在价格顶部的代价，由减值来结算</p><p>2012 年收购 Minefinders 后，2013 年一次性计提 US$4.204 亿；Lumina Metals 上市半年 -36%。</p></div><div class="risk"><h4>辖区风险</h4><p class="rs">同一个国家、两代公司、同一类问题</p><p>危地马拉 Marlin（2017 闭矿）与 Escobal（2017 至今停产）都倒在原住民协商；阿根廷 Navidad 是「明知禁令仍买入」。</p></div><div class="risk"><h4>稀释风险</h4><p class="rs">扩张靠持续发股，不靠现金流</p><p>Aquiline 换股发行 1,790 万股；Equinox 为 Greenstone 支付 4,200 万股；Lumina IPO 使 Kestrel 持股 58.84%→38.24%。</p></div><div class="risk"><h4>执行风险</h4><p class="rs">项目能建成，但「按计划建成」的记录不佳</p><p>Los Filos 投产 18 年后仍在谈土地准入；Castle Mountain 一期停采；Alterra 他自述烧掉 1 亿美元打干井。</p></div></div>
+<div class="final"><b>事实概括</b><p>Beaty 的模式可以概括为：在行业最悲观时用极低成本囤积勘探权，用合资与预可研把地质风险转移到别人账上，再在周期高位把「已去风险的项目」卖给需要资源缺口的产业方。他赚的主要不是运营的钱，而是「资源重估 + 周期时点 + 交易结构」三种钱的叠加。代价是：并购扩张期的减值、前沿辖区的社区冲突，以及为做大规模而持续付出的股权稀释。</p></div>
+</section>
+</main>
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tabs button'));
+  var pages=[].slice.call(document.querySelectorAll('.page'));
+  var pager=document.getElementById('pager');
+  var main=document.getElementById('main');
+  var cur=0;
+  var hm=location.hash.match(/p(\d)/); if(hm){cur=+hm[1]-1;}
+  function go(i){
+    if(i<0)i=0; if(i>=pages.length)i=pages.length-1;
+    cur=i;
+    tabs.forEach(function(b,k){b.classList.toggle('on',k===i)});
+    pages.forEach(function(p,k){p.classList.toggle('on',k===i)});
+    pager.textContent=(i+1)+' / '+pages.length;
+    main.scrollTop=0;
+    try{history.replaceState(null,'','#p'+(i+1))}catch(err){}
+  }
+  tabs.forEach(function(b,i){b.addEventListener('click',function(){go(i)})});
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight')go(cur+1);
+    if(e.key==='ArrowLeft')go(cur-1);
+  });
+  go(cur);
+})();
+</script>
+</body></html>
